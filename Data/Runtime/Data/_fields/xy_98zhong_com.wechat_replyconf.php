@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'mid', 2 => 'menukey', 3 => 'textkey', 4 => 'type', 5 => 'conf', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'mediumint(9)', 'mid' => 'mediumint(9)', 'menukey' => 'varchar(30)', 'textkey' => 'varchar(30)', 'type' => 'tinyint(4)', 'conf' => 'text', ), );?>

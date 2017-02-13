@@ -1,0 +1,107 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">备份下载</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>备份下载</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+        	<a class="btn green" href="{tp#:U('index')}"><i class="icon-inbox"></i>  数据备份</a>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover">
+
+            <thead>
+                <tr>
+                   <th>文件名</th>
+                   <th>文件大小</th>
+                   <th>备份时间</th>
+                   <th>操作</th>
+                </tr>
+              </thead>
+        
+              <tbody>
+                <volist name="list" id="item">
+                    <tr>
+                      <td>{tp#$item.name}</td>
+                      <td>{tp#$item.size} KB</td>
+                      <td>{tp#$item.time|date='Y-m-d H:i:s',###}</td>
+                      <td>
+                      <a href="./Data/Databack/{tp#$item.name}" title="下载备份文件" class="btn blue">下载</a>
+                      <a href="{tp#:U('del',array('filename'=>$item['name']))}" title="删除备份文件" class="btn red">删除</a>  
+                      </td>
+                    </tr>
+                </volist>
+              </tbody>
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+//单图上传
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#image1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url1').val(url);
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		K('#image2').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url2').val(url);
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>
+    
+</block>		<!--页面主体内容-->

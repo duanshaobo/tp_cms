@@ -1,0 +1,131 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">新增试卷</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>新增试卷</div>
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+            
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('pager_list')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('add')}" method="post" class="form-horizontal form-bordered">
+
+    <p>
+    试卷标题：<input required type="text" name="title"  class="m-wrap span6" placeholder="试卷标题"> 
+    </p>
+    <p>
+        是否显示：<select name="status">
+                    <option value="1">显示</option>
+                    <option value="0">隐藏</option>
+                </select>
+    </p>
+    <div class="form-actions">
+		
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+	KindEditor.ready(function(K) {
+		//初始化编辑器
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '/plugins/kindeditor/plugins/code/prettify.css',
+			uploadJson : '/plugins/kindeditor/php/upload_json.php',
+			fileManagerJson : '/plugins/kindeditor/php/file_manager_json.php',
+			allowFileManager : true,
+			afterCreate : function() {}
+		});
+		prettyPrint();
+	});
+	/*$(function() {
+		var editor = KindEditor.create('textarea[name="content"]');
+	});*/
+	//单图上传
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#image1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url1').val(url);
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+	//批量上传图片
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#J_selectImage').click(function() {
+			editor.loadPlugin('multiimage', function() {
+				editor.plugin.multiImageDialog({
+					clickFn : function(urlList) {
+						var div = K('#J_imageView');
+						div.html('');
+						K.each(urlList, function(i, data) {
+							div.append('<img src="' + data.url + '">');
+						});
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>    
+</block>		<!--页面主体内容-->

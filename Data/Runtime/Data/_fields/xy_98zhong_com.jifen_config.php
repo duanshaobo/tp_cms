@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'reg', 2 => 'login', 3 => 'share', 4 => 'sign', 5 => 'reg_tui', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(10) unsigned', 'reg' => 'int(10) unsigned', 'login' => 'int(10) unsigned', 'share' => 'int(11) unsigned', 'sign' => 'int(11)', 'reg_tui' => 'int(10) unsigned', ), );?>

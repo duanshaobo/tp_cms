@@ -1,0 +1,1127 @@
+<html class=" "><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport">
+
+<title>心理专家-{tp#$webinfo.web_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{tp#$webinfo.web_keywords}">
+<meta name="description" content="{tp#$webinfo.web_description}">
+
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/wx_ydl.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_v2.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/nprogress.css">
+
+<script src="__PUBLIC__/js/nprogress.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-2.1.0.min.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/app_v2.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/wx_ydl.js"></script>
+<script src="__PUBLIC__/js/wx_checked.js"></script>
+
+  
+  <style>
+    .redpacket1 {
+      width: 160px;
+      height: 123px;
+      position: fixed;
+      left: 50%;
+      margin-left: -80px;
+      margin-bottom: -61px;
+      z-index: 10;
+    }
+
+    .redpacket1 img {
+      width: 160px;
+    }
+
+    .redpacket1-close {
+      transition: all .5s;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url(__PUBLIC__/images/index_close.png);
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      top: -18px;
+      right: -26px;
+    }
+  </style>
+</head>
+<body class="experts index experts_index chrome modern mac webkit desktop">
+<!--mNav-->
+<div class="header sNav">
+  
+    <div class="iconBack"></div>
+    <div class="iconBack-title">预约咨询</div>
+    <div class="menu2"></div>
+    <div class="userCenter"></div>
+
+</div>
+<!--mMenu-->
+<div class="navbar sNav">
+  <include file="Public:navbar"/>
+</div>
+
+
+<!--pMenu-->
+<!-- top-nav | Edit by Xiaofan Zhang -->
+<div class="top wNav">
+  <div class="inner clearfix">
+    <p class="greet cl-220 f-12 pull-left">Hi，欢迎访问新育心理－你身边的心理咨询师</p>
+    <ul class="top-nav pull-right">
+      <li><span class="icon-phone"></span></li>
+      <li><a class="cl-220 f-12 weChat" href="#">手机新育心理</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/about">关于我们</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/faq">帮助中心</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/experts/enter/">咨询师入驻</a></li>
+    </ul>
+  </div>
+</div>
+<!-- top-nav end | Edit by Xiaofan Zhang -->
+
+<div class="wNav" style="box-shadow:0 1px 1px rgba(0, 0, 0, 0.1); border-bottom:1px solid #ebebeb">
+  <div style="width:1000px; margin:0 auto; position:relative">
+    <div class="header">
+      <a class="logo" href="/"><img src="__PUBLIC__/images/logo_header_v2.png" alt="Logo"></a><i class="fa fa-bars menu sNav"></i>
+    </div>
+    <div class="navbar login_in wNav">
+      
+
+     
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+  /*#content_wrapper .mask {width: 100%; height: 100%; background: #000; opacity: .8; z-index: 10; position: absolute; }*/
+</style>
+
+  <div id="menu_mask"></div>
+<!--mNav-->
+<div class="search-m">
+<div class="header sNav">
+  <div class="iconBack"></div>
+  <div class="search">
+      <form action="#" style="height: 30px;" id="searchForm">
+        <input type="search" placeholder="专家名字" id="search-input" name="name" value="{tp#$Think.get.keyword}">
+        <div class="submit-btn"><input class="search-btn" type="button" value=""></div>
+      </form>
+  </div>
+  <div class="cancel-btn">取消</div>
+  <div class="menu2"></div>
+</div>
+<!--mMenu-->
+  <div class="main-section">
+    <div id="mask1"></div>
+    <div class="nav-bar" style="display:none">
+      <ul class="nav">
+                <li class="">
+          <span class="">
+            擅长领域            <i class="fa fa-caret-up"></i>
+          </span>
+        </li>
+        <li class="" data-special="1">
+          <span class="">
+            所在地            <i class="fa fa-caret-up"></i>
+          </span>
+        </li>
+        <li class="">
+          <span class="">
+            综合排序            <i class="fa fa-caret-up"></i>
+          </span>
+        </li>
+        <li class="">
+          <span class="">
+            筛选
+            <i class="fa fa-caret-up"></i>
+          </span>
+        </li>
+      </ul>
+      <div class="dropdown-wrapper">
+        <div style="overflow: hidden;background: #fff" class="tab">
+          <ul class="list">
+
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="active">
+                <span class="area-name">不限</span><span class="mount"><i class="fa fa-check-circle"></i></span>              </li>
+            </a>
+
+                        <a href="/experts?tag=1&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">恋爱婚姻</span> </li>
+            </a>
+                        <a href="/experts?tag=2&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">情绪压力</span> </li>
+            </a>
+                        <a href="/experts?tag=3&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">人际关系</span> </li>
+            </a>
+                        <a href="/experts?tag=4&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">家庭关系</span> </li>
+            </a>
+                        <a href="/experts?tag=5&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">孩子教育</span> </li>
+            </a>
+                        <a href="/experts?tag=6&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">职业发展</span> </li>
+            </a>
+                        <a href="/experts?tag=7&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">个人成长</span> </li>
+            </a>
+                        <a href="/experts?tag=8&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class=""> <span class="area-name">性心理</span> </li>
+            </a>
+            
+          </ul>
+        </div>
+        <div style=" background: white;" class="tab">
+          <div class="filter-box">
+            <div class="province-box">
+              <ul class="provinces">
+                <li>
+                  <a href="javascript:void(0);">全国</a>
+                </li>
+                <li><a href="javascript:void(0);" prov="beijing">北京</a></li><li><a href="javascript:void(0);" prov="tianjin">天津</a></li><li><a href="javascript:void(0);" prov="hebei">河北省</a></li><li><a href="javascript:void(0);" prov="shanxi">山西省</a></li><li><a href="javascript:void(0);" prov="neimenggu">内蒙古自治区</a></li><li><a href="javascript:void(0);" prov="liaoning">辽宁省</a></li><li><a href="javascript:void(0);" prov="jilin">吉林省</a></li><li><a href="javascript:void(0);" prov="heilongjiang">黑龙江省</a></li><li><a href="javascript:void(0);" prov="shanghai">上海</a></li><li><a href="javascript:void(0);" prov="jiangsu">江苏省</a></li><li><a href="javascript:void(0);" prov="zhejiang">浙江省</a></li><li><a href="javascript:void(0);" prov="anhui">安徽省</a></li><li><a href="javascript:void(0);" prov="fujian">福建省</a></li><li><a href="javascript:void(0);" prov="jiangxi">江西省</a></li><li><a href="javascript:void(0);" prov="shandong">山东省</a></li><li><a href="javascript:void(0);" prov="henan">河南省</a></li><li><a href="javascript:void(0);" prov="hubei">湖北省</a></li><li><a href="javascript:void(0);" prov="hunan">湖南省</a></li><li><a href="javascript:void(0);" prov="guangdong">广东省</a></li><li><a href="javascript:void(0);" prov="guangxi">广西壮族自治区</a></li><li><a href="javascript:void(0);" prov="hainan">海南省</a></li><li><a href="javascript:void(0);" prov="chongqing">重庆</a></li><li><a href="javascript:void(0);" prov="sichuan">四川省</a></li><li><a href="javascript:void(0);" prov="guizhou">贵州省</a></li><li><a href="javascript:void(0);" prov="yunnan">云南省</a></li><li><a href="javascript:void(0);" prov="shanxi2">陕西省</a></li><li><a href="javascript:void(0);" prov="gansu">甘肃省</a></li><li><a href="javascript:void(0);" prov="qinghai">青海省</a></li><li><a href="javascript:void(0);" prov="xinjiang">新疆</a></li>              </ul>
+            </div>
+            <div class="city-box">
+              <ul class="cities" style="display: block;">
+                  <li><a href="/experts">不限<i class="fa fa-check-circle"></i></a></li>
+                </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=beijing">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=beijing&amp;city=beijing">北京市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=tianjin">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=tianjin&amp;city=tianjin">天津市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=hebei">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=jiazhuang">石家庄市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=tangshan">唐山市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=handan">邯郸市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=baoding">保定市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=cangzhou">沧州市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=langfang">廊坊市</a></li>
+                                    <li><a href="/experts?prov=hebei&amp;city=hengshui">衡水市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=shanxi">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=shanxi&amp;city=taiyuan">太原市</a></li>
+                                    <li><a href="/experts?prov=shanxi&amp;city=yuncheng">运城市</a></li>
+                                    <li><a href="/experts?prov=shanxi&amp;city=lvliang">吕梁市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=neimenggu">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=neimenggu&amp;city=huhehaote">呼和浩特市</a></li>
+                                    <li><a href="/experts?prov=neimenggu&amp;city=hulunbeier">呼伦贝尔市</a></li>
+                                    <li><a href="/experts?prov=neimenggu&amp;city=wulanchabu">乌兰察布市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=liaoning">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=shenyang">沈阳市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=dalian">大连市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=anshan">鞍山市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=benxi">本溪市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=jinzhou">锦州市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=tieling">铁岭市</a></li>
+                                    <li><a href="/experts?prov=liaoning&amp;city=huludao">葫芦岛市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=jilin">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=jilin&amp;city=changchun">长春市</a></li>
+                                    <li><a href="/experts?prov=jilin&amp;city=yanbianzhaoxianzuzizhizhou">延边朝鲜族自治州</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=heilongjiang">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=heilongjiang&amp;city=haerbin">哈尔滨市</a></li>
+                                    <li><a href="/experts?prov=heilongjiang&amp;city=daqing">大庆市</a></li>
+                                    <li><a href="/experts?prov=heilongjiang&amp;city=heihe">黑河市</a></li>
+                                    <li><a href="/experts?prov=heilongjiang&amp;city=daxinganlingdiqu">大兴安岭地区</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=shanghai">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=shanghai&amp;city=shanghai">上海市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=jiangsu">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=nanjing">南京市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=wuxi">无锡市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=xuzhou">徐州市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=changzhou">常州市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=suzhou">苏州市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=lianyungang">连云港市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=huaian">淮安市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=yancheng">盐城市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=yangzhou">扬州市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=zhenjiang">镇江市</a></li>
+                                    <li><a href="/experts?prov=jiangsu&amp;city=taizhou">泰州市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=zhejiang">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=hangzhou">杭州市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=ningbo">宁波市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=wenzhou">温州市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=jiaxing">嘉兴市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=huzhou">湖州市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=shaoxing">绍兴市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=jinhua">金华市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=quzhou">衢州市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=taizhou">台州市</a></li>
+                                    <li><a href="/experts?prov=zhejiang&amp;city=lishui">丽水市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=anhui">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=anhui&amp;city=hefei">合肥市</a></li>
+                                    <li><a href="/experts?prov=anhui&amp;city=bangbu">蚌埠市</a></li>
+                                    <li><a href="/experts?prov=anhui&amp;city=fuyang">阜阳市</a></li>
+                                    <li><a href="/experts?prov=anhui&amp;city=xuancheng">宣城市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=fujian">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=fujian&amp;city=fuzhou">福州市</a></li>
+                                    <li><a href="/experts?prov=fujian&amp;city=shamen">厦门市</a></li>
+                                    <li><a href="/experts?prov=fujian&amp;city=zhangzhou">漳州市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=jiangxi">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=nanchang">南昌市</a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=jiujiang">九江市</a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=xinyu">新余市</a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=ganzhou">赣州市</a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=fuzhou">抚州市</a></li>
+                                    <li><a href="/experts?prov=jiangxi&amp;city=shangrao">上饶市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=shandong">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=jinan">济南市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=qingdao">青岛市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=zibo">淄博市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=dongying">东营市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=yantai">烟台市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=weifang">潍坊市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=jining">济宁市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=linyi">临沂市</a></li>
+                                    <li><a href="/experts?prov=shandong&amp;city=heze">菏泽市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=henan">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=zhengzhou">郑州市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=luoyang">洛阳市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=anyang">安阳市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=xinxiang">新乡市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=jiaozuo">焦作市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=puyang">濮阳市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=sanmenxia">三门峡市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=nanyang">南阳市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=xinyang">信阳市</a></li>
+                                    <li><a href="/experts?prov=henan&amp;city=zhumadian">驻马店市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=hubei">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=hubei&amp;city=wuhan">武汉市</a></li>
+                                    <li><a href="/experts?prov=hubei&amp;city=yichang">宜昌市</a></li>
+                                    <li><a href="/experts?prov=hubei&amp;city=xianning">咸宁市</a></li>
+                                    <li><a href="/experts?prov=hubei&amp;city=entujiazumiaozuzizhizhou">恩施土家族苗族自治州</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=hunan">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=hunan&amp;city=changsha">长沙市</a></li>
+                                    <li><a href="/experts?prov=hunan&amp;city=hengyang">衡阳市</a></li>
+                                    <li><a href="/experts?prov=hunan&amp;city=changde">常德市</a></li>
+                                    <li><a href="/experts?prov=hunan&amp;city=zhangjiajie">张家界市</a></li>
+                                    <li><a href="/experts?prov=hunan&amp;city=xiangxitujiazumiaozuzizhizhou">湘西土家族苗族自治州</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=guangdong">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=guangzhou">广州市</a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=shenzhen">深圳市</a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=shantou">汕头市</a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=jiangmen">江门市</a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=maoming">茂名市</a></li>
+                                    <li><a href="/experts?prov=guangdong&amp;city=dongguan">东莞市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=guangxi">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=guangxi&amp;city=nanning">南宁市</a></li>
+                                    <li><a href="/experts?prov=guangxi&amp;city=liuzhou">柳州市</a></li>
+                                    <li><a href="/experts?prov=guangxi&amp;city=guilin">桂林市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=hainan">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=hainan&amp;city=haikou">海口市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=chongqing">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=chongqing&amp;city=chongqing">重庆市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=sichuan">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=chengdu">成都市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=zigong">自贡市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=luzhou">泸州市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=mianyang">绵阳市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=neijiang">内江市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=leshan">乐山市</a></li>
+                                    <li><a href="/experts?prov=sichuan&amp;city=abacangzuqiangzuzizhizhou">阿坝藏族羌族自治州</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=guizhou">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=guizhou&amp;city=guiyang">贵阳市</a></li>
+                                    <li><a href="/experts?prov=guizhou&amp;city=tongrendiqu">铜仁地区</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=yunnan">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=yunnan&amp;city=kunming">昆明市</a></li>
+                                    <li><a href="/experts?prov=yunnan&amp;city=qujing">曲靖市</a></li>
+                                    <li><a href="/experts?prov=yunnan&amp;city=zhaotong">昭通市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=shanxi2">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=xian">西安市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=baoji">宝鸡市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=xianyang">咸阳市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=weinan">渭南市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=yanan">延安市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=hanzhong">汉中市</a></li>
+                                    <li><a href="/experts?prov=shanxi2&amp;city=yulin">榆林市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=gansu">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=gansu&amp;city=lanzhou">兰州市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=qinghai">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=qinghai&amp;city=xining">西宁市</a></li>
+                                  </ul>
+                              <ul class="cities">
+                  <li><a href="/experts?prov=xinjiang">不限<i class="fa fa-check-circle"></i></a></li>
+                                    <li><a href="/experts?prov=xinjiang&amp;city=wulumuqi">乌鲁木齐市</a></li>
+                                    <li><a href="/experts?prov=xinjiang&amp;city=yili">伊犁</a></li>
+                                  </ul>
+                          </div>
+          </div>
+        </div>
+        <div style=" background: white;" class="tab">
+          <ul class="list">
+
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="active">
+                <span class="area-name">不限</span>
+                                  <span class="mount"><i class="fa fa-check-circle"></i></span>
+                              </li>
+            </a>
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=-price&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="">
+                <span class="area-name">价格从低到高</span>
+                              </li>
+            </a>
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=price&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="">
+                <span class="area-name">价格从高到低</span>
+                              </li>
+            </a>
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=-years&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="">
+                <span class="area-name">从业年数从高到低</span>
+                              </li>
+            </a>
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=-score&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="">
+                <span class="area-name">评分从高到低</span>
+                              </li>
+            </a>
+            <a href="/experts?tag=0&amp;price=0&amp;service=0&amp;prov=&amp;city=&amp;order=-consult&amp;filter=0-0-0-0&amp;name=&amp;fs=0-0-0-0-0">
+              <li class="">
+                <span class="area-name">咨询人次从高到低</span>
+                              </li>
+            </a>
+          </ul>
+        </div>
+        <div style=" background: white" class="tab">
+          <p class="work-filter">
+            <a data-filter="0">
+              <span class="">当面咨询</span>
+            </a>
+            <a data-filter="3"><span class="">在线咨询</span></a>
+            <a data-filter="2"><span class="">电话咨询</span></a>
+            <a data-filter="4"><span class="">免费10分钟电话体验</span></a>
+
+          </p>
+          <p class="filter-btn">
+            <span class="fl" id="reset">重置</span>
+            <span class="fr active" id="complete">完成</span>
+          </p>
+        </div>
+      </div>
+    </div>
+      <div id="content_wrapper" style="position: relative;">
+        <div id="mask"></div>
+      <div class="container">
+        <div class="experts_list col_main"><!--sub tag-->
+		
+        <volist name="list" id="item">
+         <a class="expert" href="{tp#:U('expert_detail',array('id'=>$item['id']))}">
+            <img src="{tp#$item['headimgurl']}" alt="心理咨询专家{tp#$item['name']}">
+            
+            <div class="summary">
+              <strong>{tp#$item['nickname']|default='---'}</strong>
+              <div class="content">
+                <span class="fc-orange">2元起</span>
+                <span class="helped"><span class="fc-green">{tp#$key}</span>人已咨询过</span>
+                <!--<p class="tips"><span>恋爱婚姻</span><span>情绪压力</span><span>两性关系</span></p>        -->        
+                <p>擅长领域：{tp#$item['skill']|skill_id2name}...</p>
+				<p>{tp#$item['province']}-{tp#$item['city']}&nbsp;&nbsp;从业3年</p>
+              </div>
+
+            </div>
+          </a>
+         </volist> 
+         
+         <if condition="strlen($page) gt 1">
+         <p id="page" class="page">{tp#$page}</p>
+         </if>
+         
+        </div>
+		
+        
+        
+        <!--<section>
+          <div class="no-record" style="display: none;">
+            <p class="txt-center f-small" data-id="1" style="text-align: center; margin-top: 20px;">
+            <img src="__PUBLIC__/images/loader.gif">正在加载...</p>
+          </div>
+        </section>-->
+
+      </div>
+    </div>
+<!--list-->
+
+
+  </div>
+</div>
+
+<!-- 右侧页码 -->
+<!--<div class="J_PageNavMain pagenav-main">
+  <span class="currentPage">1</span>/76<div class="close"><div class="icons-arrow-down"></div></div>
+</div>-->
+<div class="gotop"><div class="icons-gotop"></div></div>
+
+
+
+<script>
+  $(function(){
+    $('.gotop').on('touchend',function(){
+      $('html,body').animate({scrollTop: 0},400);
+    })
+  })
+</script>
+<script>
+  $(function(){
+    jQuery.extend( jQuery.easing,
+      {
+        easeOutCirc: function (x, t, b, c, d) {
+          return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+        }
+      });
+  })
+</script>
+<script>
+  $(function(){
+
+    $('.city-box').find('a').on('click', function (e) {
+      if ($(this).find('i').length == 0) {
+        $(this).parent().siblings().find('i').remove();
+        $('<i class="fa fa-check-circle"></i>').appendTo($(this));
+      }
+    });
+
+    $('.nav-bar .nav').find('li').on('click', function () {
+
+      if ($(this).attr('data-special') == 1) {
+        var prov = "";
+        if (prov != '') {
+          $('.provinces li a[prov='+prov+']').click();
+        }
+      }
+
+      if ($(this).attr('class').indexOf('active') >= 0) {
+        $('#mask').removeClass('mask');
+        $('.dropdown-wrapper').animate({top: 0}, 200,'easeOutCirc');
+        $(this).removeClass('active').find('i').removeClass().addClass('fa fa-caret-up');
+      } else {
+
+        if($('.navbar.sNav').css('top')!='0'){
+          var n = $(this).index();
+          $(this).siblings().removeClass('active').find('i').removeClass().addClass('fa fa-caret-up');
+          $(this).addClass('active').find('i').removeClass().addClass('fa fa-caret-down');
+          $('.dropdown-wrapper').find('.tab').hide();
+          $('.dropdown-wrapper').find('.tab').eq(n).show();
+          $('#mask').addClass('mask');
+          var $height = $('.dropdown-wrapper').find('.tab').eq(n).css('height');
+          $('.dropdown-wrapper').css('height',$height);
+          $('.dropdown-wrapper').animate({top: (-parseInt($height))+'px'},300,'easeOutCirc');
+        }
+      }
+    });
+
+    var $cities=$('.city-box').find('.cities');
+    $cities.eq(0).css('display','block');
+    $('.provinces').find('li').click(function(e){
+      e.preventDefault();
+      var $n=$(this).index();
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+      $cities.css('display','none');
+      $cities.eq($n).css('display','block');
+    })
+
+
+    $('#mask').on('click', function () {
+      $(this).removeClass('mask');
+      $('.dropdown-wrapper').animate({top: 0}, 200,'easeOutCirc');
+      $('.nav-bar .nav').find('.active').removeClass('active');
+    });
+
+    $('#search-input').focus(function(){
+      $('.iconBack,.menu2').css('display','none');
+      $('.search').css('width','78%');
+      $('.cancel-btn').css('display','block');
+      $('#mask1').addClass('mask1');
+    });
+
+    $('.cancel-btn').on('click',function(){
+      $('.cancel-btn').css('display','none');
+      $('.iconBack,.menu2').css('display','block');
+      $('.search').css('width','66%');
+      $('#mask1').removeClass('mask1');
+    });
+
+    $('.list').find('a').on('click',function(){
+      if($(this).find('i').length==0){
+        $(this).siblings().find('i').remove();
+        $('<i class="fa fa-check-circle"></i>').appendTo($(this).find('span'));
+      }
+    });
+
+    $('.submit-btn').on('click', function () {
+      //$('#searchForm').submit();
+	  var keyword=$("#search-input").val();
+	  if(keyword==''){
+		 alert('请输入专家姓名');
+		 return false;	
+	  }else{
+		 location.href="{tp#:U('expert_list')}"+'&keyword='+keyword;
+	  }
+	  
+    });
+
+  });
+
+</script>
+<script type="text/javascript">
+$(function () {
+  //复合筛选
+  var filterParam = "0-0-0-0", fs = "0-0-0-0-0";
+  url = "/experts?tag=0&price=0&service=0&prov=&city=&order=&name=&filter=0-0-0-0";
+  filterParamArr = fs.split('-');
+
+  $('.work-filter a').on('click',function(){
+    var $this = $(this), $span = $this.find('span'), filter = $this.data('filter');
+    if($span.hasClass('selected')){
+      $span.removeClass('selected');
+      filterParamArr[filter] = "0";
+    }else{
+      $span.addClass('selected');
+      filterParamArr[filter] = "1";
+    }
+  });
+
+  $('#reset').on('click',function(){
+    $('.work-filter').find('span').removeClass('selected');
+    filterParamArr = ["0", "0", "0", "0"];
+  });
+
+  $('#complete').on('click',function(){
+    $('#mask').trigger('click');
+    url += '&fs='+filterParamArr.join('-');
+    window.location.href=url;
+  });
+});
+//复合搜索
+// $('.work-filter a').on('click', function () {
+//   // var $this = $(this), $span = $this.find('span'), hasChecked = $span.hasClass('selected'),
+//   //     url = "/experts?tag=0&price=0&service=0&prov=&order=&name=", filter = $this.data('filter');
+//   // if (!hasChecked) {
+//   //   $span.addClass('selected');
+//   //   if (filter == 1)
+//   //     furl = '1-' + '0-0-0';
+//   //   else if (filter == 2)
+//   //     furl = '0'+'-1-'+'0-0';
+//   //   else if (filter == 3)
+//   //     furl = '0-0'+'-1-'+'0';
+//   //   else if (filter == 4)
+//   //     furl = '0-0-0'+'-1';
+//   // } else {
+//   //   $span.removeClass('selected');
+//   //   if (filter == 1)
+//   //     furl = '0-' + '0-0-0';
+//   //   else if (filter == 2)
+//   //     furl = '0'+'-0-'+'0-0';
+//   //   else if (filter == 3)
+//   //     furl = '0-0'+'-0-'+'0';
+//   //   else if (filter == 4)
+//   //     furl = '0-0-0'+'-0';
+//   // }
+//   // url += '&filter='+furl;
+//   // window.location.href=url;
+// });
+</script>
+
+<script src="__PUBLIC__/js/zepto.min.js"></script>
+<script>
+//下滑加载分页数据
+$(function () {
+  function getElementPos(elt) {
+    var x = 0, y = 0;
+    // Loop to add up offsets
+    for (var e = elt; e != null; e = e.offsetParent) {
+      x += e.offsetLeft;
+      y += e.offsetTop;
+    }
+    // Loop again, through all ancestor elements to subtract scroll offsets.
+    // This subtracts the main scrollbars, too, and converts to viewport coords.
+    for (var e = elt.parentNode; e != null && e.nodeType == 1; e = e.parentNode) {
+      x -= e.scrollLeft;
+      y -= e.scrollTop;
+    }
+    return {x: x, y: y};
+  }
+
+  var winHeight = window.innerHeight,
+      noRecord = document.querySelector('.no-record'),
+      page = 1;
+  $(noRecord).hide();
+  var flag = true;
+  $('html, body').on('touchmove', function () { //$('html, body').on('touchmove',    //window.addEventListener('scroll'
+    $(noRecord).show();
+    var p = getElementPos(noRecord);
+    if (p.y <= winHeight) {
+      //TODO: load data via ajax
+      var t = $('.no-record p').attr('data-id');
+      if (t == 1 && flag) {
+        page++;
+        $.ajax({
+          url: '/experts/expertsListMore?tag=0&price=0&service=0&prov=&city=&order=&name=&filter=0-0-0-0&fs=0-0-0-0-0&page='+page,
+          type: 'get',
+          async: false,
+          beforeSend: function(){
+            flag = false;
+          },
+          success: function (data) {
+            var data = eval("("+data+")");
+            d = data.data;
+            ad = data.ad;
+            var html = '';
+            console.log(ad.image_url);
+            if( page==3 ){
+              html += '<div class="advert"><img src="'+ ad.image_url +'" width="100%"><a class="link-cover" href="/favorite/focusAdd/'+ ad.id +'"></a></div>';
+            }
+
+            if (d.length > 0) {
+              $.each(d, function (i, o) {
+                html += '<a class="expert" href="/experts/'+o.id+'">' +
+                          '<img src="'+o.head200+'" alt="心理咨询专家'+o.name+'">' +
+                          '<div class="summary">' +
+                            '<strong>'+o.name+'</strong>';
+
+                            if (o.comment_num >= 3) {
+                              //html += '<div class="expertList_price fc-gray f-12"><font class="fc-orange f-16">'+o.feedback_rate+'</font>分</div>';
+                            }
+
+                            html += '<div class="content">';
+
+                            if (o.min_price > 0) {
+                              html += '<span class="fc-orange">' + o.min_price+'</span>元起';
+                            }
+
+                            if (o.consult_num != 0) {
+                              html += '<span class="helped">已咨询<span class="fc-green">'+o.consult_num+'</span>次</span>';
+                            }
+
+                            if (o.specislTagsStr) {
+                              html += o.specislTagsStr;
+                            }
+
+                            html += '<p>擅长领域：'+o.good_at+'</p>' +
+                                    '<p>'+o.city+'&nbsp;&nbsp;从业'+o.work_years+'年</p>';
+
+                            if (o.service_free == 1) {
+                              html += '<div class="free-phone"><span>免</span>免费10分钟电话体验</div>';
+                            }
+
+                          html +=  '</div>' +
+                          '</div>' +
+                        '</a>';
+              });
+              var $html = $(html);
+              $('.experts_list').append($html);
+              $('.currentPage').html(page);
+            } else {
+              $('.no-record p').html('没有了...');
+              $('.no-record p').attr('data-id', 2);
+            }
+            flag = true;
+          },
+        });
+      }
+    }
+  });
+});
+</script>
+<script>
+  NProgress.start();
+  $(function(){
+    NProgress.done();
+  });
+</script>
+
+<!--footer-->
+<include file="Public:footer"/>
+<!--footer-->
+
+<!--side-->
+
+<div class="dropdown-modal"></div>
+<div id="modal"></div>
+<script src="__PUBLIC__/js/juicer-min.js"></script>
+<script src="__PUBLIC__/js/web_new.js"></script>
+
+<!--side-->
+<script>
+
+function BindPhone(){
+  this.index=0;
+  this.err=false;
+  this.phone='';
+  this.isListen=1;
+  this.trigger='#bind-phone';
+  this.box='#bind_phone_box';
+  this.next_btn='#bpnext';
+  this.send_btn='#bpsend';
+  this.succ_btn='#bpsucc';
+  this.chphone_btn='#bpchphone';
+  this.cc_sign='38f2e199f892143d5bfda6f09de2dbfe';
+  this.link_btn='#bplink';
+  this.tm=false;
+  this.close_btn="#bpclose";
+  this.succ_cb=null;
+  this.heights={
+    'phone':250,
+    'checkandpass':350,
+    'check':270,
+    'bindsucc':280
+  };
+  this.types=['phone','checkandpass','check','bindsucc'];
+  var that=this;
+  $(this.trigger).click(function(){
+    
+    that.sb();
+
+  });
+  $(document).off('click',this.next_btn).on('click',this.next_btn,function(){
+    var items=$(that.box).find('.input_item');
+    for(i=0;i<items.length;i++){
+
+      var type=$(items[i]).attr("data-propertyname");
+      if(type=='phone'){
+        var rs=that.checkPhone($(items[i]));
+      }
+
+      if(type=='verifyCode'){
+
+        var rs=that.checkCode($(items[i]));
+      }
+
+    }
+  });
+
+  $(document).off('click',this.chphone_btn).on('click',this.chphone_btn,function(){
+
+    that.index=0;
+
+    that.sb(false);
+  });
+
+
+  $(document).off('click',this.send_btn).on('click',this.send_btn,function(){
+    var sended=$(that.send_btn).attr("data-sended");
+    if(sended==1)
+      return false;
+    $(that.send_btn).addClass('btn_disabled').removeClass('.btn_active');
+    that.sendCode(function(){
+
+      that.leftTime(60);
+    });
+  });
+
+  $(document).off('click',this.close_btn).on('click',this.close_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    if(that.index==3)
+      window.location.reload();
+  });
+
+  $(document).off('click',this.link_btn).on("click",this.link_btn,function(){
+    var type=$(this).attr('data-type');
+    if(type=='use'){
+      window.location.href='/app';
+      
+    }
+    else{
+      window.location.href='/uc/rechargeP';
+    }
+
+  });
+  $(document).off('click',this.succ_btn).on('click',this.succ_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    (that.succ_cb)();
+
+  });
+
+}
+
+
+
+BindPhone.prototype={
+  cls:function(){
+    clearTimeout(this.tm);
+    $(this.box).remove();
+  },
+
+  sb:function(cb){
+
+    this.cls();
+    var argNum=arguments.length;
+    if(argNum==4){
+      this.phone=arguments[1];
+      this.isListen=parseInt(arguments[2]);
+      this.succ_cb=arguments[3];
+    }
+    var $modal = $.modalInit('#modal');
+    $modal.show();
+    var curtype=this.types[this.index];
+    var height=parseInt(this.heights[curtype]);
+    var tpl=$('#bind_phone_tpl').html();
+    var html=juicer(tpl,{type:curtype,height:height,phone:this.phone,isListen:this.isListen});
+    $('body').append(html);
+    if(this.index==1 || this.index==2){
+      $(this.send_btn).attr('data-sended','1');
+    }
+    
+    if(argNum>0 && arguments[0]){
+      arguments[0]();
+    }
+    
+  },
+
+  checkPhone:function(obj){
+    var phone=obj.find('input[type=text]').val();
+    if(!/^\d{11}$/.test(phone)){
+      this.showMsg(obj,'请输入正确的手机号码');
+      return false;
+    }
+    var that=this;
+    $.post('/accountset/hasBindPhoneCs',{phone:phone},function(rs){
+      
+      rs=eval("("+rs+")");
+      if(rs.code==-1){
+        that.showMsg(obj,'请输入正确的手机号码');
+        return false;
+      }
+
+      if(rs.code==-2){
+        that.showMsg(obj,rs.msg);
+        return false;
+      }
+      var skip=2;
+      if(rs.code=='-3'){
+        skip=1;
+        
+      }
+      that.phone=phone;
+      that.index+=skip;
+      that.sendCode();
+      that.sb(function(){
+
+        that.leftTime(60);
+
+      });
+
+      
+    });
+
+  },
+
+  checkCode:function(obj){
+    var code=obj.find('input[type=text]').val();
+    if(code.length!=4){
+
+      this.showMsg(obj,'验证码有误，请重新输入');
+      return false;
+    }
+    var passwd='';
+    if(this.index==1){
+
+      var passwdObj=$(this.box).find(".input_item[data-propertyname=passwd]");
+      passwd=passwdObj.find('input[type=password]').val();
+      if(!passwd || passwd.length<6 ||passwd.length>16){
+        this.showMsg(passwdObj,'密码长度6-16位 英文或数字组合');
+        return false;
+      }
+
+    }
+    var that=this;
+    $.post("/accountset/bindNextEnsure",{username:this.phone,passwd:passwd,vcode:code},function(rs){
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        that.index=3;
+        that.sb();
+      }
+      else{
+        that.showMsg(obj,rs.msg);
+      }
+
+    });
+
+  },
+  showMsg:function(obj,msg){
+    $(obj).find('.input_tips').remove();
+    $(obj).append('<span data-valid-message="" class="input_tips">'+msg+'</span>');
+    $(obj).find('input[type=text],input[type=password]').addClass('input_warning');
+
+  },
+  sendCode:function(cb){
+    $.post('/user/SendChkCode',{username: this.phone, sms_action: 'bind_phone',funk_you:this.cc_sign},function(rs){
+
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        X.dialog.tips('短信已发送至您的手机');
+      }
+      if(cb){
+        cb();
+      }
+    });
+  },
+  leftTime:function(count){
+    var that =this;
+    count--;
+    leftTim=count;
+    var v = "重发("+leftTim+")";
+    $(this.send_btn).val(v);
+    if(leftTim < 0){
+      $(that.send_btn).val("重新发送").removeClass('btn_disabled').addClass('btn_active').attr('data-sended','0');
+      clearTimeout(that.timeout);
+    }
+    else{
+      that.tm=setTimeout(function(){
+        that.leftTime(count);
+      },1000);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+</script>
+
+<script>
+var bindPhone=new BindPhone();
+$(function(){
+  //mobile menu
+  var flag=false;
+  $('.menu2').on('click', function(){
+    if(flag){
+      $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+      $('#menu_mask').removeClass('active');
+      flag=false;
+    }else{
+      $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+      $('#menu_mask').addClass('active');
+      flag=true;
+    }
+  });
+
+  $('#menu_mask').on('touchend', function(){
+    $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+    $('#menu_mask').removeClass('active');
+    flag=false;
+  });
+
+  $.tap(".weChat", function () {
+    var t;
+    return t = $("#follow_us"), t.modal(), t.trigger("modal.toggle");
+  });
+
+  $('.iconBack').on('click', function () {
+    window.location.href="/";
+  });
+  $('.userCenter').on('touchend', function () {
+    window.location.href="/uc";
+  });
+});
+</script>
+
+<div id="follow_us" data-loaded="1" class="modal hidden inline">
+  <div class="modal-dialog" style="width:400px;">
+    <div class="title">
+      微信扫一扫，随时随地访问。
+      <i class="fa fa-close"></i>
+    </div>
+    <div class="content">
+      <p class="txt-c"><img src="__PUBLIC__/images/qrcode_news.png" width="250px"></p>
+    </div>
+  </div>
+</div>
+<!-- Edit by Xiaofan Zhang -->
+
+<!-- Edit by Xiaofan Zhang | end -->
+
+<a href="javascript:;">
+  <i class="fa fa-wechat weChat" id="weChat"><span>微信关注</span></i>
+</a>
+<a href="tencent://message/?uin={tp#$webinfo.qq}&Menu=yes" target="_blank">
+  <i class="fa fa-qq" id="online_chat"><span>在线客服</span></i>
+</a>
+
+<!-- Edit by Xiaofan Zhang -->
+
+
+<!-- fixed-bar -->
+<include file="Public:fixedbar"/>
+
+<!-- fixed-bar end -->
+
+
+</body>
+
+</html>

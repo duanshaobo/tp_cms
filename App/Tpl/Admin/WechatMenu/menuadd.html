@@ -1,0 +1,181 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title"><if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>菜单</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i><if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>菜单</div>
+        
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('menuaddhandle',array('id'=>I('get.id')))}" method="post" class="form-horizontal form-bordered">
+    <div class="control-group">
+
+        <label class="control-label">菜单名称</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="name"  class="m-wrap span6" value="{tp#$nrs.name}"> 
+
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">所属上级</label>
+
+        <div class="controls">
+
+ 			 <select name="fup">
+                <option value="0">不选择默认顶级</option>
+                <volist name="sortd" id="v">
+                    <option value="{tp#$v.id}" <if condition="$nrs['fup'] eq $v['id']">selected</if>>{tp#$v.name}</option>
+                </volist>
+                </select>	
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">菜单类型</label>
+
+        <div class="controls">
+            <input id='click' type="radio" name="type" value="0" <if condition="$nrs['type'] eq 0">checked="checked"</if>/>&nbsp;按钮(click)&nbsp;
+            <input id='view' type="radio" name="type" value="1" <if condition="$nrs['type'] eq 1">checked="checked"</if> />&nbsp;链接(view)&nbsp;
+        </p>
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="control-group">
+
+        <label class="control-label">菜单键值</label>
+
+        <div class="controls">
+
+            <input type="text" name="key"  class="m-wrap span6" value="{tp#$nrs.key}"> 
+            【<span id='input-key-intro'>
+                <neq name='nrs.type' value='1'>
+                    click一级菜单如果有子级请留空，无子级必须设置键值！
+                    <else/>
+                    view类型外链地址必须填写
+                </neq>
+            </span>】
+            
+        </div>
+
+    </div>
+    
+    <!-- <div class="control-group">
+
+        <label class="control-label">关键字</label>
+
+        <div class="controls">
+
+            <input type="text" name="word"  class="m-wrap span6" value="{tp#$nrs.word}"> 
+        【回复触发关键字，可以留空！】
+            
+        </div>
+
+    </div>-->
+    
+     <div class="control-group">
+
+        <label class="control-label">菜单排序</label>
+
+        <div class="controls">
+
+           <input type="text" name="list"  class="m-wrap span6" value="{tp#$nrs.list}"> 
+            
+        </div>
+
+    </div>
+
+    
+
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+
+ <!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->     
+      
+<script>
+$(function(){
+  $('#selfurl').change(function(){
+	  $("input[name='url']").val($(this).val());
+  });
+});
+//单图上传
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		allowFileManager : true
+	});
+	K('#image1').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				imageUrl : K('#url1').val(),
+				clickFn : function(url, title, width, height, border, align) {
+					K('#url1').val(url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+</script>    
+</block>		<!--页面主体内容-->

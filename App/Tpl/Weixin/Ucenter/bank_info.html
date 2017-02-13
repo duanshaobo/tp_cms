@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<title>银行卡号资料-{tp#$webinfo.web_title}</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/comman.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/jquery_dialog.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/style.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/user2015.css" media="all">	
+<script> var SITE_URL="http://www.wdkl168.com/";</script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery_dialog.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json-1.3.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/user.js"></script> 	
+<script type="text/javascript" src="__PUBLIC__/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/script.js"></script> 
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/css.css" media="all">
+<div id="home">
+	<div id="header">
+		<div class="logo" style="height:28px; padding-top:10px; background:url(__PUBLIC__/images/xy.png) 10px 8px no-repeat"><span onclick=" history.go(-1);">&nbsp;</span></div>
+		<div class="shoptitle"><span>银行卡号资料</span></div>
+		<!--right-->
+        <include file="Public:logoright"/>
+        <!--right-->
+	</div>
+</div>	
+<script type="text/javascript">
+function ajax_show_menu(){
+	$(".showmenu").toggle();
+}
+</script>
+
+<style type="text/css">
+.pw,.pwt{
+height:26px; line-height:normal;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #fff; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+.pw{ width:90%;}
+.usertitle{
+height:22px; line-height:22px;color:#666; font-weight:bold; font-size:14px; padding:5px;
+border-radius: 5px;
+background-color: #ededed; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+</style>
+<div id="main" style="padding:5px; min-height:300px">
+	<div style="border-radius:5px;border:1px solid #D1D1D1;padding:10px; background:#f5f5f5; overflow:hidden; margin-top:10px;">
+	<form name="USERINFO2" id="USERINFO2" action="" method="post">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height:30px;">
+		   <tbody><tr>
+			<td width="25%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b> 开户银行：</td>
+			<td width="75%" align="left" style="padding-bottom:2px;">
+			<input type="text" value="{tp#$user_info.bank_name}" name="bank_name" class="pw" placeholder="开户银行"></td>
+		  </tr>
+		   <tr>
+			<td width="25%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b> 真实姓名：</td>
+			<td width="75%" align="left" style="padding-bottom:2px;">
+			<input type="text" value="{tp#$user_info.name}" name="name" class="pw" placeholder="真实姓名"></td>
+		  </tr>
+		   <tr>
+			<td width="25%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b> 银行卡号：</td>
+			<td width="75%" align="left" style="padding-bottom:2px;">
+			<input type="tel" maxlength="20" value="{tp#$user_info.bank_card}" name="bank_card" class="pw number" placeholder="银行卡号"></td>
+		  </tr>
+		   <tr>
+			<td width="25%" align="right" style="padding-bottom:2px;"><b class="cr2">*</b> 手机号码：</td>
+			<td width="75%" align="left" style="padding-bottom:2px;">
+			<input type="tel" maxlength="11" value="{tp#$user_info.mobile}" name="mobile" class="pw number" placeholder="手机号码"></td>
+		  </tr>
+		  <tr>
+			<td align="center" style="padding-top:10px;" colspan="2">
+			<a href="javascript:;" onclick="return update_user_bank();" style="border-radius:5px;display:block;background:#3083CE;cursor:pointer;width:150px; height:25px; line-height:25px; font-size:14px; color:#FFF">确认提交</a>
+            <span class="returnmes2" style="padding-left:10px; color:#FF0000"></span>
+			</td>
+		  </tr>
+		</tbody></table>
+	</form>
+	</div>
+</div>
+<script type="text/javascript">
+function update_user_bank(){
+	var post_data={};
+	post_data.bank_name = $('input[name="bank_name"]').val();
+	post_data.bank_card = $('input[name="bank_card"]').val();
+	post_data.name = $('input[name="name"]').val();
+	post_data.mobile = $('input[name="mobile"]').val();
+
+	if( post_data.bank_name=="" || post_data.bank_card=="" || post_data.name==""|| post_data.mobile==""){
+		$('.returnmes2').html('请输入完整信息');
+		return false;
+	}
+
+	if(confirm('确认修改吗')){
+		createwindow();
+		
+		$.post("{tp#:U('Ajax/info_update')}",post_data,function(data){ 
+			//$('.returnmes2').html(data);
+			$(".tip_box").text(data).show();
+			setTimeout("close_tip();",1000);
+			removewindow();
+		});
+	}
+	return false;
+}
+
+function update_user_pass2(){
+	passs = $('input[name="pass"]').val();
+	newpasss = $('input[name="newpass"]').val();
+	rpnewpasss = $('input[name="rpnewpass"]').val();
+	if(passs=="" || newpasss=="" || newpasss==""){
+		$('.returnmes').html('请输入完整信息');
+		return false;
+	}
+	if(newpasss!=rpnewpasss){
+		$('.returnmes').html('密码与确认密码不一致');
+		return false;
+	}
+	if(confirm('确认修改吗')){
+		createwindow();
+		
+		$.post('http://www.wdkl168.com/m/daili.php',{action:'update_user_pass',pass:passs,newpass:newpasss,rpnewpass:rpnewpasss},function(data){ 
+			$('.returnmes').html(data);
+			removewindow();
+		});
+	}
+	return false;
+}
+</script>
+<!--QUYU-->
+<div id="opquyu">
+	
+</div>
+<div id="opquyubox">
+	<!--商品分类导航-->
+    <include file="Public:category"/>
+   	<!--商品分类导航-->
+</div>
+
+<!--FOOTER-->
+<!--底部-->
+<include file="Public:footbar"/>
+<!--底部-->
+
+</body>
+</html>

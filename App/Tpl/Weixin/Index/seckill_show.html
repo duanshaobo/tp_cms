@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀专区详情</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap-theme.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/group.css">
+    <script src="__PUBLIC__/js/jquery.1-7-1.js"></script>
+<script type="text/javascript"> 
+$(function(){ 
+countDown("2015/12/2 11:11:59","#colockbox1"); 
+}); 
+function countDown(time,id){ 
+var day_elem = $(id).find('.day'); 
+var hour_elem = $(id).find('.hour'); 
+var minute_elem = $(id).find('.minute'); 
+var second_elem = $(id).find('.second'); 
+
+//if(typeof end_time == "string") 
+var end_time = new Date(time).getTime(),//月份是实际月份-1 
+sys_second = (end_time-new Date().getTime())/1000; 
+var timer = setInterval(function(){ 
+if (sys_second > 1) { 
+sys_second -= 1; 
+var day = Math.floor((sys_second / 3600) / 24); 
+var hour = Math.floor((sys_second / 3600) % 24); 
+var minute = Math.floor((sys_second / 60) % 60); 
+var second = Math.floor(sys_second % 60); 
+day_elem && $(day_elem).text(day);//计算天 
+$(hour_elem).text(hour<10?"0"+hour:hour);//计算小时 
+$(minute_elem).text(minute<10?"0"+minute:minute);//计算分钟 
+$(second_elem).text(second<10?"0"+second:second);//计算秒杀 
+} else { 
+clearInterval(timer); 
+} 
+}, 1000); 
+} 
+</script> 
+</head>
+<body class="page bg">
+<header>
+    <a href="javascript:history.go(-1)" class="back back-gray">返回</a>
+    <div class="info">秒杀专区详情</div>
+</header>
+  
+ 
+ <!-- 团购信息 -->
+<div class="content group-info">
+    <div class="headbar">
+        <div id="slider" style="visibility: visible;">
+            <div class="swipe-wrap" style="width:100%; height: auto;">
+                        <figure data-index="0" style="width:100%; left: 0px; transition: 300ms; -webkit-transition: 300ms; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                            <img src="images/thumb.jpg">
+                        </figure>
+                      
+            </div>
+        </div>
+        <div class="cont">
+            <h3>方燕烤猪蹄</h3>
+            <p>方燕酱猪蹄2个，不限时段通用</p>
+        </div>
+      
+    </div>
+    <div class="cost-box">
+<div class="buy-box">
+    <div class="price">¥</div>
+    <div class="price sum">18.9</div>
+    <div class="past Fix">
+        <div class="t">
+            <span class="o-price">¥24</span>
+        </div>
+    </div>
+
+
+    <div class="last">
+    <a  href="#" class="buy-btn "> 立即购买</a>
+    </div>
+</div>                <div class="promo-detail-list">
+                        <a href="javascript:void(0);" class="J_skip_app" data-id="13667097">
+
+                           
+                            <div class="blo" >距离秒杀结束还有：
+                               <div class="colockbox" id="colockbox1"> 
+<span class="day">00</span> 天
+<span class="hour">00</span> 小时
+<span class="minute">00</span> 分
+<span class="second">00</span> 秒
+</div> 
+                                    <div class="p-r"><p class="arrow-ent right"></p></div>
+                            </div>
+                        </a>
+                </div>
+     
+  </div>
+</div>
+
+<div class="detail-info group-detail change-detail">
+</div>
+
+    <div class="detail-info buy-know">
+        <div class="con">
+            <div class="detail-box"><h3 class="tit">团购商品详情<i class="icon-comm buy"></i></h3><div class="detail-box">
+    <div class="purchase-notes">
+		        <dl>
+            
+            <dd>
+                <p class="listitem">2015-10-05至2016-04-29</p>
+            </dd>
+        </dl>
+        
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+
+
+    <a href="#" class="buy-now ">
+
+                <span>立即购买</span>
+    </a>
+    
+	
+<!--底部导航-->
+<include file="Public:footbar2"/>
+<!--底部导航-->
+   
+</body>
+</html>

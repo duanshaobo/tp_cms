@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>商品分类</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap-theme.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style type="text/css">
+	/* 
+     	所有分类页
+	*/
+ 	ul{list-style-type:none}
+	.clist{  width:100%;backgroubd:#f4f4f4;clear:both}
+	.clist ul{ width:100%; background:#f4f4f4}
+	.clist_sub{border-bottom:1px solid #d7d7d8}
+	.crow{line-height:4.5rem;width:100%;background:#f4f4f4;clear:both;heigth:4.5rem}
+	.crow_row{ border-bottom:#d7d7d8 1px solid;line-height:4.5rem;width:100%; heigth:4.5rem}
+	.crow_icon{line-height:7.2rem;margin:0px 0.6rem;width:3.6rem;float:left;height:3.3rem}
+	.crow_icon img{width:3.6rem;height:3.3rem}
+	.crow_title{line-height:4.5rem;float:left;margin-left:0.3rem}
+	.crow_item{text-align:center; line-height:2rem; margin:1.3rem auto; width:32%; font-family:"华文细黑"; background:#f4f4f4; float:left; height:2rem; color:#585858; font-size:1.3rem; border-left:#d7d7d7 1px solid}
+	.crow_item A{ margin:0px 0.3rem; text-overflow:clip; white-space:nowrap}
+	.crow_item_clear{border-left-width:0px;box-shadow:0px 0 0px #fff;-webkit-box-shadow:0px 0 0px #fff}
+	.crow_title span{font-size:1.3rem;heigth:4.5rem}
+	.crow_arrow{float:right;margin-right:1.2rem}
+	.crow_arrow img{ width:1rem;} 
+	html,body{overflow-x:hidden !important}
+</style>
+</head>
+
+<body class="page bg">
+    <header class="navbar po-re">
+        <div class="navbar-icon">
+            <a href="javascript:history.go(-1);">
+                <span class="glyphicon glyphicon-chevron-left">返回</span>
+			</a>
+		</div>
+        <span class="nav-title">全部分类</span>
+   </header>
+	
+	
+<div class="clist">
+  <ul>
+<volist name="list" id="item">
+     <li class="crow level1">
+      <div class="crow_row">
+        
+        <div class="crow_title">  <span>{tp#$item.name}</span>  </div>
+        <div class="crow_arrow"> <img src="__PUBLIC__/images/ico_11.png"> </div>
+        <div>&nbsp;</div>
+      </div>
+    </li>
+    <ul class="clist clist_sub clearfix" style="opacity: 1; display: none;">
+      <li class="crow"> 
+      	<volist name="item.child" id="val">
+        <div class="crow_item crow_item_clear" style="width:90% !important;text-align:left;margin-left:20px;"> 
+        <a href="{tp#:U('product_list',array('id'=>$val['id']))}">
+        <b>{tp#$val.name}</b>
+        </a>
+         </div>
+         <!--3级菜单-->
+        <ul class="3th-nav" style="margin-left:20px;">
+            <volist name="val.child" id="vv">
+                <li class="crow_item crow_item_clear " style="width:24% !important;text-align:left !important">
+                <a href="{tp#:U('product_list',array('id'=>$vv['id']))}">{tp#$vv.name}</a> 
+                </li>   
+            </volist>	
+        <div style="clear:both !important"></div>
+        </ul>
+         <!--3级菜单-->
+            
+        </volist>
+      </li>
+    </ul>
+</volist>       
+   <!-- <li class="crow level1">
+      <div class="crow_row">
+        
+        <div class="crow_title">  <span>其他家电产品</span>  </div>
+        <div class="crow_arrow"> <img src="__PUBLIC__/images/ico_11.png"> </div>
+        <div>&nbsp;</div>
+      </div>
+    </li>
+    <ul class="clist clist_sub clearfix" style="opacity: 1; display: none;">
+      <li class="crow"> 
+                <div class="crow_item     crow_item_clear  "> <a href="category.php?id=8">电饭锅</a> </div>
+                <div class="crow_item    "> <a href="category.php?id=11">手机</a> </div>
+                <div class="crow_item    "> <a href="category.php?id=30">电磁炉</a> </div>
+                <div class="crow_item     crow_item_clear  "> <a href="category.php?id=34">洗衣机</a> </div>
+                <div class="crow_item    "> <a href="category.php?id=37">电视机</a> </div>
+                <div class="crow_item    "> <a href="category.php?id=62">遥控器</a> </div>
+         
+      </li>
+    </ul>-->
+      
+     
+</div>
+
+<!--底部导航-->
+<include file="Public:footbar2"/>
+<!--底部导航-->
+    
+    
+<script type="text/javascript" src="__PUBLIC__/js/zepto.min.js"></script> 
+<script type="text/javascript">
+
+(function($) {
+	var btn_up = new Image(), btn_down = new Image();
+	btn_up.src="__PUBLIC__/images/ico_12.png";
+	btn_down.src="__PUBLIC__/images/ico_11.png";
+	var Menu = {
+		// 初始化事件
+		initEvent : function() {
+			$().ready(
+					function() {
+						$("div.clist").click(function(e) {
+							Menu.router(e);
+						});
+						$("#allClass").click(function(e) {
+							Menu.showMenu1();
+						});
+						$(window).on(
+								"hashchange",
+								function(e) {
+									var name = decodeURIComponent(location.hash
+											.replace(/^#/, ""));
+									if (name != "") {
+										Menu.showMenu3(name);
+									}else{
+										Menu.showMenu1();
+									}
+								});
+					});
+		},
+		// 事件分发路油
+		router : function(_event) {
+			var target = $(_event.target || _event.srcElement);
+			var _tar = target.closest(".level1");
+
+			// 显示二级菜单
+			if (_tar.length > 0) {
+				Menu.showMenu2(_tar);
+				/*var _gp = target.closest(".crow_row");// 点击事件对应此行的祖父级节点
+				var _top = _gp.offset().top;
+				setTimeout(function(){
+					if (_top > 100) {
+						window.scroll(0, _gp.offset().top);
+					} else {
+						window.scroll(0, _gp.offset().top - 50);
+					}					
+				},15)*/
+				return;
+			}
+		},
+		// 显示一级菜单
+		showMenu1 : function() {
+			$("#contentsub").hide();
+			$("#content").show();
+		},
+		// 显示二级菜单
+		showMenu2 : function($curMenuDom) {
+			var next = $curMenuDom.next("ul");
+			if (next.css("display") == "none") {
+				//$("ul.clist_sub").hide();
+				//$("div.crow_arrow").each(function(i, dom) {
+				//	$(dom).html(btn_down.cloneNode(true));
+				//});
+				next.css("opacity", "0").show().animate({
+					opacity : 1
+				}, 500);
+				//next.show();
+				$("div.crow_arrow", $curMenuDom).html(btn_up.cloneNode(true));
+			} else {
+				next.hide();
+				$("div.crow_arrow", $curMenuDom).html(btn_down.cloneNode(true));
+			}
+		},
+		
+	}
+	window.Menu = Menu;
+	Menu.initEvent();// 初始化事件
+})($);
+</script>
+
+</body>
+</html>

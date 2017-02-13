@@ -1,0 +1,167 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">
+
+        <if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>文章
+
+    </h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>
+        <if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>文章
+        </div>
+        
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('artaddhandle',array('id'=>I('get.id')))}" method="post" class="form-horizontal form-bordered">
+
+
+	<p>
+        文章标题：
+        	<input required="required" type="text" name="title"  class="m-wrap span6" value="{tp#$nrs.title}"> 
+    </p>
+    <p>
+        所属栏目：
+        	<select name="fid" id='fid'>
+                <volist name="sort" id="v">
+                    <option value="{tp#$v.id}" <if condition="($nrs['fid'] eq $v['id']) OR (I('get.fid') eq $v['id'])">selected</if>>{tp#$v.name}</option>
+                </volist>
+            </select>	
+    </p>
+    <p>
+        排　　序：
+        	<input  type="text" name="lists"  class="m-wrap span6" value="{tp#$nrs.lists}" placeholder='顺序排列'> 
+    </p>
+    <p>
+        文章作者：
+        	<input type="text" name="author"  class="m-wrap span6" value="{tp#$nrs.author}"> 
+    </p>
+  <!-- <p>视频地址：
+        	<input type="text" name="mvurl"  class="m-wrap span6" value="{tp#$nrs.mvurl}">&nbsp;<span><font color='red'>【请先将视频上传至优酷】</font>flash地址:http://player.youku.com/player.php/sid/XMzg2OTg3ODEy/v.swf</span></p>-->
+    <p>
+        内容简介：
+        	<textarea name="descrip" id="textarea" class="textarea span6 v-middle">{tp#$nrs.descrip}</textarea>
+    </p>
+    <p>
+        文章属性：
+        	<input type="checkbox" name="istui" value="1" <eq name="nrs.istui" value="1">checked</eq>>推荐 &nbsp;
+           <!-- <input type="checkbox" name="istop" value="1" <eq name="nrs.istop" value="1">checked</eq> >置顶 &nbsp;
+        	<input type="checkbox" name="iswx" value="1" <eq name="nrs.iswx" value="1">checked</eq>>微官网 &nbsp;-->
+    </p> 
+    <p>
+    缩 略 图：
+    <input readonly name="spic" type="text" id="url1" value="{tp#$nrs.spic}" class="m-wrap span6"/> 
+    <input type="button" id="image1" value="选择图片" class="btn"/>
+    <font style="color:red">&nbsp;【图片大小不能超过1M】</font>
+    </p>
+    <p>
+    	文章内容：<textarea id="myEditor" name="content"  style="height:300px;" class="span12">{tp#$nrs.content|htmlspecialchars_decode|stripslashes}</textarea>
+
+    </p>    
+
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+	KindEditor.ready(function(K) {
+		//初始化编辑器
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '/plugins/kindeditor/plugins/code/prettify.css',
+			uploadJson : '/plugins/kindeditor/php/upload_json.php',
+			fileManagerJson : '/plugins/kindeditor/php/file_manager_json.php',
+			allowFileManager : true,
+			afterCreate : function() {}
+		});
+		prettyPrint();
+	});
+	//单图上传
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#image1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url1').val(url);
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+	//批量上传图片
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#J_selectImage').click(function() {
+			editor.loadPlugin('multiimage', function() {
+				editor.plugin.multiImageDialog({
+					clickFn : function(urlList) {
+						var div = K('#J_imageView');
+						div.html('');
+						K.each(urlList, function(i, data) {
+							div.append('<img src="' + data.url + '">');
+						});
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>    
+</block>		<!--页面主体内容-->

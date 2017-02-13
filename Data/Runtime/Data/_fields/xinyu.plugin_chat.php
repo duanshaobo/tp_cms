@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'order_id', 2 => 'f_uid', 3 => 't_uid', 4 => 'content', 5 => 'posttime', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11) unsigned', 'order_id' => 'int(11)', 'f_uid' => 'int(11)', 't_uid' => 'int(11)', 'content' => 'text', 'posttime' => 'int(11)', ), );?>

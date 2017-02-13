@@ -1,0 +1,79 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">新增地区</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>编辑角色</div>
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+            
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('edit',array('id'=>$info['id']))}" method="post" class="form-horizontal form-bordered">
+
+		<p>
+            上级地区：{tp#$parent.region_name|default='---'} 
+        </p>
+        <p>
+            地区类型：<switch name="info.region_type">
+            	<case value='1'>省份</case>
+                <case value='2'>城市</case>
+                <case value='3'>区县</case>
+            </switch>
+        </p>
+        <p>
+            地区名称：<input value="{tp#$info.region_name}"  required type="text" name="region_name"  class="text-input small-input" placeholder='分类名称'> 
+        </p>
+
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

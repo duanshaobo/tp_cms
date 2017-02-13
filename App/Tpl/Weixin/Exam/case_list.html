@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    
+<title>国家心理咨询师{tp#$Think.get.level|default=2}级-技能题库-{tp#$webinfo.web_title}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta name="keywords" content="{tp#$webinfo.web_keyword}">
+    <meta name="description" content="{tp#$webinfo.web_description}">
+    
+	<meta name="author" content="sec,fox">
+    <script src="__PUBLIC__/exam/case/jweixin-1.0.0.js"></script>
+    <script src="__PUBLIC__/exam/case/jquery.min.js"></script>
+    <link href="__PUBLIC__/exam/case/bootstrap.min.css" rel="stylesheet">
+	<link href="__PUBLIC__/exam/case/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/exam/case/mobile.css" rel="stylesheet">
+
+
+    <style>
+        #wrap>.container {
+            position: relative;
+          }
+        #to-top {
+            display: block;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            bottom: 65px;
+            right: 15px;
+            font-size: 20px;
+            padding: 8px 10px;
+            text-align: center;
+            vertical-align: middle;
+            color:#fff;
+            background-color: rgba(0, 0, 0, 0.47);
+            border-radius: 2px;
+        }
+    </style>
+
+<style type="text/css">
+  form.navbar-form div.form-group {
+      display: inline-block;
+  }
+
+</style>
+
+<style>
+body {
+    background-color:#0077a6;
+}
+#wrap {
+    padding-top:0;
+    background-color:#f5fafc;
+    box-shadow:0 0 2px #fff;
+}
+#content {
+    position: relative;
+    background-color: transparent;
+}
+
+form#filter-form {
+    margin-bottom: 15px;
+    background-color: rgba(53, 208, 234, 0.2);
+    border:solid 1px transparent;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+form#filter-form>div {
+    position: relative;
+    padding: 7px 15px 7px 75px;
+    border-bottom: solid 1px #92b2bf;
+    min-height: 32px;
+}
+form#filter-form div.indicator {
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 1px;
+    width: 70px;
+    background-color: rgb(150, 173, 173);
+    color:#fff;
+    padding: 7px 15px;
+    text-align: right;
+}
+form#filter-form label {
+    display: inline-block;
+    text-align: center;
+    padding: 2px 7px;
+    background-color: #9ec2c2;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    font-weight: normal;
+    color:#157484;
+}
+form#filter-form label.checked {
+    background-color: #097183;
+    color:#DBE00B;
+}
+.material-list {
+    margin-bottom: 20px;
+}
+.material-cell{
+    margin-bottom:15px;
+    background-color:#fff;
+    padding:15px;
+    border:solid 1px #ddd;
+    border-radius:4px;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+.material-info {
+    padding-left:15px;
+    font-size:14px;
+    color:#777;
+}
+p img {
+    max-width:100%;
+    height:auto;
+}
+</style>
+
+</head>
+<body>
+<div id="wrap">
+    
+    <nav class="navbar navbar-inverse" style="border-radius:0">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.php">新育心理</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="{tp#:U('Exam/index')}">在线题库<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="">
+                <a href="{tp#:U('Ucenter/index')}">会员中心</a>
+            </li>
+           
+            
+        </ul>
+
+      
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+
+        
+    <div id="nav">
+        <ol class="breadcrumb">
+            <li><a href="{tp#:U('Exam/index')}">首页</a></li>
+            <li><a href="#">国家心理咨询师({tp#$Think.get.level|default=2})级</a></li>
+        </ol>
+    </div>
+    <div class="page-header">
+
+        <h2>
+        操作技能@国家心理咨询师({tp#$Think.get.level|default=2})级
+        </h2>
+
+    </div>
+
+
+        
+    <div id="content">
+       <!-- <form method="GET" action="http://www.xinyouya.cn/exam/course/1/material/list/" id="filter-form">
+            <div class="type-choice">
+                <div class="indicator">类型</div>
+                
+                <label class="" for="t-A">
+                    <input type="checkbox" name="t" id="t-A" value="A">选择题
+                </label>
+                
+                <label class="" for="t-B">
+                    <input type="checkbox" name="t" id="t-B" value="B">简答题
+                </label>
+            </div>
+            <div class="year-list">
+                <div class="indicator">年份</div>
+
+                    <label class="" for="y-2011.05">
+                        <input type="checkbox" name="y" id="y-2011.05" value="2011.05">
+                        2011.05
+                    </label>
+                
+            </div>
+        </form>-->
+
+        <div class="material-list">
+            <h2>共{tp#$count}个案例</h2>
+            
+
+	<volist name="list" id="item">
+
+    <div class="material-cell clearfix">
+        <!--<div class="clearfix">
+        
+            <div class="portrait" style="width:50px">
+            <a href="http://www.xinyouya.cn/accounts/9/" data-toggle="tooltip" title="" data-original-title="向阳花:真诚才有领导力，创造才有竞争力">
+                <img class="img-responsive" src="__PUBLIC__/exam/case/4fb455584784a8775cb6aa27ffa0794e.jpg">
+            </a>
+            </div>
+            
+            <div class="pull-left material-info">
+             贡献者：向阳花<br>
+            国家心理咨询师(2)级/2015.11
+            </div>
+            
+        </div>-->
+
+        <p></p>
+        
+        <!--<p><strong>案例一：</strong></p>
+		<p><strong>一般资料：</strong>求助者，男性，29岁，未婚，博士，公司高级管理人员。</p>
+		<p><strong>案例介绍：</strong>求助者的父亲多年前意外去世，其母亲为照顾他没有再婚。求助者认为母亲非常不容易，应该好好孝顺母亲。求助者从大学到现在几次恋爱都因母亲不同意未果。今年国庆节期间，求...</p>
+-->      
+		{tp#$item['content']|htmlspecialchars_decode|stripcslashes|mb_substr=###,0,220,'utf-8'}  	
+        
+        <p></p>
+        
+        <a class="pull-right btn btn-primary" href="{tp#:U('Exam/case_show',array('id'=>$item['id']))}">
+            点击进入真题
+        </a>
+
+    </div>
+	</volist>
+
+
+            
+        <if condition="strlen($page) gt 1">    
+    	<p id="page">{tp#$page}</p>
+        </if>
+        <ul class="pagination">
+            
+            
+               <!-- <li class="active">
+                <a href="http://www.xinyouya.cn/exam/course/1/material/list/page/1/?" data-toggle="tooltip" title="" data-original-title="转到第1页"> <span>1</span> </a>
+                </li>-->
+            
+        </ul>
+        <ul class="pagination pull-right">
+        
+        </ul>
+    
+            
+        </div>
+    </div>
+
+
+        
+
+
+
+        
+
+
+        
+            <div id="comment-section">
+                
+            </div>
+        
+        
+        <a id="to-top" href="http://www.xinyouya.cn/exam/course/1/material/list/#">
+            <i class="fa fa-toggle-up"></i>
+        </a>
+        
+
+    </div>
+</div>
+
+
+    <!--<div id="footer" class="">
+      <div class="container" style="position: relative;">
+        <a href="http://www.xinyouya.cn/exam/personal/" class="btn" style="position: absolute;left: 0;top:-7px;width: 74px;border-radius:0;text-align: center;height: 60px;background-color: rgba(255,255,255,0.15);color:#fff">
+          <i class="fa fa-user fa-lg"></i><br>
+          <span style="font-size:12px;">个人题库</span>
+        </a>
+        <div style="margin-left: 74px;font-size: 12px;">
+        
+          
+            如需加讨论群，加客服微信：list_693 为好友，暗号：心优雅备考群
+          
+        
+        </div>
+      </div>
+    </div>-->
+
+<!--  Modal -->
+<div class="modal fade" id="global-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true" style="display:none">
+  <div id="modal-dialog" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="modal-label">优雅的做着有意义的事情，就是幸福</h4>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <div></div>
+      </div>
+      <div id="modal-footer" class="modal-footer">
+        <span class="pull-lift text-muted">登录之后，方可进行投票、关心、收藏、提问等操作</span>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="help" class="sbg ">
+        <div class="arron"></div>
+        <p id="msg">请点击右上角<br>点击【分享到朋友圈】<br>
+        分享给朋友，让他们也来挑战吧!</p>
+</div>
+
+<script src="__PUBLIC__/exam/case/bootstrap.min.js"></script>
+<script src="__PUBLIC__/exam/case/logreg.js"></script>
+<script>
+    $(function(){
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+            }
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+        function sameOrigin(url) {
+            var host = document.location.host;
+            var protocol = document.location.protocol;
+            var sr_origin = '//' + host;
+            var origin = protocol + sr_origin;
+            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                !(/^(\/\/|http:|https:).*/.test(url));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                    csrftoken = getCookie('csrftoken')
+                    if(csrftoken){
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+                //xhr.setRequestHeader('Content-Type', 'application/xml;charset=utf-8')
+            },
+            error:function(xhr,textStatus,StatusCode){
+                        $.messenger(xhr.responseText)
+                        }
+        });
+
+
+        $('#share').on('click',function(){
+            $('#help').addClass('active')
+            setTimeout(function(){
+               $('#help').removeClass('active')
+            },4000)
+        })
+        $('#start-test').on('click',function(){
+            $(this).parents('.active').removeClass('active')
+                .siblings('#content')
+                .find('.inactive:first').addClass('active')
+            $("#comment-section").addClass('inactive')
+        })
+
+    })
+    clear_ad()
+    function clear_ad(){
+        $iframe = $('iframe')
+        if($iframe.length>0){
+            if($iframe.height()===0){
+                int = window.clearInterval(int)
+            }else{
+                $iframe.height(0)
+            }
+        }
+    }
+    var int=self.setInterval(clear_ad,300)
+
+    setTimeout(function(){
+        int = window.clearInterval(int)
+    },3000)
+
+</script>
+<script type="text/javascript" src="__PUBLIC__/exam/case/jweixin-1.0.0.js"></script>
+
+<script>
+    var imgUrl = 'http://www.xinyouya.cn/static/images/logo_share.png';
+    var lineLink = window.location.href;
+    var appid = 'wx78b5c36694ac765e';
+    
+
+    wx.config({
+        debug:false,
+        appId: appid,
+        timestamp: 1463361185,
+        nonceStr: 'SR1Hm7l2s5yP6WAg',
+        signature: '2acb986ee19aa759bfed819fe2ebfde432019a4a',
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'chooseImage', 'uploadImage', 'getNetworkType']
+        });
+    function get_title(){
+        return $('title').text()
+
+    }
+    function get_description(){
+        _content=$('#introduction').text()
+        return $.trim(_content)
+    }
+    function wx_share(){
+        wx.onMenuShareTimeline({
+            title: get_title(), // 分享标题
+            link: '', // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                
+
+                
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                
+
+                
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                
+
+                
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                
+
+                
+            }
+        });
+
+        wx.onMenuShareQQ({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+               // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+               // 用户取消分享后执行的回调函数
+            }
+        });
+
+        wx.onMenuShareWeibo({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+               // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+    }
+    wx.ready(function () {
+    // 在这里调用 API
+        wx_share()
+
+    });
+
+    </script>
+
+
+    <script type="text/javascript">
+        $('#filter-form label>input').on('click',function () {
+
+            var $this = $(this)
+            var checked = $this.find('input:checked').attr('checked')
+            if(checked){
+                // 如果已经选中
+                // $this.removeClass('checked')
+            }else{
+                // 如果未选中
+            }
+            $this.parents('form').trigger('submit')
+            // body...
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>

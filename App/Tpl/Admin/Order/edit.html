@@ -1,0 +1,515 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">订单详情</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+
+<style>
+.none{display:none !important}
+</style>
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>订单详情</div>
+        
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    <!--<div class="well">
+    
+        <a href="javascript:"  class="btn green btn-state" order_status='2'>发货</a>
+        <a href="javascript:"  class="btn green btn-state" order_status='3'>签收</a>
+        <if condition="!empty($resaler) and $data['fy_status'] eq 0">
+        <a href="javascript:"  class="button btn-fy">分佣</a>
+        </if>
+    
+    </div>-->
+    
+    
+<!-- BEGIN FORM-->
+
+ <form method="post" action="{tp#:U('edit',array('id'=>$data['id']))}" class="form-horizontal form-bordered">
+		 
+         
+        <div class="portlet box light-grey">   
+         
+        <div class="portlet-title">
+        
+            <div class="caption"><i class="icon-info"></i>订单信息</div>
+            <div class="tools">
+    
+                <a href="javascript:;" class="collapse"></a>
+    
+                <a href="javascript:;" class="remove"></a>
+    
+            </div>
+
+        </div>    
+        
+        <div class="portlet-body flip-scroll">
+        
+        <!--<div class="control-group">
+
+            <label class="control-label">快递名称</label>
+    
+            <div class="controls">
+            	<input required name="express_name" class="m-wrap span6" placeholder="快递名称" value="{tp#$data.express_name}"/>
+        		<font color='red'>发货必填项</font>
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">快递单号</label>
+    
+            <div class="controls">
+            	<input required name="express_no" class="m-wrap span6" placeholder="快递单号" value="{tp#$data.express_no}"/>
+       			<font color='red'>发货必填项</font>
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">快递电话</label>
+    
+            <div class="controls">
+            	<input required name="express_tel" class="m-wrap span6 number" maxlength="11" placeholder="快递电话"  value="{tp#$data.express_tel}"/>
+        		<font color='red'>发货必填项</font>
+            </div>
+        
+        </div>
+        
+         
+        
+         <div class="control-group">
+
+            <label class="control-label">物流信息操作</label>
+    
+            <div class="controls">
+            	<a href="javascript:"  class="btn green btn-update" order_status='2'>更新物流信息</a>
+            </div>
+        
+        </div>-->
+
+
+        <div class="control-group">
+
+            <label class="control-label">订单ID</label>
+    
+            <div class="controls">
+            	【{tp#$data.id}】
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">订单编号</label>
+    
+            <div class="controls">
+            	【{tp#$data.out_trade_no}】
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">订单状态</label>
+    
+            <div class="controls">
+            	<!--<b>{tp#$data.order_status|order_status}</b>-->
+                <switch name="data.order_status">
+                    <case value='1'><font style="color:red;">未咨询</font></case>
+                    <case value='2'><font style="color:red;font-weight:700">已完成</font></case>
+                </switch>
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">商品总价</label>
+    
+            <div class="controls">
+            	【<font color="red"><b>&yen; </b>{tp#$data.total_price}</font>】
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">订单金额</label>
+    
+            <div class="controls">
+            	【<font color="red"><b>&yen; </b>{tp#$data.total_fee}</font>】
+            </div>
+        
+        </div>
+        
+       <!-- <div class="control-group">
+
+            <label class="control-label">订单佣金</label>
+    
+            <div class="controls">
+            	【<font color="red"><b>&yen; </b>{tp#$data.yongjin}</font>】
+            	<if condition="$data['yongjin'] eq 0"><font color='red'>无需分佣</font></if>
+            </div>
+        
+        </div>-->
+        
+
+       
+        
+        <if condition="!empty($resaler)">
+        	<!--<div class="control-group">
+
+                <label class="control-label">分佣状态</label>
+        
+                <div class="controls">
+                    <b>
+                    <if condition="$data['fy_status'] eq 1">
+                	<font color='red'>已分佣</font><else/><font color='green'>未分佣</font>
+                    </if>
+                    </b>
+                </div>
+            
+            </div>-->
+        
+        </if>
+        
+        <div class="control-group">
+
+            <label class="control-label">下单时间</label>
+    
+            <div class="controls">
+            	【{tp#$data.order_time|date='Y-m-d H:i:s',###}】
+            </div>
+        
+        </div>
+        
+         <div class="control-group">
+
+            <label class="control-label">支付状态</label>
+    
+            <div class="controls">
+            	【
+                <switch name="data.pay_status">
+                    <case value='0'><font style="color:red">未支付</font></case>
+                    <case value='1'><font style="color:green;font-weight:700">已支付</font></case>
+                    <case value='2'><font style="color:red">已退款</font></case>
+                    <case value='3'><font style="color:green;font-weight:700">退款成功</font></case>
+                </switch>
+                】
+            </div>
+        
+        </div>
+        
+        <div class="control-group">
+
+            <label class="control-label">支付方式</label>
+    
+            <div class="controls">
+            	【<b style="color:green">
+                <switch name="data.pay_way">
+                <case value='1'>微信支付</case>
+                <case value='2'>支付宝</case>
+                <case value='3'>银联支付</case>
+                </switch></b>
+                】
+            </div>
+        
+        </div>
+        
+        <eq name="data.pay_status" value="1">
+        <div class="control-group">
+
+            <label class="control-label">支付时间</label>
+    
+            <div class="controls">
+            	【<neq name="data.pay_time" value="0">{tp#$data.pay_time|date='Y-m-d H:i:s',###}</neq>】
+            </div>
+        
+        </div>
+        </eq>
+        
+         <!--<div class="control-group">
+
+            <label class="control-label">配送费用</label>
+    
+            <div class="controls">
+            	{tp#$data.express_fee|default='--'} 元
+            </div>
+        
+        </div>-->
+
+       
+        </div>
+        </div>
+        
+        
+        
+       <div class="portlet box light-grey none">   
+         
+        <div class="portlet-title">
+        
+            <div class="caption"><i class="icon-info"></i>分佣信息</div>
+            <div class="tools">
+    
+                <a href="javascript:;" class="collapse"></a>
+    
+                <a href="javascript:;" class="remove"></a>
+    
+            </div>
+
+        </div>    
+        
+        <div class="portlet-body flip-scroll">
+        
+        <table class="table table-striped table-bordered table-hover">
+        <thead><tr><td>账户信息</td><td>用户角色</td><td>分销等级</td><td>佣金比例</td><td>佣金金额</td></tr></thead>
+        <volist name="resaler" id="item">
+        <tr>
+            <td width="20%">{tp#$item.nickname}【{tp#$item.username|default='---'}】</td>
+            <td>
+            <eq name="item.role_id" value='1'>
+            普通会员
+            <else/>
+            分销商
+            </eq>
+            </td>
+            <td>{tp#$item.role_name}</td>
+            <td>{tp#$item.percent} %</td>
+            <td>&yen;{tp#$item.yongjin}</td>
+            </td>
+        </tr>
+        </volist>
+        <if condition="empty($resaler)">
+        <tr align="center"><td colspan="5" style="text-align:center !important;color:red">无分佣信息</td></tr>
+        </if>
+        </table>
+        </div>
+        </div>
+        
+        
+        
+        <div class="portlet box light-grey none">   
+         
+        <div class="portlet-title">
+        
+            <div class="caption"><i class="icon-info"></i>商品信息</div>
+            <div class="tools">
+    
+                <a href="javascript:;" class="collapse"></a>
+    
+                <a href="javascript:;" class="remove"></a>
+    
+            </div>
+
+        </div>    
+        
+        <div class="portlet-body flip-scroll">
+
+        <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+        <td>商品图片</td>
+        <td>商品名称</td>
+        <td>商品规格</td>
+        <td>单价</td>
+        <td>数量</td>
+        <!--<td>发货状态</td>-->
+        <td>操作</td>
+        </tr>
+        </thead>
+        <volist name="order_goods" id="item">
+        	<tr>
+            	<td><img src="{tp#$item.goods_spic}" class="thumb"/></td>
+                <td width="200">{tp#$item.goods_name}</td>
+                <td width="200">{tp#$item.goods_norm|norm_name|default='---'}</td>
+                <td>{tp#$item.goods_price} 元</td>
+                <td> x {tp#$item.goods_nums}</td>
+                <!--<td>
+                <switch name="item.order_status">
+                    <case value="1"><a class="btn btn-danger">等待发货</a></case>
+                    <case value="2"><a class="btn">已发货</a></case>
+                    <case value="3"><a class="btn">已签收</a></case>
+                </switch>
+                </td>-->
+                <td><a  href="{tp#:U('Goods/edit',array('id'=>$item['goods_id']))}" target="_blank" title="查看商品">查看</a>
+                </td>
+            </tr>
+        </volist>
+        </table>
+        </div>
+        </div>
+
+       <div class="portlet box light-grey none">   
+         
+        <div class="portlet-title">
+        
+            <div class="caption"><i class="icon-info"></i>收货人信息</div>
+            <div class="tools">
+    
+                <a href="javascript:;" class="collapse"></a>
+    
+                <a href="javascript:;" class="remove"></a>
+    
+            </div>
+
+        </div>    
+        
+        <div class="portlet-body flip-scroll">
+        
+        <p>
+            姓名：【{tp#$data.consignee}】
+        </p>
+        <p>
+            手机：【{tp#$data.mobile}】
+        </p>
+        <p>
+            地址：【{tp#$data.province}-{tp#$data.city}-{tp#$data.district}-{tp#$data.address}】
+        </p>
+        </div>
+        </div>
+       
+       
+       
+       <div class="portlet box light-grey">   
+         
+        <div class="portlet-title">
+        
+            <div class="caption"><i class="icon-info"></i>下单人信息</div>
+            <div class="tools">
+    
+                <a href="javascript:;" class="collapse"></a>
+    
+                <a href="javascript:;" class="remove"></a>
+    
+            </div>
+
+        </div>    
+        
+        <div class="portlet-body flip-scroll">
+        <p>
+            下单人：[{tp#$user.id}]{tp#$user.nickname|default='---'}
+            <a href="{tp#:U('Wxusers/edit',array('id'=>$user['id']))}" target="_blank">查看</a>
+        </p>
+<!--        <p>
+            角色：【
+            <switch name="user.role_id">
+            <case value="1">普通会员</case>
+            <case value="2">分销商</case>
+            </switch>
+            】
+        </p>-->
+        </div>
+        </div>
+
+    </form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+<style>
+.panel-title{width:100%;background:#CCC;border-radius:5px 5px 0 0;text-align:center;color:#FFF}
+.panel{border:1px dashed #ccc;padding:0 10px;}
+.panel .small{width:100px !important}
+.block{border:1px dashed #ccc;padding:10px;border-radius:3px;-box-shadow:1px 1px 1px 1px #CCC;}
+</style>
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+$(function(){
+	$(".btn-update").click(function(){
+		var post_data={};
+		post_data.express_name=$("input[name='express_name']").val();
+		post_data.express_no=$("input[name='express_no']").val();
+		post_data.express_tel=$("input[name='express_tel']").val();
+		if(post_data.express_no==''||typeof(post_data.express_no)==undefined){
+			$("input[name='express_no']").focus();
+			alert('请填写快递发货单号');
+			return false;
+		}
+		if(post_data.express_tel==''||typeof(post_data.express_tel)==undefined){
+			$("input[name='express_tel']").focus();
+			alert('请填写快递电话');
+			return false;
+		}
+		$.post("{tp#:U('Order/order_update',array('id'=>$data['id']))}",post_data,function(data){
+			alert('操作成功');
+			location.reload();
+		});
+	});
+	$(".btn-state").click(function(){
+		var post_data={order_status:$(this).attr('order_status')};
+		post_data.express_name=$("input[name='express_name']").val();
+		post_data.express_no=$("input[name='express_no']").val();
+		post_data.express_tel=$("input[name='express_tel']").val();
+		if(post_data.express_no==''||typeof(post_data.express_no)==undefined){
+			/*$("input[name='express_no']").focus();
+			alert('请填写快递发货单号');
+			return false;*/
+		}
+		if(post_data.express_tel==''||typeof(post_data.express_tel)==undefined){
+			/*$("input[name='express_tel']").focus();
+			alert('请填写快递电话');
+			return false;*/
+		}
+		$.post("{tp#:U('Order/order_status',array('id'=>$data['id']))}",post_data,function(data){
+			alert('操作成功');
+			location.reload();
+		});
+	});
+	
+	$(".btn-fy").click(function(){
+		var post_data={id:"{tp#$data.id}"};
+		$.post("{tp#:U('Order/fenyong',array('id'=>$data['id']))}",post_data,function(errcode){
+			if(errcode==1){
+				alert('该订单已经分佣');
+			}
+			if(errcode==2){
+				alert('该订单无佣金');
+			}
+			
+			if(errcode==0){
+				alert('操作成功');
+			}
+			location.reload();
+		});
+	});
+})
+</script>    
+</block>		<!--页面主体内容-->

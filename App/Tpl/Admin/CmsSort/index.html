@@ -1,0 +1,89 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">CMS栏目管理</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>CMS栏目管理</div>
+        
+        
+        <div class="actions">
+
+            <a href="{tp#:U('sortadd')}" class="btn green"><i class="icon-plus"></i> 新增</a>
+            
+        </div>
+        
+        
+        <div class="tools" style="margin:0 10px;">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+    
+        <table class="table table-striped table-bordered table-hover">
+
+<thead>
+                <tr>
+                   <th>栏目ID</th>
+                   <th>栏目名称</th>
+                   <th>栏目类型</th>
+                   <th>数据模型</th>
+                   <th>栏目模板</th>
+                   <th>操作</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <volist name="plist" id="v">
+                    <tr>
+                      <td>【{tp#$v.id}】</td>
+                      <td><if condition="$v['fup'] eq 0"><else/>┠</if>&nbsp;<a href="{tp#:U('CmsArt/artlist',array('fid'=>$v['id'],'mid'=>$v['class']))}" title="title">{tp#$v.name}</a></td>
+                      <td>{tp#$v.type|cmstype=1,###}</td>
+                      <td>{tp#$v.class|cmstype=2,###}</td>
+                      <td>[LIST:{tp#$v.list_html}] &nbsp; [BENCANDY:{tp#$v.bencandy_html}]</td>
+                      <td>
+<if condition="$v['type'] eq 1">
+						<a class="btn green" href="{tp#:U('CmsArt/artadd',array('fid'=>$v['id'],'mid'=>$v['class']))}">发布</a>
+                        <a class="btn blue" href="{tp#:U('CmsArt/index',array('fid'=>$v['id'],'mid'=>$v['class']))}" >管理</a>
+                         <a class="btn red" href="{tp#:U('sortadd',array('id'=>$v['id']))}">配置</a>
+
+<elseif condition="$v['type'] eq 2" />
+						<a class="btn green" href="{tp#:U('sortaloneedit',array('id'=>$v['id']))}">编辑</a>
+<else />
+						<a class="btn blue" href="{tp#:U('sortadd',array('id'=>$v['id']))}">配置</a>
+</if>                      	
+                         <a class="btn red" href="{tp#:U('sortdel',array('id'=>$v['id']))}" onClick="return confirm('是否将此栏目删除?')">删除</a> 
+                      </td>
+                    </tr>
+                </volist>
+              </tbody>
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

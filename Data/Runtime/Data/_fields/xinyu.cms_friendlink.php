@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'linkname', 2 => 'linkurl', 3 => 'linklogo', 4 => 'linklist', 5 => 'linktype', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11)', 'linkname' => 'varchar(50)', 'linkurl' => 'varchar(500)', 'linklogo' => 'varchar(200)', 'linklist' => 'smallint(6)', 'linktype' => 'tinyint(4)', ), );?>

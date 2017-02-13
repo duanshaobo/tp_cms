@@ -1,0 +1,123 @@
+<html lang="zh-CN"><head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+	<title>历年真题-{tp#$webinfo.web_title}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta name="keywords" content="{tp#$webinfo.web_keywords}">
+    <meta name="description" content="{tp#$webinfo.web_description}">
+    
+	<meta name="author" content="sec,fox">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="__PUBLIC__/exam/js/jquery.min.js"></script>
+    <link href="__PUBLIC__/exam/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__PUBLIC__/exam/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/exam/css/mobile.css?v=2016" rel="stylesheet">
+    <link rel="shortcut icon" href="__PUBLIC__/images/icon.png">
+    <style>
+        #wrap>.container {
+            position: relative;
+          }
+        #to-top {
+            display: block;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            bottom: 65px;
+            right: 15px;
+            font-size: 20px;
+            padding: 8px 10px;
+            text-align: center;
+            vertical-align: middle;
+            color:#fff;
+            background-color: rgba(0, 0, 0, 0.47);
+            border-radius: 2px;
+        }
+		form.navbar-form div.form-group {
+			  display: inline-block;
+		 }
+
+		 p img {
+			max-width:100%;
+			width:auto;
+		}
+    </style>
+
+</head>
+<body>
+<div id="wrap">
+    
+    <nav class="navbar navbar-inverse" style="border-radius:0">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">{tp#$webinfo.web_title}</a>
+            </div>
+    
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{tp#:U('Exam/index')}">新育题库<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="">
+                    <a href="{tp#:U('Ucenter/index')}">会员中心</a>
+                </li>
+                
+            </ul>
+    
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+    
+        <ol class="breadcrumb">
+            <li><a href="index.php">{tp#$webinfo.web_title}</a></li>
+            <li><a href="{tp#:U('Exam/index')}">考试中心</a></li>
+            <li><a href="#">历年真题(
+            <if condition="$_GET['level']">
+            {tp#$Think.get.level}级
+            <else/>
+            {tp#$Think.get.year}
+            </if>
+            )</a></li>
+        </ol>
+
+        <div class="exam-lesson">
+            <h5 class="alert btn-info">历年真题(
+            
+            <if condition="$_GET['level']">
+            {tp#$Think.get.level}级
+            <else/>
+            {tp#$Think.get.year}
+            </if>
+            
+            )</h5>
+            <volist name="list" id="item">	
+            <a href="{tp#:U('train',array('id'=>$item['id']))}">
+                {tp#$item['title']}
+            </a>
+            </volist>
+        </div>
+		
+		<if condition="strlen($page) gt 1"><p id="page">{tp#$page}</p></if>
+        
+    </div>
+    
+    
+    
+    
+</div>
+
+
+<script src="__PUBLIC__/exam/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

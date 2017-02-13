@@ -1,0 +1,1 @@
+<?php	return array ( 'id' => '1', 'pubchatid' => '新育心理', 'pubchatname' => '新育心理', 'pubchatcheck' => '1', 'token' => 'xyxl', 'appid' => 'wx7d6ad6d922e0bbb1', 'appsecret' => '4b0dcd5fff56f7dbbdc9e286352e3d20', 'mchid' => '', 'partnerkey' => '', 'sub_url' => 'http://mp.weixin.qq.com/s?__biz=MzAxNjQwOTc2Mw==&mid=207152191&idx=1&sn=3d36819704a4f3965f91aeb0c26dbaa3#rd', );?>

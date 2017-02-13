@@ -1,0 +1,144 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">提现处理</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>提现处理</div>
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+            
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+          <div class="alert alert-success">
+          &nbsp;&nbsp;请确保微信商户后台余额大于用户提现金额；每分钟最多给同一个用户发送一个微信红包[摘自微信官方文档]
+          </div>
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('edit',array('id'=>I('get.id')))}" method="post" class="form-horizontal form-bordered">
+
+      <fieldset>
+      	<legend class="button">申请信息</legend>
+        <div class="block">
+        <p>
+             提现金额：<font color="red"><b>【&yen; {tp#$info.money}】</b></font>
+        </p>      
+        <p>
+             申请时间：【{tp#$info.apply_time|date='Y-m-d H:i:s',###}】
+        </p>  
+        <p>
+        	提现方式： <switch name="info.pay_way">
+                      <case value="1">银行卡</case>
+                      <case value="2">支付宝</case>
+                      <case value="3">微信红包</case>
+                      </switch>
+        </p>
+        <p>
+        	账户信息：
+             <!--银行卡号：【{tp#$info.bank_card}】-->
+              <switch name="info.pay_way">
+              <case value="1">{tp#$info.bank_card}【{tp#$info.bank_name}】</case>
+              <case value="2">{tp#$info.alipay}</case>
+              <case value="3">{tp#$info.weixin}</case>
+              </switch>
+        </p> 
+       
+        <neq name="info.status" value='0'>
+            <p>
+                 处理结果：<b>{tp#$info.status|apply_status}</b>
+            </p> 
+            <p>
+                 处理时间：【{tp#$info.handle_time|date='Y-m-d H:i:s',###}】
+            </p>
+        <else/>
+            <p>
+                 处理结果：<select name="status">
+                          <option value='1' <eq name="info.status" value="1">selected</eq>>提现成功</option>
+                          <option value='2' <eq name="info.status" value="2">selected</eq>>提现失败</option>
+                          </select>
+            </p> 
+        </neq>  
+        </div>
+        <br/>
+        <legend class="button">用户账户信息</legend>
+        <div class="block">
+         <p>
+             微信昵称：【{tp#$user.nickname}】
+             <a target="_blank" href="{tp#:U('Wxusers/edit',array('id'=>$info['user_id']))}">查看</a>
+         </p>    
+            
+        <p>
+             真实姓名：【{tp#$user.name|default='---'}】
+        </p>
+        <p>
+             联系电话：【{tp#$user.mobile|default='---'}】
+        </p>
+        <p>
+            <font color="red"><b> 账户资金：【&yen; {tp#$user['money']+$user['money_dongjie']}】</b></font>
+        </p> 
+        </div>
+        
+         <p>
+             <eq name="info.status" value="0">
+             	备注信息：<input name="remark" type='text' <if condition="$info['pay_way'] eq 3">value="微信红包已发送，请注意查收"</if> class="text-input small-input" placeholder="失败原因或成功备注"/>
+             </eq>
+             <eq name="info.status" value="1">
+             	备注信息：{tp#$info.remark}
+             </eq>
+             <eq name="info.status" value="2">
+             	失败原因：{tp#$info.remark}
+             </eq>
+        </p> 
+      </fieldset>
+
+
+    <div class="form-actions">
+		
+        <eq name="info.status" value="0">
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+        </eq>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀专区</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/bootstrap-theme.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/group.css">
+    <script src="__PUBLIC__/js/jquery.1-7-1.js"></script>
+    <script type="text/javascript">
+var seckillSecond="1022";
+$(document).ready(function(){
+    countDown("1022",".time"); 	
+	$(".topfixed>ul>li").each(function(){
+        $(this).click(
+            function(){
+                var gid=$(this).attr("id");
+                $("#gid").val(gid);
+                $("#seckillForm").submit();
+            });
+    });
+	
+	
+	
+})
+
+function countDown(sys_second,id){ 
+	var timer = setInterval(function(){ 
+		if (sys_second > 1) { 
+		    var seckillListTime = window.localStorage.getItem('seckill_list');
+			if(seckillListTime!=undefined && seckillListTime!=null && seckillListTime!=""){
+			    var nowTime=new Date().getTime();
+			    var backTime=seckillListTime.split("_")[1];
+				var goTime=seckillListTime.split("_")[0];
+				if(seckillSecond==goTime){
+    				var sTime=parseInt((nowTime-backTime)/1000);
+    				if(sTime>1){
+    				    sys_second=sys_second-sTime+1;
+    				}
+				}
+			}
+			sys_second -= 1; 
+			var hour = Math.floor((sys_second / 3600) % 24); 
+			var minute = Math.floor((sys_second / 60) % 60); 
+			var second = Math.floor(sys_second % 60); 
+			hour=hour<10?"0"+hour:hour;//计算小时 
+			minute=minute<10?"0"+minute:minute;//计算分钟 
+			second=second<10?"0"+second:second;//计算秒杀 
+			var hour_elem = $(id).find('#hms'); 
+			$(hour_elem).text(hour).append(" : ").append(minute).append(" : ").append(second);
+			window.localStorage.setItem('seckill_list',seckillSecond+'_'+new Date().getTime());
+		} else { 
+			clearInterval(timer);
+			var t=Math.floor(Math.random()*3)
+			var ts=setInterval(function(){
+        		if(t>0){
+        		   t-=1;
+        		}else{
+				   clearInterval(ts);
+				   $("#gid").val("");
+                   $("#seckillForm").submit();
+				}
+        	},1000);
+		} 
+	}, 1000); 
+} 
+
+</script>
+
+</head>
+<style>
+.search{color:#666;line-height:35px;width:70%;border-radius:25px;border:1px solid #CCC;padding:0 10px;}
+.fz20{font-size:22px;}
+</style>
+<body class="page bg">
+<header>
+    <a href="javascript:history.go(-1)" class="back back-gray">返回</a>
+    <div class="info">秒杀专区</div>
+</header>
+  
+  <header class="list-head">
+	    	<span id="seckillTile">抢购中(本场秒杀共12个商品)</span>
+        <span class="time"><span id="timeText">距离秒杀结束<span class="red" id="hms">00 : 13 : 40</span></span> </span>
+	</header>
+   
+	
+        
+        <div class="group-list">
+          <a href="Spike_show.html" class="table-cell">
+          <div class="info">
+
+                        <img src="images/1-1.jpg">
+              </div>
+              <div class="sidebar">
+                  <h3>方燕酱猪蹄2个，不限时段通用</h3>
+                  <div class="sale-count">
+                      <div class="f-r">
+                            
+                          <span class="price">
+                              <i>¥28.9</i><strong>¥18.9</strong>
+                          </span>
+                                
+                      </div>
+                          <div class="count">已售6012</div>
+                  </div>
+              </div>
+          </a>
+                <a href="Spike_show.html"  class="table-cell Fix ">
+                    <div class="info">
+                            <div class="tag-book"></div>
+                       <img src="images/1-1.jpg">
+                    </div>
+                    <div class="wrap">
+                    <div class="wrap2">
+                    <div class="sidebar">
+                        <h3>酱猪蹄1个，不限时段通用</h3>
+                        <div class="sale-count">
+                            <div class="f-r">
+                                <span class="price">
+                                <i>¥29.9</i><strong>¥9.9</strong>
+                                </span>
+                            </div>
+                                <div class="count">已售401</div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </a>
+        </div>
+        <div style="clear:both"> </div>
+    
+	
+
+</div>
+	
+	<!--底部导航-->
+	<include file="Public:footbar2"/>	
+    <!--底部导航-->
+   
+</body>
+</html>

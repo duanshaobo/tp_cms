@@ -1,0 +1,916 @@
+<html class=" "><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport">
+
+<title>{tp#$info.nickname|default='专家主页'}-{tp#$webinfo.web_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{tp#$webinfo.web_keywords}">
+<meta name="description" content="{tp#$webinfo.web_description}">
+
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/wx_ydl.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_v2.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/nprogress.css">
+
+<script src="__PUBLIC__/js/nprogress.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-2.1.0.min.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/app_v2.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/wx_ydl.js"></script>
+<script src="__PUBLIC__/js/wx_checked.js"></script>
+
+  
+  <style>
+    .redpacket1 {
+      width: 160px;
+      height: 123px;
+      position: fixed;
+      left: 50%;
+      margin-left: -80px;
+      margin-bottom: -61px;
+      z-index: 10;
+    }
+
+    .redpacket1 img {
+      width: 160px;
+    }
+
+    .redpacket1-close {
+      transition: all .5s;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url(images/index_close.png);
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      top: -18px;
+      right: -26px;
+    }
+  </style>
+</head>
+<body>
+<!--mNav-->
+<div class="header sNav">
+  
+
+    <!-- <a class="logo" id="back_home" href="/"></a> -->
+   <div class="iconBack"></div>
+  <div class="iconBack-title">{tp#$info.nickname|default='---'}</div>
+
+  
+
+    <div class="menu2"></div>
+    <div class="userCenter"></div>
+
+</div>
+<!--mMenu-->
+<div class="navbar sNav">
+  <include file="Public:navbar"/>
+</div>
+
+
+<!--pMenu-->
+<!-- top-nav | Edit by Xiaofan Zhang -->
+<div class="top wNav">
+  <div class="inner clearfix">
+    <p class="greet cl-220 f-12 pull-left">Hi，欢迎访问新育心理－你身边的心理咨询师</p>
+    <ul class="top-nav pull-right">
+      <li><span class="icon-phone"></span></li>
+      <li><a class="cl-220 f-12 weChat" href="#">手机新育心理</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/about">关于我们</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/faq">帮助中心</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="http://www.yidianling.com/experts/enter/">咨询师入驻</a></li>
+    </ul>
+  </div>
+</div>
+<!-- top-nav end | Edit by Xiaofan Zhang -->
+
+<div class="wNav" style="box-shadow:0 1px 1px rgba(0, 0, 0, 0.1); border-bottom:1px solid #ebebeb">
+  <div style="width:1000px; margin:0 auto; position:relative">
+    <div class="header">
+      <a class="logo" href="index.php">
+      <img src="__PUBLIC__/images/logo_header_v2.png" alt="Logo">
+      </a>
+      <i class="fa fa-bars menu sNav"></i>
+    </div>
+    <div class="navbar login_in wNav">
+      <!--pMenu default-->
+        <!--pMenu signin-->
+        <!--<div class="menu mbasic user_center">
+          <a data-no-turbolink="" href="/uc/pcIndex">
+            <div class="avatar"><img src="__PUBLIC__/images/avatar_default.png" alt="Avatar"></div>
+            <div class="name">1862****036</div>
+            <i class="fa fa-angle-down"></i></a>
+
+          <div class="menu secondary">
+              <a href="/uc/booking">我的预约</a>
+              <a href="/ask?type=4">我的心事</a>
+              <a href="/uc/balance">账户余额</a>
+              <a href="/accountset/">账号绑定</a>
+              <a href="/uc/pcIndex">更多设置</a>
+          </div>
+        </div>-->
+        <!--pMenu signin over-->
+     
+	  <!--宽频导航-->	
+      <!--<div class="menu mbasic">
+          <a href="/ask">说说心事</a>
+      </div>
+      <div class="menu mbasic">
+          <a href="/listen/callIndex" data-no-turbolink="">电话倾诉</a>
+      </div>
+      <div class="menu mbasic">
+          <a href="/experts">预约咨询</a>
+      </div>
+      <div class="menu mbasic ">
+          <a href="/test">心理测试</a>
+      </div>
+      <div class="menu mbasic">
+           <a href="/course">心理学堂</a><i class="fa fa-angle-down"></i>
+          <div class="menu secondary">
+              <a href="/course">培训讲座</a><a href="/supervisor">找督导</a>
+          </div> 
+      </div>-->
+	  <!--宽频导航-->	
+     
+
+    </div>
+  </div>
+</div>
+
+
+
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_test_v2.css">
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport">
+<style type="text/css">
+body{background:#f5f5f5;
+margin-bottom:60px
+}
+.experts_show{
+  background-color:#f5f5f5;
+  top:0em;
+}
+.footer{
+  border-top:1px solid #e8e8e8;
+  margin-top:20px;
+}
+.experts_show .box{
+  margin:0;
+  margin-left: 15px;
+   padding: 15px 15px 15px 0;
+   border-bottom:1px solid efefef;
+}
+.experts_show .box:last-child{
+  border-bottom:none;
+}
+.ui-page-theme-a{
+  background-color:#fff;
+}
+#loading { position: inherit; background-color: #fff;}
+.button_group_1, .button_group_2 {/* box-shadow: 0 -1px 4px darkgrey; */ border-top: 1px solid #ECECEC; }
+.experts_show .orderButton{width:33% !important; background-color: #ff8800; border-radius: 0px; color: #FFFFFF; font-size: 17px; font-weight: 400; margin:0px !important; height: 49px; line-height: 49px; }
+.experts_show .orderButton_chat{width: 33% !important; background-color: #71CC5A; border-radius:0px !important; color: #FFFFFF; font-size: 17px; font-weight: 400; margin:0 !important; display: inline-block; height: 49px; line-height: 49px; text-align: center; }
+.experts_show .favButton{border-radius: 3px; margin: 0px 2% !important; font-size: 15px; color: #555; width: 30%; }
+.btnDisabled {
+    background: #E2E2E2 !important;
+    color: #BAB8B8 !important;
+    width: 33% !important;
+    background-color: #71CC5A;
+    border-radius: 0px !important;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0 !important;
+    display: inline-block;
+    height: 49px;
+    line-height: 49px;
+    text-align: center;
+}
+</style>
+<!-- <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script> -->
+
+
+<div id="menu_mask"></div>
+<div class="pop-window2" id="has-booking" style="display:none; height:200px">
+  <div class="top-x clearfix">
+    <span class="close-x"></span>
+  </div>
+  <div class="middle">
+    <div class="f-18 title txt-c">您已预约过这个专家，免费体验目前仅对首次咨询的用户开放哦～</div>
+                     <div class="input_item clearfix" data-propertyname="submit" data-controltype="Botton" style="display: block;">
+          <input type="button" class="btn btn_green btn_active" id="has-know" value="知道了">
+
+  </div> 
+  </div>
+</div>
+
+<div class="pop-window2" id="has-apply" style="display:none; height:220px">
+  <div class="top-x clearfix">
+    <span class="close-x"></span>
+  </div>
+  <div class="middle">
+    <div class="f-18 title txt-c">请不要重复申请哦：1个专家可申请1次免费体验，一天最多申请1专家，当月最多可申请3次。</div>
+                     <div class="input_item clearfix" data-propertyname="submit" data-controltype="Botton" style="display: block;">
+          <input type="button" class="btn btn_green btn_cancle btn_both" value="查看申请记录" id="view-apply-record">
+                    <input type="button" class="btn btn_green btn_active btn_both" value="确定" id="has-know">
+  </div> 
+  </div>
+</div>
+
+<div class="pop-window2" id="experts-full" style="display:none; height:230px">
+  <div class="top-x clearfix">
+    <span class="close-x"></span>
+  </div>
+  <div class="middle">
+    <div class="f-18 title txt-c">哎呀，你来晚了，王新爱老师今天1个体验名额都被抢完咯，可以先在线咨询简单沟通了解下。</div>
+                     <div class="input_item clearfix" data-propertyname="submit" data-controltype="Botton" style="display: block;">
+          <input type="button" class="btn btn_green btn_cancle btn_both" value="放弃" id="has-know">
+          <input type="button" class="btn btn_green btn_active btn_both" id="to-consult" value="立即咨询">
+  </div> 
+  </div>
+</div>
+
+
+
+<div class="experts show experts_show chrome modern mac webkit desktop">
+
+<div id="content_wrapper">
+
+  <div class="sNav button_group_1 fixed_bottom">
+       <!-- <a class="favButton" href="#" data-status="2" onClick="follow(this,541)">
+        <i class="fa fa-star-o fc-orange"></i>关注</a>
+        <a class="  orderButton_chat" onClick="toApply()" href="javascript:void(0);">免费体验</a>-->
+        <a class="orderButton right" href="{tp#:U('booking',array('id'=>$info['id']))}">立即咨询</a>
+  </div>
+
+    <div class="head" style="background: url('__PUBLIC__/images/expert_home_bg1.jpg');background-size: 100%;">
+        <div class="row1">
+          <div class="center_place">
+          <div class="avatar"><img src="{tp#$info.headimgurl}"></div>
+         </div>
+       <div class="expert_info">
+           <div class="expert_name">
+               <div class="wraper">
+                  <div class="name">{tp#$info.nickname}</div>
+               </div>
+           </div>
+       <div class="expert_tags">
+          <span>婚恋情感专家</span><span>青少年心理导师</span>         
+        </div>
+       <div class="expert_city f-12"><i class="fa fa-map-marker"></i>{tp#$info['province']}-{tp#$info['city']}</div>
+       </div>
+     </div>
+      <div class="count_total">
+        <div class="eye"><p class="count">5074</p><p class="name">帮助人次</p></div>
+        <div class="eye"><p class="count">263</p><p class="name">收到感谢</p></div>
+        <div class="eye"><p class="count">911</p><p class="name">咨询人次</p></div>
+        </div>
+   </div>
+   <div class="content">
+   <div class="tab-container">
+   <ul style="display:none"><li class="active">介绍</li>
+   <li class="">回答</li><!-- () -->
+   <li class="">文章</li><!-- () -->
+   <li class="">课程</li><!-- () -->
+   </ul>
+   <div class="link">
+   <a href="experts_detail.html"></a>
+   <a href="experts_detail1.html"></a>
+   <a href="experts_detail2.html"></a>
+   <a href="experts_detail3.html"></a>
+   </div>
+   </div>
+
+<!--#########################################################-->
+   <div class="panel-container">
+   <div class="main-panel">
+   <div class="info_box">
+   <h3><strong class="f-15">费用说明</strong></h3>
+   <div class="info_desc f-16 bt_line_fix">
+   <p>
+          在线咨询：<font class="price">50</font>元/15分钟，<font class="fc-gray"></font><br>
+          <!--电话咨询： <font class="price">50</font>元/次，<font class="fc-gray">1次15分钟</font><br>
+          当面咨询： <font class="price">125</font>元/次，<font class="fc-gray">1次15分钟</font><br>-->
+   </p>
+   </div>
+   </div>
+   <div class="info_box">
+   <h3><strong class="f-15">个人介绍</strong></h3>
+   <div class="info_desc f-16 bt_line_fix">
+   <p id="one_desc">
+    擅长领域：<br>
+    {tp#$info['skill']|skill_id2name}...
+    <br>
+    个人简介：
+	{tp#$info['introduce']|default='暂无'}
+    </p>
+   </div>
+   <a href="javascript:void(0);"><div class="more" style="display: none;" id="some">收起<i class="fa fa-angle-up"></i></div></a>
+   <a href="javascript:void(0);"><div class="more" id="all">展开全部<i class="fa fa-angle-down"></i></div></a>
+   </div>
+  
+
+      <div class="info_box evaluation">
+   <h3>
+    <strong class="f-15">评价</strong>
+    <span class="score">
+      4.9分    </span>
+    <span class="star-evalute"><span class="star-light" style="width: 98%"></span></span>
+  </h3>
+   <div class="evaluation-info">
+
+              <div class="eva-detail">
+         <div class="eva-img">
+          <img src="__PUBLIC__/images/avatar_default.png">
+         </div>
+       <div class="eva-user">
+        <p>Y****</p>
+         <div>
+          <font class="time">2016-04-24 12:48</font>
+         </div>
+       </div>
+       <p>
+        谢谢你的帮助[默认好评]       </p>
+       </div>
+            
+              
+             
+      
+        <a href="#"><div class="more">查看更多<i class="fa fa-angle-right"></i></div></a>
+   </div>
+   </div>
+   
+      <div class="info_box">
+   <h3><strong class="f-15">TA帮助过的</strong></h3>
+   <div class="helped_list">
+   <ul>
+
+   <li><img src="http://img.yidianling.com/file/2016/01/1f8149c0c20d4a02d8d2584243799305.jpg!s120x120"></li>
+   <li><img src="http://static.yidianling.com/v2/images/avatar.png"></li>
+   <li><img src="http://img.yidianling.com/file/2015/12/wi62ikf7pgbo3jwz.png!s120x120"></li>
+   
+   </ul>
+   <div class="total_helped">累计已在新育心理帮助过5074人次</div>
+    </div>
+   </div>
+   
+   <a href="{tp#:U('Index/expert_list')}">
+   <div class="link_box">
+   <i class="fa fa-users"></i>
+   <span>查看更多专家</span>
+   <div class="r">
+   <i class="fa fa-angle-right"></i>
+   </div>
+   </div>
+   </a>
+
+   <a href="index.php">
+   <div class="link_box">
+   <i class="fa fa-home"></i>
+   <span>返回新育心理首页</span>
+   <div class="r">
+   <i class="fa fa-angle-right"></i>
+   </div>
+   </div>
+   </a>
+
+   </div>
+   </div>
+   </div>
+    <script type="text/javascript">
+    $(function () {
+      var isLogin=95984;
+
+      $('#some').click(function () {
+        $('#one_desc').css({"-webkit-line-clamp": "0"});
+        $(this).hide();
+        $('#all').show();
+      });
+      $('#all').click(function () {
+        $('#one_desc').css({"-webkit-line-clamp": "888"});
+        $(this).hide();
+        $('#some').show();
+      });
+    });
+    </script>
+<!--##########################################################################-->
+   
+ </div>
+</div>
+
+<script type="text/javascript">
+    $('.evaluation').children('h3').on('click',function(){
+        alert('该分数依据电话咨询、当面咨询真实评价计算得出。');
+    });
+
+
+function follow(obj,doctorId){
+  var curIsFollowed=$(obj).attr('data-status');
+  $.post('/experts/followDoctor',{doctorId:doctorId,YII_CSRF_TOKEN:'fbd3f5bac1345184526247e06bddfbeafbdf1eee'},function(rs){
+    rs=eval("("+rs+")");
+    if(rs.errNo==1){
+      window.location.href='/login';
+      return false;
+    }
+    if(rs.errNo!=0){
+      X.dialog.tips(rs.msg);
+      return false;
+    }
+
+
+    $(obj).attr('data-status',rs.data.isFollowed);
+    if(rs.data.isFollowed==1){
+      $(obj).attr('class','favButton');
+      $(obj).html('<i class="fa fa-star fc-orange"></i>关注');
+    }
+    else{
+      $(obj).attr('class','favButton');
+      $(obj).html('<i class="fa fa-star-o"></i>关注');
+    }
+  });
+
+
+
+}
+
+
+function toApply(){
+    var isOpen=1;
+    if(isOpen=='0'){
+      alert('免费体验服务暂未开启');
+      return fasle;
+    }
+
+    var isLogin=1;
+    if(!isLogin){
+      window.location.href="/login";
+      return false;
+    }
+    $.post("/ct/canApply/541",function(rs){
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        window.location.href="/ct/541";
+        return false;
+      }
+      if(rs.errNo==4){
+        alert('免费体验服务暂未开启');
+        return fasle;
+      }
+
+      if(rs.errNo==5 || rs.errNo==6 ||rs.errNo==8){
+
+        $('#has-apply').show();
+        var $modal = $.modalInit('#modal');
+        $modal.show();
+        return false;
+      }
+
+      if(rs.errNo==7){
+        $('#has-booking').show();
+        var $modal = $.modalInit('#modal');
+        $modal.show();
+        return false;
+      }
+
+      if(rs.errNo==9){
+        $('#experts-full').show();
+        var $modal = $.modalInit('#modal');
+        $modal.show();
+        return false;
+      }
+
+
+    });
+  }
+
+  $(document).ready(function(){
+    $('#has-know,.close-x').click(function(){
+      $('.pop-window2').hide();
+      var $modal = $.modalInit('#modal');
+      $modal.hide();
+
+    });
+
+    $('#view-apply-record').click(function(){
+      window.location.href="/ct/list"
+    });
+
+    $('#to-consult').click(function(){
+      window.location.href="{tp#:U('Index/booking')}"
+    });
+  });
+</script>
+
+<script src="__PUBLIC__/http://res.wx.qq.com/open/js/jweixin-1.0.0.js"> </script>
+<script>
+  wx.config({
+      debug: false,
+      appId: 'wx2bc3e1648beb8caa', // 必填，公众号的唯一标识
+      timestamp: 1461495754, // 必填，生成签名的时间戳，切记时间戳是整数型，别加引号
+      nonceStr: 'ehIwfcNqEGAtOBFF', // 必填，生成签名的随机串
+      signature: 'af4232c5350207bb63b47bf290e4097868fa03f1', // 必填，签名，见附录1
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+      ]
+  });
+
+wx.ready(function(){
+  var shareconfig = { //分享到朋友圈
+    title: '王新爱的心理咨询工作室', // 分享标题
+    desc: '1家庭关系 夫妻不和婚外恋婚外情性出轨婆媳关系外遇问题丧失心理2离婚心理自卑心理孤僻心理仇恨心理痛苦心理畏惧心理，再婚随意悔悟心理3青春期孩子 孩子叛逆 网络成瘾 学生早恋逃学旷课性心理4考前咨询 学习成绩提升考试焦虑厌学逃学 成长烦恼自我探索人际交往情绪控制恋爱干预人际关系紧张5神经症神经衰弱焦虑症抑郁症强迫症恐惧症社交恐惧6职场发展职场压力职业选择同事关系上下级关系职业倦怠',
+      link: 'http://m.yidianling.com/experts/541', // 分享链接
+      imgUrl: 'http://img.yidianling.com/file/2016/01/wjlpgea6hd584j9u.jpg!s120x120', // 分享图标
+      success: function (res) {
+      },
+
+      cancel: function () {
+      }
+  }
+
+  wx.onMenuShareTimeline(shareconfig);  //朋友圈
+
+  wx.onMenuShareAppMessage(shareconfig); //分享给朋友
+
+});
+
+</script>
+
+
+
+<script>
+  NProgress.start();
+  $(function(){
+    NProgress.done();
+  });
+</script>
+<!-- <div class="sNav" style="margin-bottom:60px"></div> -->
+
+<!--footer-->
+
+<include file="Public:footer"/>
+
+<!--footer-->
+<!--side-->
+
+<div class="dropdown-modal"></div>
+<div id="modal"></div>
+<script src="__PUBLIC__/js/juicer-min.js"></script>
+<script src="__PUBLIC__/js/web_new.js"></script>
+
+<!--side-->
+<script>
+
+function BindPhone(){
+  this.index=0;
+  this.err=false;
+  this.phone='';
+  this.isListen=1;
+  this.trigger='#bind-phone';
+  this.box='#bind_phone_box';
+  this.next_btn='#bpnext';
+  this.send_btn='#bpsend';
+  this.succ_btn='#bpsucc';
+  this.chphone_btn='#bpchphone';
+  this.cc_sign='38f2e199f892143d5bfda6f09de2dbfe';
+  this.link_btn='#bplink';
+  this.tm=false;
+  this.close_btn="#bpclose";
+  this.succ_cb=null;
+  this.heights={
+    'phone':250,
+    'checkandpass':350,
+    'check':270,
+    'bindsucc':280
+  };
+  this.types=['phone','checkandpass','check','bindsucc'];
+  var that=this;
+  $(this.trigger).click(function(){
+    
+    that.sb();
+
+  });
+  $(document).off('click',this.next_btn).on('click',this.next_btn,function(){
+    var items=$(that.box).find('.input_item');
+    for(i=0;i<items.length;i++){
+
+      var type=$(items[i]).attr("data-propertyname");
+      if(type=='phone'){
+        var rs=that.checkPhone($(items[i]));
+      }
+
+      if(type=='verifyCode'){
+
+        var rs=that.checkCode($(items[i]));
+      }
+
+    }
+  });
+
+  $(document).off('click',this.chphone_btn).on('click',this.chphone_btn,function(){
+
+    that.index=0;
+
+    that.sb(false);
+  });
+
+
+  $(document).off('click',this.send_btn).on('click',this.send_btn,function(){
+    var sended=$(that.send_btn).attr("data-sended");
+    if(sended==1)
+      return false;
+    $(that.send_btn).addClass('btn_disabled').removeClass('.btn_active');
+    that.sendCode(function(){
+
+      that.leftTime(60);
+    });
+  });
+
+  $(document).off('click',this.close_btn).on('click',this.close_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    if(that.index==3)
+      window.location.reload();
+  });
+
+  $(document).off('click',this.link_btn).on("click",this.link_btn,function(){
+    var type=$(this).attr('data-type');
+    if(type=='use'){
+      window.location.href='/app';
+      
+    }
+    else{
+      window.location.href='/uc/rechargeP';
+    }
+
+  });
+  $(document).off('click',this.succ_btn).on('click',this.succ_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    (that.succ_cb)();
+
+  });
+
+}
+
+
+
+BindPhone.prototype={
+  cls:function(){
+    clearTimeout(this.tm);
+    $(this.box).remove();
+  },
+
+  sb:function(cb){
+
+    this.cls();
+    var argNum=arguments.length;
+    if(argNum==4){
+      this.phone=arguments[1];
+      this.isListen=parseInt(arguments[2]);
+      this.succ_cb=arguments[3];
+    }
+    var $modal = $.modalInit('#modal');
+    $modal.show();
+    var curtype=this.types[this.index];
+    var height=parseInt(this.heights[curtype]);
+    var tpl=$('#bind_phone_tpl').html();
+    var html=juicer(tpl,{type:curtype,height:height,phone:this.phone,isListen:this.isListen});
+    $('body').append(html);
+    if(this.index==1 || this.index==2){
+      $(this.send_btn).attr('data-sended','1');
+    }
+    
+    if(argNum>0 && arguments[0]){
+      arguments[0]();
+    }
+    
+  },
+
+  checkPhone:function(obj){
+    var phone=obj.find('input[type=text]').val();
+    if(!/^\d{11}$/.test(phone)){
+      this.showMsg(obj,'请输入正确的手机号码');
+      return false;
+    }
+    var that=this;
+    $.post('/accountset/hasBindPhoneCs',{phone:phone},function(rs){
+      
+      rs=eval("("+rs+")");
+      if(rs.code==-1){
+        that.showMsg(obj,'请输入正确的手机号码');
+        return false;
+      }
+
+      if(rs.code==-2){
+        that.showMsg(obj,rs.msg);
+        return false;
+      }
+      var skip=2;
+      if(rs.code=='-3'){
+        skip=1;
+        
+      }
+      that.phone=phone;
+      that.index+=skip;
+      that.sendCode();
+      that.sb(function(){
+
+        that.leftTime(60);
+
+      });
+
+      
+    });
+
+  },
+
+  checkCode:function(obj){
+    var code=obj.find('input[type=text]').val();
+    if(code.length!=4){
+
+      this.showMsg(obj,'验证码有误，请重新输入');
+      return false;
+    }
+    var passwd='';
+    if(this.index==1){
+
+      var passwdObj=$(this.box).find(".input_item[data-propertyname=passwd]");
+      passwd=passwdObj.find('input[type=password]').val();
+      if(!passwd || passwd.length<6 ||passwd.length>16){
+        this.showMsg(passwdObj,'密码长度6-16位 英文或数字组合');
+        return false;
+      }
+
+    }
+    var that=this;
+    $.post("/accountset/bindNextEnsure",{username:this.phone,passwd:passwd,vcode:code},function(rs){
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        that.index=3;
+        that.sb();
+      }
+      else{
+        that.showMsg(obj,rs.msg);
+      }
+
+    });
+
+  },
+  showMsg:function(obj,msg){
+    $(obj).find('.input_tips').remove();
+    $(obj).append('<span data-valid-message="" class="input_tips">'+msg+'</span>');
+    $(obj).find('input[type=text],input[type=password]').addClass('input_warning');
+
+  },
+  sendCode:function(cb){
+    $.post('/user/SendChkCode',{username: this.phone, sms_action: 'bind_phone',funk_you:this.cc_sign},function(rs){
+
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        X.dialog.tips('短信已发送至您的手机');
+      }
+      if(cb){
+        cb();
+      }
+    });
+  },
+  leftTime:function(count){
+    var that =this;
+    count--;
+    leftTim=count;
+    var v = "重发("+leftTim+")";
+    $(this.send_btn).val(v);
+    if(leftTim < 0){
+      $(that.send_btn).val("重新发送").removeClass('btn_disabled').addClass('btn_active').attr('data-sended','0');
+      clearTimeout(that.timeout);
+    }
+    else{
+      that.tm=setTimeout(function(){
+        that.leftTime(count);
+      },1000);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+</script><script>
+var bindPhone=new BindPhone();
+$(function(){
+
+  //mobile menu
+  var flag=false;
+  $('.menu2').on('touchend', function(){
+    if(flag){
+      $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+      $('#menu_mask').removeClass('active');
+      flag=false;
+    }else{
+      $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+      $('#menu_mask').addClass('active');
+      flag=true;
+    }
+  });
+
+  $('#menu_mask').on('touchend', function(){
+    $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+    $('#menu_mask').removeClass('active');
+    flag=false;
+  });
+
+  $.tap(".weChat", function () {
+    var t;
+    return t = $("#follow_us"), t.modal(), t.trigger("modal.toggle");
+  });
+
+  $('.iconBack').on('click', function () {
+    window.location.href="/";
+  });
+  $('.userCenter').on('click', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+});
+</script>
+
+<div id="follow_us" data-loaded="1" class="modal hidden inline">
+  <div class="modal-dialog" style="width:400px;">
+    <div class="title">
+      微信扫一扫，随时随地访问。
+      <i class="fa fa-close"></i>
+    </div>
+    <div class="content">
+      <p class="txt-c"><img src="__PUBLIC__/images/qrcode_news.png" width="250px"></p>
+    </div>
+  </div>
+</div>
+<!-- Edit by Xiaofan Zhang -->
+
+<!-- Edit by Xiaofan Zhang | end -->
+
+<a href="javascript:;">
+  <i class="fa fa-wechat weChat" id="weChat"><span>微信关注</span></i>
+</a>
+<a href="tencent://message/?uin={tp#$webinfo.qq}&Menu=yes" target="_blank">
+  <i class="fa fa-qq" id="online_chat"><span>在线客服</span></i>
+</a>
+
+<!-- Edit by Xiaofan Zhang -->
+
+
+<!-- fixed-bar -->
+<include file="Public:fixedbar"/>
+<!-- fixed-bar end -->
+
+
+</body>
+
+</html>

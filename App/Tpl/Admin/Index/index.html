@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>{tp#$config.web_title}-管理中心</title>
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+	<meta content="" name="description" />
+
+	<meta content="" name="author" />
+
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+	<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+	<link href="__PUBLIC__/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+	<!-- END GLOBAL MANDATORY STYLES -->
+
+	<!-- BEGIN PAGE LEVEL STYLES --> 
+
+	<link href="__PUBLIC__/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+	<link href="__PUBLIC__/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
+
+	<link href="__PUBLIC__/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+
+	<link href="__PUBLIC__/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+
+	<!-- END PAGE LEVEL STYLES -->
+
+	<link rel="shortcut icon" href="__PUBLIC__/image/favicon.ico" />
+
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+	<!-- BEGIN HEADER -->
+
+	<div class="header navbar navbar-inverse navbar-fixed-top">
+
+		<!-- BEGIN TOP NAVIGATION BAR -->
+
+		<div class="navbar-inner">
+
+			<div class="container-fluid">
+
+				<!-- BEGIN LOGO -->
+
+				<a class="brand" href="{tp#:U('Index/index')}">
+
+				<img src="__PUBLIC__/image/logo.png" alt="logo"/>
+                &nbsp;
+                <span style="color:#FFF;">{tp#$config.web_title}</span>
+
+				</a>
+
+				<!-- END LOGO -->
+
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+				<img src="__PUBLIC__/image/menu-toggler.png" alt="" />
+
+				</a>          
+
+				<!-- END RESPONSIVE MENU TOGGLER -->            
+
+				<!-- BEGIN TOP NAVIGATION MENU -->              
+
+				<ul class="nav pull-right">
+
+					<!-- BEGIN NOTIFICATION DROPDOWN -->   
+
+					<!-- END NOTIFICATION DROPDOWN -->
+
+					<!-- BEGIN INBOX DROPDOWN -->
+
+					<!-- END INBOX DROPDOWN -->
+
+					<!-- BEGIN TODO DROPDOWN -->
+
+					<!-- END TODO DROPDOWN -->
+
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+
+					<li class="dropdown user">
+
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <i class="icon-user" style="font-size:28px"></i>
+
+						<span class="username">{tp#:I('session.username')}</span>
+
+						<i class="icon-angle-down"></i>
+
+						</a>
+
+						<ul class="dropdown-menu">
+
+							<li><a href="{tp#:U('Index/myinfo')}"><i class="icon-user"></i> 个人资料</a></li>
+
+							<li class="divider"></li>
+
+							<!--<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>-->
+
+							<li><a href="{tp#:U('Login/logout')}"><i class="icon-key"></i> 安全退出</a></li>
+
+						</ul>
+
+					</li>
+
+					<!-- END USER LOGIN DROPDOWN -->
+
+				</ul>
+
+				<!-- END TOP NAVIGATION MENU --> 
+
+			</div>
+
+		</div>
+
+		<!-- END TOP NAVIGATION BAR -->
+
+	</div>
+
+	<!-- END HEADER -->
+    <div class="copyrights">Collect from <a href="#" >网页模板</a></div>
+
+	<!-- BEGIN CONTAINER -->
+
+	<div class="page-container">
+
+		<!-- BEGIN SIDEBAR -->
+
+<include file='Index:left'/>
+
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN PAGE -->
+
+		<div class="page-content">
+
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<div id="portlet-config" class="modal hide">
+
+				<div class="modal-header">
+
+					<button data-dismiss="modal" class="close" type="button"></button>
+
+					<h3>Widget Settings</h3>
+
+				</div>
+
+				<div class="modal-body">
+
+					Widget settings form goes here
+
+				</div>
+
+			</div>
+
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+			<div class="container-fluid">
+
+				<!-- BEGIN PAGE HEADER-->
+
+				<div class="row-fluid">
+
+					<div class="span12">
+
+						<!-- BEGIN STYLE CUSTOMIZER -->
+                            <!--主题设置-->
+                            <div class="color-panel hidden-phone">
+                                <a href="{tp#:U('Delcache/index')}" title="清除系统缓存">
+                                <div class="color-mode-icons icon-color"></div>
+                                </a>
+    
+                            </div>
+
+						<!-- END BEGIN STYLE CUSTOMIZER -->    
+
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+						<h3 class="page-title">
+
+							管理中心 <small> </small>
+
+						</h3>
+
+						<ul class="breadcrumb">
+
+							<li>
+
+								<i class="icon-home"></i>
+
+								<a href="#">后台首页</a> 
+
+								<i class="icon-angle-right"></i>
+
+							</li>
+
+							<li><a href="#">数据中心</a></li>
+
+						</ul>
+
+						<!-- END PAGE TITLE & BREADCRUMB-->
+
+					</div>
+
+				</div>
+
+				<!-- END PAGE HEADER-->
+
+				<div id="dashboard">
+
+					<!-- BEGIN DASHBOARD STATS -->
+
+					<div class="row-fluid">
+
+						<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+
+							<div class="dashboard-stat blue">
+
+								<div class="visual">
+
+									<i class="icon-user"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">
+
+										{tp#$count_info['user_count']+$count_info['resaler_count']}
+
+									</div>
+
+									<div class="desc">                           
+
+										会员总数
+
+									</div>
+
+								</div>
+
+								<a class="more" href="{tp#:U('Wxusers/index')}">
+
+								查看会员 <i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+
+							<div class="dashboard-stat green">
+
+								<div class="visual">
+
+									<i class="icon-bar-chart"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">{tp#$count_info['day_order_total']}</div>
+
+									<div class="desc">今日订单总数</div>
+
+								</div>
+
+								<a class="more" href="{tp#:U('Order/index')}">
+
+								查看更多 <i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
+
+							<div class="dashboard-stat purple">
+
+								<div class="visual">
+
+									<i class="icon-globe"></i>
+
+								</div>
+
+								<div class="details">
+
+									<div class="number">{tp#$count_info['sale_goods_total']}</div>
+
+									<div class="desc">上架商品总数</div>
+
+								</div>
+
+								<a class="more" href="{tp#:U('Goods/index')}">
+
+								查看更多 <i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+						<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+
+							<div class="dashboard-stat yellow">
+
+								<div class="visual">
+
+									<i class="icon-shopping-cart"></i>
+
+								</div>
+
+								<div class="details" style="width:58% !important">
+
+									<div class="number" style="font-size:24px">&yen;{tp#$count_info['month_order_total_fee']|default=0}</div>
+
+									<div class="desc">{tp#:date('m',time())}月成交金额</div>
+
+								</div>
+
+								<a class="more" href="{tp#:U('Order/index')}">
+
+								查看更多 <i class="m-icon-swapright m-icon-white"></i>
+
+								</a>                 
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- END DASHBOARD STATS -->
+
+					<div class="clearfix"></div>
+
+					<div class="row-fluid">
+
+						<div class="span6">
+
+							<!-- BEGIN PORTLET-->
+
+							
+							<!-- END PORTLET-->
+
+						</div>
+
+						<div class="span6">
+
+							<!-- BEGIN PORTLET-->
+
+							
+
+							<!-- END PORTLET-->
+
+							<!-- BEGIN PORTLET-->
+
+							
+
+							<!-- END PORTLET-->
+
+						</div>
+
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="row-fluid">
+
+						<div class="span6">
+
+							<div class="portlet box purple">
+
+								<div class="portlet-title">
+
+									<div class="caption"><i class="icon-calendar"></i>当月订单统计</div>
+
+<!--									<div class="actions">
+
+										<a href="javascript:;" class="btn yellow easy-pie-chart-reload"><i class="icon-repeat"></i> 刷新</a>
+
+									</div>-->
+                                    <div class="tools">
+
+										<a href="" class="collapse"></a>
+
+										<a href="" class="remove"></a>
+
+									</div>
+
+								</div>
+
+								<div class="portlet-body">
+
+									<div class="row-fluid">
+
+										<div class="span4">
+
+											<div class="easy-pie-chart">
+
+												<div class="number transactions"  data-percent="{tp#$count_info['month_order_unpay_count']/$count_info['month_order_count']*100|number_format=###,2}"><span>{tp#$count_info['month_order_unpay_count']/$count_info['month_order_count']*100|number_format=###,2}</span>%</div>
+
+												<a class="title" href="#">待付款订单 <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+										<div class="margin-bottom-10 visible-phone"></div>
+
+										<div class="span4">
+
+											<div class="easy-pie-chart">
+
+												<div class="number visits"  data-percent="{tp#$count_info['month_order_pay_count']/$count_info['month_order_count']*100|number_format=###,2}"><span>{tp#$count_info['month_order_pay_count']/$count_info['month_order_count']*100|number_format=###,2}</span>%</div>
+
+												<a class="title" href="#">已付款订单 <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+										<div class="margin-bottom-10 visible-phone"></div>
+
+										<div class="span4">
+
+											<div class="easy-pie-chart">
+
+												<div class="number bounce"  data-percent="{tp#$count_info['month_order_refund_count']/$count_info['month_order_count']*100|number_format=###,2}"><span>{tp#$count_info['month_order_refund_count']/$count_info['month_order_count']*100|number_format=###,2}</span>%</div>
+
+												<a class="title" href="#">退款订单 <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="span6">
+
+							<div class="portlet box blue">
+
+								<div class="portlet-title">
+
+									<div class="caption"><i class="icon-calendar"></i>Server Stats</div>
+
+									<div class="tools">
+
+										<a href="" class="collapse"></a>
+
+										<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+										<a href="" class="reload"></a>
+
+										<a href="" class="remove"></a>
+
+									</div>
+
+								</div>
+
+								<div class="portlet-body">
+
+									<div class="row-fluid">
+
+										<div class="span4">
+
+											<div class="sparkline-chart">
+
+												<div class="number" id="sparkline_bar"></div>
+
+												<a class="title" href="#">Network <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+										<div class="margin-bottom-10 visible-phone"></div>
+
+										<div class="span4">
+
+											<div class="sparkline-chart">
+
+												<div class="number" id="sparkline_bar2"></div>
+
+												<a class="title" href="#">CPU Load <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+										<div class="margin-bottom-10 visible-phone"></div>
+
+										<div class="span4">
+
+											<div class="sparkline-chart">
+
+												<div class="number" id="sparkline_line"></div>
+
+												<a class="title" href="#">Load Rate <i class="m-icon-swapright"></i></a>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="row-fluid">
+
+						<div class="span6">
+
+							<!-- BEGIN REGIONAL STATS PORTLET-->
+
+	
+
+							<!-- END REGIONAL STATS PORTLET-->
+
+						</div>
+
+						<div class="span6">
+
+							<!-- BEGIN PORTLET-->
+
+							
+
+							<!-- END PORTLET-->
+
+						</div>
+
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="row-fluid">
+
+						<div class="span12">
+
+							<!-- BEGIN PORTLET-->
+
+							<iframe style="border:0;height:500px !important;width:100%" src="{tp#:U('Index/charts')}"></iframe>
+                            
+							<!-- END PORTLET-->
+
+						</div>
+
+					
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- END PAGE CONTAINER-->    
+
+		</div>
+
+		<!-- END PAGE -->
+
+	</div>
+
+	<!-- END CONTAINER -->
+
+	<!-- BEGIN FOOTER -->
+
+	<include file='Index/footer'>
+    
+	<!-- END FOOTER -->
+
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+	<!-- BEGIN CORE PLUGINS -->
+
+	<script src="__PUBLIC__/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+	<script src="__PUBLIC__/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+
+	<script src="__PUBLIC__/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--[if lt IE 9]>
+
+	<script src="__PUBLIC__/js/excanvas.min.js"></script>
+
+	<script src="__PUBLIC__/js/respond.min.js"></script>  
+
+	<![endif]-->   
+
+	<script src="__PUBLIC__/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.blockui.min.js" type="text/javascript"></script>  
+
+	<script src="__PUBLIC__/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.uniform.min.js" type="text/javascript" ></script>
+
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+	<script src="__PUBLIC__/js/jquery.vmap.js" type="text/javascript"></script>   
+
+	<script src="__PUBLIC__/js/jquery.vmap.russia.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.vmap.world.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.vmap.europe.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.vmap.germany.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.vmap.usa.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+
+	<script src="__PUBLIC__/js/jquery.flot.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.flot.resize.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.pulsate.min.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/date.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/daterangepicker.js" type="text/javascript"></script>     
+
+	<script src="__PUBLIC__/js/jquery.gritter.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/fullcalendar.min.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/jquery.sparkline.min.js" type="text/javascript"></script>  
+
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+	<script src="__PUBLIC__/js/app.js" type="text/javascript"></script>
+
+	<script src="__PUBLIC__/js/index.js" type="text/javascript"></script>        
+
+	<!-- END PAGE LEVEL SCRIPTS -->  
+
+	<script>
+
+		jQuery(document).ready(function() {    
+
+		   App.init(); // initlayout and core plugins
+
+		   Index.init();
+
+		   Index.initJQVMAP(); // init index page's custom scripts
+
+		   Index.initCalendar(); // init index page's custom scripts
+
+		   Index.initCharts(); // init index page's custom scripts
+
+		   Index.initChat();
+
+		   Index.initMiniCharts();
+
+		   Index.initDashboardDaterange();
+
+		   //Index.initIntro();
+
+		});
+
+	</script>
+
+	<!-- END JAVASCRIPTS -->
+
+</body>
+
+<!-- END BODY -->
+
+</html>

@@ -1,0 +1,72 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">后台操作日志</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>后台操作日志</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+    
+        <table class="table table-striped table-bordered table-hover">
+
+			<thead>
+                <tr>
+                   <th>ID</th>
+                   <th>账户名</th>
+                   <th>操作内容</th>
+                   <th>操作时间</th>
+                   <th>客户端IP</th>
+<!--                   <th>操作</th>-->
+                </tr>
+              </thead>
+
+              <tbody>
+                <volist name="list" id="item">
+                    <tr>
+                      <td>【{tp#$item.id}】</td>
+                      <td>{tp#$item.username}</td>
+                      <td>{tp#$item.descript}</td>
+                      <td>{tp#$item.posttime|date='Y-m-d H:i:s',###}</td>
+                      <td>{tp#$item.ip|default='---'}</td>
+<!--                      <td>
+                        <a class="btn btn-danger" href="{tp#:U('del',array('id'=>$v['id']))}" onClick="return confirm('确定要删除?')" >删除</a> 
+                      </td>-->
+                    </tr>
+                </volist>
+              </tbody>         
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

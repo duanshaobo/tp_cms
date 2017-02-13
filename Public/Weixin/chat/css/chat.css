@@ -1,0 +1,43 @@
+.dailicenter{ margin:5px;border-radius:5px; border:1px solid #dcd9d8; overflow:hidden}
+.dailicenter li{ height:40px; line-height:40px; background:#f8f8f8; border-bottom:1px solid #dcd9d8; text-align:left}
+.dailicenter li a{ padding-right:10%;font-size:16px; display:block; background:url(__PUBLIC__/images/404-2.png) 90% center no-repeat;}
+.dailicenter li a:hover{ background:url(__PUBLIC__/images/404-2.png) 90% center no-repeat #6EAAD3}
+.dailicenter li i{ list-style:decimal; width:28px; height:40px; float:left; margin-left:7%; margin-right:10px;}
+.dailicenter li.li0 i{ background:url(__PUBLIC__/images/icon/gg.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li1 i{ background:url(__PUBLIC__/images/3433.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li2 i{ background:url(__PUBLIC__/images/icon/key.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li3 i{ background:url(__PUBLIC__/images/icon/li8.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li4 i{ background:url(__PUBLIC__/images/23.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li5 i{ background:url(__PUBLIC__/images/2323.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li6 i{ background:url(__PUBLIC__/images/43434.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li7 i{ background:url(__PUBLIC__/images/icon/dp.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li44 i{ background:url(__PUBLIC__/images/23232.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+.dailicenter li.li55 i{ background:url(__PUBLIC__/images/212.png) 10% center no-repeat #f8f8f8;background-size:28px auto;}
+
+.dailicenter li.li0 a:hover i{ background:url(__PUBLIC__/images/icon/gg.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li1 a:hover i{ background:url(__PUBLIC__/images/3433.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li2 a:hover i{ background:url(__PUBLIC__/images/icon/key.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li3 a:hover i{ background:url(__PUBLIC__/images/icon/li8.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li4 a:hover i{ background:url(__PUBLIC__/images/23.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li5 a:hover i{ background:url(__PUBLIC__/images/2323.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li6 a:hover i{ background:url(__PUBLIC__/images/43434.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li7 a:hover i{ background:url(__PUBLIC__/images/icon/dp.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li44 a:hover i{ background:url(__PUBLIC__/images/23232.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+.dailicenter li.li55 a:hover i{ background:url(__PUBLIC__/images/212.png) 10% center no-repeat #6EAAD3;background-size:28px auto;}
+
+.user-list{list-style-type:none}
+.user-list li{margin:10px 0;border-radius:3px;background:#FFF;padding:5px;}
+.headimg{width:70px;height:70px;border-radius:40px;}
+.fl{float:left}
+.fr{float:right}
+.clear{clear:both}
+.info{margin:0 0 0 10px;width:auto !important;max-width:78%;height:90px;padding:3px 8px;overflow-y:auto}
+.tag{padding:3px;color:#FFF;border-radius:20px;width:80px !important;text-align:center;font-size:12px;}
+.bg-green{background:#093 !important;color:#FFF;}
+.bg-red{background:#DB383E !important;color:#FFF;}
+.line{margin:10px 0;width:100%}
+.ml120{margin-left:120px;}
+textarea{resize:vertical}
+.btn{padding:5px;border:0px;text-align:center}
+.date{text-align:right;color:#CCC;font-size:12px}
+.tips{color:#CCC;text-align:center;font-size:12px}

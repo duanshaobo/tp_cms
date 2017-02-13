@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>{tp#$webinfo.web_title}</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/base.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/layout-theme.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/dist/css/font.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="__PUBLIC__/js/jquery.1-7-1.js"></script>
+<!--jq复制插件-->
+<script type="text/javascript" src="__PUBLIC__/zclip/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/zclip/jquery.zclip.min.js"></script>
+<!--jq复制插件-->
+</head>
+
+<body class="page">
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <symbol id="icon-left" viewBox="0 0 1024 1024">
+    <path class="path1" d="M711.219 891.802c13.722 13.926 13.722 36.301 0 50.125s-35.891 13.875-49.613 0l-400.896-404.89c-13.722-13.824-13.722-36.198 0-50.125l400.896-404.89c13.722-13.824 35.891-13.824 49.613 0 13.722 13.875 13.722 36.301 0 50.125l-365.619 379.853 365.619 379.802z"></path>
+  </symbol>
+</defs>
+</svg>
+<header class="header" style="font-seize:12px !important;"> 
+<a class="returnIco" href="{tp#:U('setting')}">
+  <code class="glyphicon glyphicon-chevron-left">返回</code></a>
+  <div class="pageTit">我的推广</div>
+</header>
+<div class="pt0">
+  <div class="bg_fff pb15">
+    <div class="Invitation"><span class="Modifiedbar"></span>邀请链接</div>
+    <p align="center" class="mt25">
+      <a title="{tp#:I('server.HTTP_HOST')}{tp#:U('Index/index',array('parent_id'=>I('session.user_id')))}" >{tp#:I('server.HTTP_HOST')}{tp#:U('Index/index',array('parent_id'=>I('session.user_id')))}</a>
+    </p>
+    <p align="center" class="mt25">长按上面地址复制，然后将此地址分享给朋友！<br>微信内部可以直接点击右上角“...”分享给好友
+    </p>
+  </div>
+  <div class="bg_fff mt25 pb15">
+  <div class="Invitation"><span class="Modifiedbar"></span>邀请二维码（Iphone用户使用二维码邀请效果会更好）</div>
+    <p align="center" class="mt25"> <img src="{tp#$qrcode}" class="erweima"> </p>
+  </div>
+  
+  
+  <volist name="invite_list" id="item">
+    <div class="list_div_sm font22">
+    <span class="col-xs-6">{tp#$item.posttime|date='Y-m-d',###}</span>
+    <span class="col-xs-6 text-right">已注册</span>
+    </div>
+    <div class="list_div_sm color_tit">
+    <span class="col-xs-6">用户：{tp#$item.username|default='暂无'}</span>
+    <span class="col-xs-6 text-right">昵称：{tp#$item.nickname|default='暂无'}</span>
+    </div>
+  </volist>  
+  
+  <!--<div class="bg_fff mt25">
+    <div class="list_div_sm font22"><span class="col-xs-6">2015-8-7 23:12:00</span></div>
+    <div class="list_div_sm color_tit"><span class="col-xs-9">二维码扫描推荐</span><span class="col-xs-3 text-right color_999">+10</span></div>
+    <div class="list_div_sm font22"><span class="col-xs-6">2015-8-7 23:12:00</span></div>
+    <div class="list_div_sm color_tit"><span class="col-xs-9">直接访问推荐21</span><span class="col-xs-3 text-right color_999">+20</span></div>
+    <div class="list_div_sm font22"><span class="col-xs-6">2015-8-7 23:12:00</span></div>
+    <div class="list_div_sm color_tit"><span class="col-xs-9">二维码扫描推荐</span><span class="col-xs-3 text-right color_999">+20</span></div>
+  </div>-->
+<if condition="count($invite_list) eq 0">
+<p>
+<center>暂无邀请记录</center>
+</p>
+</if>
+
+<if condition="strlen($page) gt 1"><p id="page">{tp#$page}</p></if>
+
+</div>
+</body>
+
+<style>
+#msg{margin-left:10px; color:green; border:1px solid #3c3; background:url(__PUBLIC__/zclip/checkmark.png) no-repeat 2px 3px; padding:3px 6px 3px 20px}
+#page{margin:10px;text-align:center;background:#0099FF;color:#FFF;padding:10px;}
+/*#page a{border:1px solid #0099FF;padding:5px;border-radius:18px;margin:0 20px;}*/
+#page a{border:1px solid #0099FF;color:#FFF;margin:0 10%}
+</style>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+      debug: false,
+      appId: "{tp#$jssign.appId}",
+      timestamp: "{tp#$jssign.timestamp}",
+      nonceStr: '{tp#$jssign.nonceStr}',
+      signature: '{tp#$jssign.signature}',
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+      ]
+  });
+ 
+  wx.ready(function () {
+	//朋友圈 
+	wx.onMenuShareTimeline({
+		title: "{tp#$share['title']}", // 分享标题
+		link: "{tp#$share['link']}", // 分享链接
+		imgUrl: "{tp#$share['imgUrl']}", // 分享图标
+		success: function () { 
+			// 用户确认分享后执行的回调函数
+			//alert('ok');
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+			//alert('cancel');
+		}
+	});		
+	//分享给微信朋友
+	wx.onMenuShareAppMessage({
+		title: "{tp#$share['title']}", // 分享标题
+		desc: "{tp#$share['desc']}", // 分享描述
+		link: "{tp#$share['link']}", // 分享链接
+		imgUrl: "{tp#$share['imgUrl']}", // 分享图标
+		type: 'link', // 分享类型,music、video或link，不填默认为link
+		dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+		success: function () { 
+			// 用户确认分享后执行的回调函数
+		},
+		cancel: function () { 
+			// 用户取消分享后执行的回调函数
+		}
+	});
+ });
+
+wx.error(function (res) {
+  //alert(res.errMsg);
+});
+</script>
+</html>

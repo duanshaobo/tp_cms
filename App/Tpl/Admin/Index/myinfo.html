@@ -1,0 +1,113 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">
+
+        修改密码
+
+    </h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>修改密码</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+<!--            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+            <a href="javascript:;" class="reload"></a>-->
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('myinfo')}" method='post' class="form-horizontal form-bordered">
+
+<table class="table table-bordered">
+            <tr>
+              <th width="80">登录账号</th>
+              <td>
+					<b>【{tp#$info.username}】</b>
+              </td>
+            </tr>
+            <tr>
+              <th width="80">登录密码</th>
+              <td>
+               <input required type="text" name="password" class="text-input" placeholder="新密码" maxlength="20"/>
+               <span style="color:red;">不修改请输入旧密码！</span>
+              </td>
+            </tr>
+            <tr>
+              <th width="80">所属角色</th>
+              <td>
+              <if condition="$info['id'] eq 1">
+              超级管理员
+              <else/>
+              {tp#$info['role']['name']}【{tp#$info['role']['remark']}】
+              </if>
+              </td>
+            </tr>
+            
+            <tr>
+              <th width="80">是否开启</th>
+              <td>
+				<eq name="info.lock" value="1">
+                <span class="badge badge-danger">锁定</span>
+                <else/>
+                <span class="badge badge-success">开启</span>
+                </eq>
+              </td>
+            </tr>
+   
+        </tbody>
+      </table>
+
+    
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+       
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<title>提现方式 - {tp#$webinfo.web_title}</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/comman.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/jquery_dialog.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/style.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/user2015.css" media="all">	
+<script> var SITE_URL="http://www.wdkl168.com/";</script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery_dialog.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json-1.3.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/user.js"></script> 	
+<script type="text/javascript" src="__PUBLIC__/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/script.js"></script> 
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/css.css" media="all">
+<div id="home">
+	<div id="header">
+		<div class="logo" style="height:28px; padding-top:10px; background:url(__PUBLIC__/images/xy.png) 10px 8px no-repeat"><span onclick=" history.go(-1);">&nbsp;</span></div>
+		<div class="shoptitle"><span>提现方式</span></div>
+		<!--right-->
+        <include file="Public:logoright"/>
+        <!--right-->
+	</div>
+</div>	
+<script type="text/javascript">
+function ajax_show_menu(){
+	$(".showmenu").toggle();
+}
+</script>
+
+<style type="text/css">
+.pw,.pwt{
+height:26px; line-height:normal;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #fff; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+.pw{ width:90%;}
+.usertitle{
+height:22px; line-height:22px;color:#666; font-weight:bold; font-size:14px; padding:5px;
+border-radius: 5px;
+background-color: #ededed; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+.pws{ background:#ededed}
+.money_way{list-style-type:none;width:100%;margin:0 auto;}
+.money_way li{margin:10px 0;padding:18px 0;background:#CCC;border-radius:5px;width:inherit !important;text-align:center;color:#FFF;font-size:14px;;font-weight:700}
+.active{color:#FFF;background:#DB383E !important}
+</style>
+<div id="main" style="padding:5px; min-height:300px">
+	<div style="background:#f5f5f5; border:1px solid #d1d1d1;border-radius:5px; margin-top:10px; padding:10px;">
+		<!--<table width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height:30px;">
+		   <tbody>
+           <tr>
+           <td></td>
+           </tr>
+		  <tr>
+			<td align="center" style="padding-top:10px;" colspan="2">
+			<a href="javascript:;" style="border-radius:5px;display:block;background:#3083CE;cursor:pointer;width:140px; height:25px; line-height:25px; font-size:14px; color:#FFF">下一步</a>
+          
+            <span class="returnmes2" style="padding-left:10px; color:#FF0000"></span>
+			</td>
+		  </tr>
+		</tbody>
+        </table>-->
+        <ul class="money_way">
+            <li class="pay_way" val='1'>银行卡</li>
+            <li class="pay_way" val='2'>支付宝</li>
+            <li class="pay_way" val='3'>微信红包</li>
+            <li class="active btn-next" style="box-shadow:0 -3px 0  #900 inset">下一步</li>
+            <div style="clear:both"></div>
+        </ul>
+	</div>
+
+</div>
+<script type="text/javascript">
+var pay_way=0;
+$(".pay_way").click(function(){
+	$(".pay_way").removeClass('active');
+	$(this).addClass('active');
+	pay_way=$(this).attr('val');
+})
+
+$(".btn-next").click(function(){
+	
+	if(pay_way==0){
+		$(".tip_box").text("请选择提现方式").show();
+		setTimeout("close_tip();",1000);
+	}else{
+		location.href="{tp#:U('Ucenter/take_money')}&pay_way="+pay_way;
+	}
+});
+
+</script>
+<!--QUYU-->
+<div id="opquyu">
+	
+</div>
+<div id="opquyubox">
+	<!--商品分类导航-->
+    <include file="Public:category"/>
+   	<!--商品分类导航-->
+</div>
+
+<!--FOOTER-->
+<!--footbar-->
+<include file="Public/footbar"/>
+<!--footbar--
+
+</body>
+
+</html>

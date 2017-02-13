@@ -1,0 +1,111 @@
+<extend name="RBAC:base" />
+<block name="content-title">
+<h4>分佣详情</h4>
+ <a href="{tp#:U('index')}" style="margin:5px 10px;" class="btn align-right">返回列表</a>
+</block>
+<block name="content">
+<div class="tab-content default-tab" id="tab1">
+    <form id="form" method="post" action="{tp#:U('fenyong',array('id'=>I('get.id')))}">
+        <fieldset>
+        
+            <legend>佣金信息</legend>
+        <div class="block">    
+        <p>
+            佣金总额：【&yen; {tp#$yongjin}】
+        </p>
+        </div>
+        
+             <legend>分销信息</legend>
+        <div class="block">    
+        <table>
+        <thead><tr><td>账户信息</td><td>分销等级</td><td>佣金比例</td><td>佣金</td></tr></thead>
+        <if condition="!empty($resaler1)">
+        <tr>
+            <td>{tp#$resaler1.username}</td>
+            <td>一级分销</td>
+            <td>{tp#$resaler1.percent} %</td>
+            <td>&yen;{tp#$resaler1.yongjin}</td>
+            </td>
+        </tr>
+        </if>
+        <if condition="!empty($resaler2)">
+         <tr>
+            <td>{tp#$resaler2.username}</td>
+            <td>二级分销</td>
+            <td>{tp#$resaler2.percent}%</td>
+            <td>&yen;{tp#$resaler2.yongjin}</td>
+            </td>
+        </tr>
+        </if>
+        </table>
+        </div>
+
+      <div class="clear"></div>
+      </fieldset>
+      <eq name="order.fenyong_status" value="0">
+      <p><input type="submit" value="确定分佣" class="button confirm"/></p>
+      </eq>
+    </form>
+</div>
+<style>
+.block{border:1px dashed #ccc;padding:10px;border-radius:3px;-box-shadow:1px 1px 1px 1px #CCC;}
+</style>
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+	KindEditor.ready(function(K) {
+		//初始化编辑器
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '/plugins/kindeditor/plugins/code/prettify.css',
+			uploadJson : '/plugins/kindeditor/php/upload_json.php',
+			fileManagerJson : '/plugins/kindeditor/php/file_manager_json.php',
+			allowFileManager : true,
+			afterCreate : function() {}
+		});
+		prettyPrint();
+	});
+	/*$(function() {
+		var editor = KindEditor.create('textarea[name="content"]');
+	});*/
+	//单图上传
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#image1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url1').val(url);
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+	//批量上传图片
+	KindEditor.ready(function(K) {
+		var editor = K.editor({
+			allowFileManager : true
+		});
+		K('#J_selectImage').click(function() {
+			editor.loadPlugin('multiimage', function() {
+				editor.plugin.multiImageDialog({
+					clickFn : function(urlList) {
+						var div = K('#J_imageView');
+						div.html('');
+						K.each(urlList, function(i, data) {
+							div.append('<img src="' + data.url + '">');
+						});
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>
+</block>

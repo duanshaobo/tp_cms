@@ -1,0 +1,203 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">订单列表</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>订单列表</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+        	<a href="{tp#:U('export_excel')}" class="btn green"><i class="icon-share"></i> 导出EXCEL</a>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+
+        
+        <div class="well form-inline">
+                搜索：
+                <select name="key" style="width:auto !important">
+                    <option value="out_trade_no"  <eq name="Think.get.key" value="order_sn">selected</eq> >订单编号</option>
+                    <option value="consignee" <eq name="Think.get.key" value="consignee">selected</eq> >下单人</option>    
+                    <option value="mobile" <eq name="Think.get.key" value="mobile">selected</eq> >联系电话</option>    
+                </select>
+                <input value="{tp#$Think.get.val}" name="val" type="text" class="text-input bg-gray small-input" placeholder="关键字"/>
+                
+                 下单时间：
+                <input value="{tp#$Think.get.begin_time}" name="begin_time" type="text" class="text-input bg-gray small-input" placeholder="起始时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/> ~
+                <input value="{tp#$Think.get.end_time}" name="end_time" type="text" class="text-input bg-gray small-input" placeholder="截止时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                
+                <input id='btn-so' type="button" value="搜索" class="btn green"/>
+                &nbsp;&nbsp;&nbsp;
+                <a  href="{tp#:U('index',array('p'=>I('get.p',1)))}">查看全部</a>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn <eq name='Think.get.order_status' value='1'>green</eq>" href="{tp#:U('index',array('order_status'=>1))}">未完成</a>
+                <a class="btn <eq name='Think.get.order_status' value='2'>green</eq>" href="{tp#:U('index',array('order_status'=>2))}">已完成</a>
+<!--                <a class="btn <eq name='Think.get.order_status' value='3'>green</eq>" href="{tp#:U('index',array('order_status'=>3))}">已签收</a>-->
+                
+                 <a class="btn <eq name='Think.get.pay_status' value='nopay'>red</eq>" href="{tp#:U('index',array('pay_status'=>'nopay'))}">未支付</a>
+                
+            </div>
+        
+
+        <table class="table table-striped table-bordered table-hover">
+
+            <thead>
+
+                <tr>
+                    
+                   	<th>订单ID</th>
+                   	<th>订单编号</th>
+                   	<th>下单人</th>
+                    <th>专家姓名</th>
+                   	<th>联系电话</th>
+                   	<th>订单金额</th>
+                   	<!--<th>订单佣金</th>-->
+                   	<th>订单状态</th>
+                   	<th>支付状态</th>
+                   	<th>下单时间</th>
+                   	<th class="hidden-480">操作</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+ <volist name="list" id="v">
+                <tr>
+                  <td>【{tp#$v.id}】</td>
+                  <td width='120'><a title="点击查看" href="{tp#:U('edit',array('id'=>$v['id']))}">{tp#$v.out_trade_no}</a>
+                  </td>
+                  <td>{tp#$v.name}</td>
+                  <td><a target="_blank" href="{tp#:U('Wxusers/edit',array('id'=>$v['expert_id']))}">
+                  {tp#$v['expert']['nickname']}</a></td>
+                  <td>{tp#$v.mobile}</td>
+                  <td style="color:red"><b>&yen; </b>{tp#$v.total_fee}</td>
+                  <!--<td style="color:red"><b>&yen; </b>{tp#$v.yongjin}</td>-->
+                  <td>
+                   <switch name="v.order_status">
+                    <case value="1"><span class="label label-warning">未完成</span></case>
+                    <case value="2"><b><span class="label label-success">已完成</span></b></case>
+                    <!--<case value="2"><b><span class="label">已退款</span></b></case>-->
+                    </switch>
+                  </td>
+                  <td>
+                  <a title="修改订单支付状态" href="{tp#:U('update_pay_status',array('order_id'=>$v['id'],'p'=>I('get.p','1')))}">
+                  
+                   <switch name="v.pay_status">
+                    <case value="0"><span class="label label-warning">未支付</span></case>
+                    <case value="1"><b><span class="label label-success">已支付</span></b></case>
+                    <case value="2"><b><span class="label">已退款</span></b></case>
+                    </switch>
+                    </a>
+                  </td>
+                  <td>{tp#$v.order_time|date='Y/m/d H:i:s',###}</td>
+                  <td>
+                  	<if condition="$v['pay_status'] eq 1">
+                    <a class="btn red btn-refund" href="javascript:" order_id="{tp#$v.id}">退款</a>
+                    </if>
+                  	
+                    <!--<a class="btn btn-success" href="{tp#:U('edit',array('id'=>$v['id']))}">详情</a>-->
+                    <a class="btn red" onclick="return confirm('确定删除？')" href="{tp#:U('del',array('id'=>$v['id']))}">删除</a>
+                  </td>
+                </tr>
+                </volist>
+                
+            </tbody>
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+<style>
+.small-input{width:120px !important;}
+</style>
+
+<script type='text/javascript'>
+  $(function(){
+	 
+	  	$(document).keyup(function(event){
+			if(event.keyCode==13){
+				$("#btn-so").click();
+			}
+		});
+	  
+	  $("#btn-so").click(function(){
+		  
+		  var param='';
+		  
+		  var key=$("select[name='key'] option:selected").val();
+		  var val=$("input[name='val']").val();
+		  
+		  var begin_time=$("input[name='begin_time']").val();
+		  var end_time=$("input[name='end_time']").val();
+		  
+		 
+		  
+		  if(key!=''&&val!=''){
+			 param+="&key="+key+'&val='+val;
+		  }
+		  
+		  if(begin_time!=''){
+			   param+='&begin_time='+begin_time;
+		  }
+		  
+		  if(end_time!=''){
+			   param+='&end_time='+end_time;
+		  }
+		  
+		  if(param==''){
+			  alert('请输入搜索条件！')
+			  //artDialog({content:'请输入搜索条件！', style:'alert', lock:false}, function(){});
+		  }else{
+			  location.href="{tp#:U('index')}"+param;
+		  }
+		  
+	  });
+	  
+	  
+	   //订单退款
+	  $(".btn-refund").click(function(){
+			var post_data={};
+			post_data.id=$(this).attr('order_id');			//订单号
+			if(confirm('确定退款？')){
+				$.post("{tp#:U('Ajax/order_refund')}",post_data,function(data){
+					alert('操作成功');
+					location.reload();	
+				}); 
+			}
+			
+	  });
+	  
+  })
+</script>
+    
+</block>		<!--页面主体内容-->
+

@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'p_id', 2 => 'uid', 3 => 'score', 4 => 'total_score', 5 => 'posttime', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11) unsigned', 'p_id' => 'int(11)', 'uid' => 'int(11)', 'score' => 'int(11)', 'total_score' => 'int(11)', 'posttime' => 'int(11)', ), );?>

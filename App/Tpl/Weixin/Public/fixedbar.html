@@ -1,0 +1,35 @@
+<a class="fixed-bar-service" id="BizQQWPA" href="http://wpa.qq.com/msgrd?v=3&uin={tp#$webinfo['qq']}&site=qq&menu=yes"><i class="fa fa-qq"></i><span class="txt">客服</span></a>
+<a class="fixed-bar-notification " href="#"><i class="fa fa-bell"></i><span class="txt">消息</span><span class="click-me"></span></a>
+<!-- mobile fixed-bar end -->
+<!-- Edit by Xiaofan Zhang | end -->
+
+
+
+<script>
+  //coupon
+  jQuery.extend( jQuery.easing,
+      {
+        easeOutBounce: function (x, t, b, c, d) {
+          if ((t/=d) < (1/2.75)) {
+            return c*(7.5625*t*t) + b;
+          } else if (t < (2/2.75)) {
+            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+          } else if (t < (2.5/2.75)) {
+            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+          } else {
+            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+          }
+        },
+      });
+  $(function(){
+    $('#redpackage_mask').css('display','block');
+    $('.redpacket1').css('bottom','1000px').animate({
+      bottom: '50%'
+    }, 1600,'easeOutBounce');
+    $('.redpacket1-close').click(function(){
+      $(this).parent().css('display','none');
+      $('#redpackage_mask').css('display','none');
+    })
+  })
+
+</script>

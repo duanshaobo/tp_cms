@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<title>发送消息 -  {tp#$webinfo.web_title}</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/chat/css/comman.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/chat/css/style.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/chat/css/css.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/chat/css/chat.css" media="all">
+<script type="text/javascript" src="__PUBLIC__/chat/js/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/chat/js/common.js"></script> 
+<style>
+.tip_box{position:fixed;padding:10px;min-width:100px;max-width:120px;background:#000;opacity:0.8;top:40%;left:0px;right:0px;margin:0 auto;color:#FFF;text-align:center;border-radius:5px;display:none}
+</style>
+
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/css.css" media="all">
+<div id="home">
+	<div id="header">
+		<div class="logo" style="height:28px; padding-top:10px; background:url(__PUBLIC__/images/xy.png) 10px 8px no-repeat">
+        <span onclick=" history.go(-1);">&nbsp;</span></div>
+		<div class="shoptitle"><span> 发消息给【{tp#$t_user.nickname|default='---'}】</span></div>
+		<!--logoright-->
+        <include file="Public:logoright"/>
+        <!--logoright-->
+	</div>
+</div>	
+<div id="main" style="padding:5px; min-height:300px; font-size:16px;">
+	<ul class="user-list">
+    	<volist name="last_msg" id="item">
+        <li>
+			<div class="fl" style="max-width:20% !important">
+            <img src="{tp#$item['f_user']['headimgurl']}" onerror="this.src='__PUBLIC__/images/logo.png'" class='headimg'>
+           	<p style="text-align:center">{tp#$item['f_user']['nickname']|mb_substr=###,0,5,'utf-8'|default='---'}</p>
+            </div>
+            
+            <div class="fr info">
+                <p class="line">
+                <span style="color:#999">{tp#$item.content}</span>
+                </p>
+                <p class="date">{tp#$item.posttime|date='m/d H:i',###}</p>
+            </div>
+            
+            <div class="clear"></div>
+		</li>
+       	</volist>
+        <p class="tips">以上为对方最近一次消息内容</p>
+		<li>
+			<textarea id="content" cols="40" rows="3" placeholder="请输入消息内容"></textarea>
+		</li>
+        <li class="bg-red">
+        <p class="btn btn-sub">发 送</p>
+        </li>
+<!--        <li style="background:none;">
+        <a href="{tp#:U('Plugin/chat_list',array('type'=>1))}">我的接收</>
+        <a href="{tp#:U('Plugin/chat_list',array('type'=>2))}">我的发送</>
+        </li>-->
+	</ul>
+</div>
+
+
+<!--QUYU-->
+<div id="opquyu">
+	
+</div>
+<div id="opquyubox">
+	<!--商品分类导航-->
+    <!--<include file="Public:category"/>-->
+   	<!--商品分类导航-->
+</div>
+
+<!--FOOTER-->
+<!--底部-->
+<div class="tip_box"></div>
+<!--底部-->
+<script>
+var close_tip=function(){
+	$('.tip_box').hide();
+}
+$(".tip_box").click(function(){
+	$(this).hide();
+});	
+$(function(){
+	$(".btn-sub").click(function(){
+		var post_data={};
+		post_data.t_uid="{tp#:I('get.id')}";
+		post_data.content=$('#content').val();
+		if(post_data.content==''){
+			//alert('请输入消息内容！');
+			$(".tip_box").text("请输入消息内容").show();
+			setTimeout("close_tip();",1000);
+			return false;
+		}
+		$.post("{tp#:U('PluginAjax/chat_send')}",post_data,function(data){
+			$("#content").val('');
+			//$(".tips").css('color','red').text('发送成功');
+			$(".tip_box").text("发送成功").show();
+			setTimeout("close_tip();",1000);
+			
+		});
+	});
+});
+</script>
+</body>
+
+</html>

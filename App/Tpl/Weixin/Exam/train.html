@@ -1,0 +1,545 @@
+<html lang="zh-CN"><head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+	<title>{tp#$title}-在线测试-{tp#$webinfo.web_title}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta name="keywords" content="{tp#$webinfo.web_keywords}">
+	<meta name="description" content="{tp#$webinfo.web_description}">
+    
+	<meta name="author" content="sec,fox">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="__PUBLIC__/exam/js/jquery.min.js"></script>
+    <link href="__PUBLIC__/exam/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__PUBLIC__/exam/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/exam/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/exam/css/mobile.css" rel="stylesheet">
+    <link rel="shortcut icon" href="__PUBLIC__/images/icon.png">
+
+</head>
+<body>
+<div id="wrap">
+    
+    <div class="row">
+        
+    </div>
+    
+    <div class="container">
+
+        
+    <div id="nav">
+        
+    <ol class="breadcrumb">
+        <li><a href="{tp#:U('Exam/index')}">首页</a></li>
+        <!--<li><a href="#">国家心理咨询师(2级)</a></li>-->
+        
+        <li>
+            <a href="#">
+                {tp#$title|mb_substr=###,0,18,'utf-8'}
+            </a>
+        </li>
+        
+        
+        
+    </ol>
+
+    </div>
+    <div id="page-header" class="inactive active">
+        <h2>
+            <i class="fa fa-file-text-o "></i>
+            国家心理咨询师{tp#$pager['level']}级
+        </h2>
+        
+        <p>            
+        
+        以下{tp#$list|count}道基础心理学试题抽取自历年考试真题。
+        
+        </p>
+        
+        <p>
+            说明：点击选项即可标记答案，完成所有题目后可查看分数和正确答案。
+        </p>
+        <h3 class="text-center">
+            祝答题愉快~~
+        </h3>
+        <div class="start-test">
+            <button class="btn btn-block " id="start-test">开始答题</button>
+        </div>
+    </div>
+
+        
+    <div id="content">
+        
+
+
+<volist name="list" id="item">
+<div class="question-cell  inactive" id="question-item-{tp#$key}">
+    
+    <div class="question-title yy">
+        <h5>{tp#$item.title}
+<!--        <small style="color:#777">
+        [<eq name="item.type" value='1'>单选<else/>多选</eq>]
+        </small>-->
+        </h5>
+    </div>
+    <div class="options">
+        <div class="clearfix">
+            <div class="option" data-mark="A">
+               <p>{tp#$item.A}</p>
+            </div>
+            <div class="option" data-mark="B">
+                <p>{tp#$item.B}</p>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="option" data-mark="C">
+                <p>{tp#$item.C}</p>
+            </div>
+            <div class="option" data-mark="D">
+                <p>{tp#$item.D}</p>
+            </div>
+        </div> 
+        
+    </div>
+    <div class="text-center ">
+    	<if condition="$key eq (count($list)-1)">
+        	<button class="btn btn-primary check-next" data-answer="BC" data-pk="{tp#$item['id']}" data-score="0" data-next="">交卷</button>
+        <else/>
+        	<button class="btn btn-primary check-next" data-answer="{tp#$item['options']}" data-pk="{tp#$item['id']}" data-score="0" data-next="question-item-{tp#++$key}">下一题</button>
+        </if>
+        
+        <button class="btn btn-default quick-look">
+            偷看
+        </button>
+        <div class="clearfix"></div>
+        <div class="right-answer inactive text-left clearfix">
+            <span style="color:#ff4a50">
+                参考答案：{tp#$item['options']}
+            </span>
+            &nbsp;&nbsp;
+            
+            <!--举一反三：
+            <a href="/exam/course/1/lesson/1/">
+                基础心理学
+            </a>
+            
+            
+            <a href="/exam/course/1/point/28/">
+                /睡眠
+            </a>-->
+            
+            
+                <p>题目分析：{tp#$item['parse']|default='暂无题目分析'}</p>
+            
+            <!--<a href="/exam/question/7476/" class="for-detail">
+                &nbsp;&nbsp;
+                <i class="fa fa-bar-chart-o"></i>
+                查看详情
+            </a>-->
+        </div>
+    </div>
+</div>
+</volist>
+
+            
+    </div>
+
+
+        
+<div id="result" class="inactive">
+    <div id="test-result">
+        
+    </div>
+    <div id="share-content">
+        
+    </div>
+</div>
+
+
+        
+    <div id="tail" class="row inactive">
+        <div class="col-md-9">
+
+            
+                <div id="introduction">
+                此题库是心优雅小编与程序员的辛勤和汗水的结晶，如果您因此而受益的话，就帮我们分享出去吧。让更多的朋友们享受它的益处，顺利通过考试。<br>
+                <a style="color:#c16137" href="http://mp.weixin.qq.com/s?__biz=MzA5NDYyMTUwMA==&mid=210851346&idx=1&sn=ad0526c4695bb1b0028edb2b60aae60a#rd">&gt;&gt;关注心优雅，获得所有的题库</a>
+                
+                </div>
+                
+        </div>
+    </div>
+
+        
+            <div id="comment-section">
+                
+            </div>
+        
+        
+        <a id="to-top" href="#">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+        
+
+    </div>
+</div>
+
+
+    <div id="footer" class="inactive ">
+        <div id="wechat-follow" class="container">
+            <button id="get-result" class="btn" style="background-color:#fb8486">查看答案</button>
+            <button id="share" class="btn" style="">分享给朋友（圈）</button>
+        </div>
+    </div>
+
+<!--  Modal -->
+<div class="modal fade" id="global-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true" style="display:none">
+  <div id="modal-dialog" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="modal-label">优雅的做着有意义的事情，就是幸福</h4>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <div></div>
+      </div>
+      <div id="modal-footer" class="modal-footer">
+        <span class="pull-lift text-muted">登录之后，方可进行投票、关心、收藏、提问等操作</span>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="help" class="sbg ">
+        <div class="arron"></div>
+        <p id="msg">请点击右上角<br>点击【分享到朋友圈】<br>
+        
+    让更多朋友顺利通过考试~~
+</p>
+</div>
+
+<script src="__PUBLIC__/exam/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/exam/js/logreg.js"></script>
+<script>
+    $(function(){
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+            }
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+        function sameOrigin(url) {
+            var host = document.location.host;
+            var protocol = document.location.protocol;
+            var sr_origin = '//' + host;
+            var origin = protocol + sr_origin;
+            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                !(/^(\/\/|http:|https:).*/.test(url));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                    csrftoken = getCookie('csrftoken')
+                    if(csrftoken){
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+                //xhr.setRequestHeader('Content-Type', 'application/xml;charset=utf-8')
+            },
+            error:function(xhr,textStatus,StatusCode){
+                        $.messenger(xhr.responseText)
+                        }
+        });
+
+
+        $('#share').on('click',function(){
+            $('#help').addClass('active')
+            setTimeout(function(){
+               $('#help').removeClass('active')
+            },2000)
+        })
+        $('#start-test').on('click',function(){
+            $(this).parents('.active').removeClass('active')
+                .siblings('#content')
+                .find('.inactive:first').addClass('active')
+            $("#comment-section").addClass('inactive')
+        })
+
+    })
+    clear_ad()
+    function clear_ad(){
+        $iframe = $('iframe')
+        if($iframe.length>0){
+            if($iframe.height()===0){
+                int = window.clearInterval(int)
+            }else{
+                $iframe.height(0)
+            }
+        }
+    }
+    var int=self.setInterval(clear_ad,300)
+
+    setTimeout(function(){
+        int = window.clearInterval(int)
+    },3000)
+
+</script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script>
+    var imgUrl = "http://{tp#:I('server.HTTP_HOST')}__PUBLIC__/exam/images/true_test.png";
+    var lineLink = window.location.href;
+    var appid = 'wx78b5c36694ac765e';
+    
+
+    wx.config({
+        debug:false,
+        appId: appid,
+        timestamp: 1461566254,
+        nonceStr: 'fQbG6IVj5TFw4ip3',
+        signature: '0809d8b09682c49b6d3e4890c2d63a3ea7d581a2',
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'chooseImage', 'uploadImage', 'getNetworkType']
+        });
+    function get_title(){
+        return $('title').text()
+
+    }
+    function get_description(){
+        _content=$('#introduction').text()
+        return $.trim(_content)
+    }
+    function wx_share(){
+        wx.onMenuShareTimeline({
+            title: get_title(), // 分享标题
+            link: '', // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                
+
+                
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                
+
+                
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                
+
+                
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                
+
+                
+            }
+        });
+
+        wx.onMenuShareQQ({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+               // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+               // 用户取消分享后执行的回调函数
+            }
+        });
+
+        wx.onMenuShareWeibo({
+            title: get_title(), // 分享标题
+            desc: get_description(), // 分享描述
+            link: lineLink, // 分享链接
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+               // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+    }
+    wx.ready(function () {
+    // 在这里调用 API
+        wx_share()
+
+    });
+
+    </script>
+
+
+    <script>
+        $(function(){
+
+            $('button.check-next').on('click',function(event){   
+                $this = $(this)
+               
+                var _next = $(this).attr('data-next')
+                var _answer = ''
+                $this.parent().siblings('.options')
+                    .children('.option').off('click')                    
+                    .end()
+                    .find('.marked').each(function(){
+                                _answer += $(this).attr('data-mark')
+                            })
+				if(_answer==''){
+					alert('请选择正确答案');	
+					return false;
+				}else{
+					 $this.parent().parent('.active').removeClass('active')
+				}			
+					
+							
+                if(_answer == $this.attr('data-answer')){
+                    $this.text('+ 1 分')
+                    $this.attr('data-score',1)
+                }else{
+                    $this.text("+0 分")
+                }
+                if(_next){
+                    $next = $("#"+_next)
+                    $next.addClass('active')
+                } else{
+                    get_result()
+                }       
+                
+            })
+            
+            $('.option').on('click',function(){
+                $this = $(this)
+                if($this.hasClass('marked')){
+                    $this.removeClass('marked')
+                }else{
+                    $this.addClass('marked')
+                }
+                return
+            })
+			
+			var p_id="{tp#$Think.get.id}";				//试卷id
+			//交卷
+            function get_result(){
+				var total_score=0;			//总分数
+                _score = [];
+                $('.check-next').each(function(i){
+                    $this = $(this)
+                    if($this.text()=='下一题'){
+                        $this.trigger('click')
+                    }
+                    _score[i] = {
+                        "pk":parseInt($this.attr('data-pk')),
+                        "score":parseInt($this.attr('data-score'))
+                    }
+
+					//总分数
+					total_score+=parseInt($this.attr('data-score'));
+                });
+				
+				$('#test-result').html("本次测试得分："+total_score+"分")
+				$('#share-content').text('点击右上角分享到微信朋友圈')
+				$('title').text("[{tp#$user_info.nickname}]本次测试成绩"+total_score+"分");
+				$('#result').addClass('active')
+				$('#footer').addClass('active')
+				
+				if(p_id!=''){
+					var post_data={};
+					post_data.score=total_score;
+					post_data.p_id=p_id;
+					$.post("{tp#:U('ajax_exam')}",post_data,function(data){
+						
+					});
+				}
+				console.log(_score);return ;
+                
+				$.ajax({
+                    type:'POST',
+                    url:"{tp#:U('ajax_exam')}",
+                    context:this,
+                    contentType:'application/x-www-form-urlencoded;charset=utf-8',
+                    dataType:'json',
+                    data:{data:JSON.stringify(_score)},
+                    success:function(data,textStatus){
+                        $('#test-result').html("本次得"+data.score+"分")
+                        $('#share-content').text(data.courage)
+                        $('title').text(data.title)
+                        $('#result').addClass('active')
+                        $('#footer').addClass('active')
+                    },
+                    // error:function(data,textStatus,StatusCode){
+                    //     alert(textStatus)
+                    // }
+                })
+            }
+            $('#get-result').on('click',function(){
+                $('#content .inactive').addClass('active')
+            })
+            $('.quick-look').on('click',function(){
+                var $this = $(this)
+                $this.text('下次自己做').siblings('.right-answer').addClass('active')
+            })
+
+            var check_detail = function(event){
+                event.preventDefault()
+                var $this = $(this)
+                $.ajax({
+                    type:"GET",
+                    url:$this.attr('href'),
+                    context:$this,
+                    dataType:'html',
+                    success:function(data,textStatus){
+                        var $modal = $("#global-modal")
+                        $modal.find('.modal-body').html(data)
+                            .end().modal('show')
+                            .find('.modal-footer').html('<i class="fa fa-heart"></i>优雅备考，从容应对')
+                        $('a.check-answer','#global-modal').on('click',check_answer)
+                        $('a.for-detail','#global-modal').on('click',check_detail)
+
+                    }
+                })
+            }
+
+            var check_answer = function(event){
+                    event.preventDefault()
+                    
+                        $(this).text('会员可见').css('color','red')
+                        $('<div style="margin-top:15px;text-align:right;" class="instruction">你还未登录，<a href="/accounts/login/?next=/exam/test/1/lesson/1/" class="need-login">请先登录</a></div>').insertAfter(this)
+                        
+                    
+                }
+
+            $('a.for-detail').on('click',check_detail)
+        })
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">微信模板消息</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>微信模板消息</div>
+        
+        
+        <div class="actions">
+
+            <a href="javascript:;" class="btn green btn-edit"><i class="icon-edit"></i>  编辑</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('tpl_msg')}" method="post" class="form-horizontal form-bordered">
+	
+    <p>
+       订单提醒：<input readonly type="text" name="order_add"  class="m-wrap bg-gray span6" value="{tp#$info.order_add}" placeholder="订单提醒">
+       <font color="red">订单提交成功提醒</font> 
+    </p>
+    <p>
+       支付提醒：<input readonly type="text" name="order_pay"  class="m-wrap bg-gray span6" value="{tp#$info.order_pay}" placeholder="支付提醒">
+       <font color="red">订单支付成功提醒</font> 
+    </p>
+    <p>
+       订单状态：<input readonly type="text" name="order_status"  class="m-wrap bg-gray span6" value="{tp#$info.order_status}" placeholder="订单状态">
+       <font color="red">订单状态提醒</font> 
+    </p>
+    <p>
+        访客提醒：<input readonly type="text" name="visit"  class="m-wrap bg-gray span6" value="{tp#$info.visit}" placeholder="访问提醒"> 
+        <font color="red">访问提醒</font> 
+    </p>
+     <p>
+        消息提醒：<input readonly type="text" name="chat"  class="m-wrap bg-gray span6" value="{tp#$info.chat}" placeholder="消息提醒"> 
+        <font color="red">好友消息提醒</font> 
+    </p>
+    <p>
+       关注提醒：<input readonly type="text" name="subscribe"  class="m-wrap bg-gray span6" value="{tp#$info.subscribe}" placeholder="关注提醒"> 
+       <font color="red">邀请好友关注提醒</font> 
+    </p>
+    <p>
+       积分变更：<input readonly type="text" name="jifen_change"  class="m-wrap bg-gray span6" value="{tp#$info.jifen_change}" placeholder="积分变更通知"> 
+       <font color="red">积分变更通知</font> 
+    </p>
+     <p>
+        升级分销：<input readonly type="text" name="up_resaler"  class="m-wrap bg-gray span6" value="{tp#$info.up_resaler}" placeholder="升级分销商通知"> 
+       <font color="red">升级分销商通知</font> 
+    </p>
+    <p>
+       申请提现：<input readonly type="text" name="take_money"  class="m-wrap bg-gray span6" value="{tp#$info.take_money}" placeholder="申请提现">
+       <font color="red">申请提现提醒</font> 
+    </p>
+    <p>
+       提现到账：<input readonly type="text" name="take_money2"  class="m-wrap bg-gray span6" value="{tp#$info.take_money2}" placeholder="提现到账">
+       <font color="red">提现到账</font> 
+    </p>  
+    <p>
+       资金变动：<input readonly type="text" name="money_change"  class="m-wrap bg-gray span6" value="{tp#$info.money_change}" placeholder="资金变更">
+       <font color="red">资金变更提醒</font> 
+    </p>              
+    
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+
+<script>
+$(".btn-edit").click(function(){
+	$("input[type='text']").removeAttr("readonly").removeClass('bg-gray');
+});
+</script>
+    
+</block>		<!--页面主体内容-->

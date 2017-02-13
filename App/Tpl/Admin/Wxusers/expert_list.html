@@ -1,0 +1,176 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">专家管理</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>专家管理</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+    
+    	<div class="well form-inline">
+                搜索：
+                <select name="key">
+                	<option value="nickname"  <eq name="Think.get.key" value="nickname">selected</eq>>昵称</option> 
+                    <option value="id" <eq name="Think.get.key" value="id">selected</eq>>会员ID</option>  
+                    <option value="mobile" <eq name="Think.get.key" value="mobile">selected</eq>>联系电话</option>    
+                    <option value="username" <eq name="Think.get.key" value="username">selected</eq>>账户名</option>
+                </select>
+                <input value="{tp#$Think.get.val}" name="val" type="text" class="text-input bg-gray small-input" placeholder="关键字"/>
+                &nbsp;&nbsp;
+                注册时间：
+                <input value="{tp#$Think.get.begin_time}" name="begin_time" type="text" class="text-input bg-gray small-input" placeholder="起始时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/> ~
+                <input value="{tp#$Think.get.end_time}" name="end_time" type="text" class="text-input bg-gray small-input" placeholder="截止时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+                <input id='btn-so' type="button" value="搜索" class="btn green"/>
+               
+                &nbsp;&nbsp;&nbsp;
+                <a href="{tp#:U('index',array('role_id'=>1))}" class="btn <eq name='Think.get.role_id' value='1'>green</eq>" >普通会员</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="{tp#:U('index',array('role_id'=>2))}" class="btn <eq name='Think.get.role_id' value='2'>green</eq>">心理专家</a>
+                 &nbsp;&nbsp;&nbsp;
+                <a  href="{tp#:U('index',array('p'=>I('get.p',1)))}">查看全部</a>
+            </div>
+    
+        <table class="table table-striped table-bordered -table-advance table-hover">
+
+           <thead>
+                <tr>
+                   <th>UID</th>
+                   <th>头像</th>
+                   <th>昵称</th>
+                   <th>会员类型</th>
+                   <th>资金账户</th>
+                   <th>积分账户</th>
+                   <th>擅长领域</th>
+                   <th>注册时间</th>
+                   <!--<th>用户关系</th>-->
+                   <th>操作</th>
+                </tr>
+              </thead>
+
+            <tbody>
+
+ 			<volist name="list" id="v">
+                    <tr>
+                      <td>【{tp#$v.id}】</td>	
+                      <td>
+                      <neq name="v.headimgurl" value="">
+                      <php>
+                      $picurl=base64_encode($v['headimgurl']);
+                      </php>
+                      <a rel="modal" title="查看原图" href="{tp#:U('Index/show_img',array('picurl'=>$picurl))}" target="_blank">
+                      <img src="{tp#$v.headimgurl}" class='thumb' onerror="this.src='__PUBLIC__/Images/no-img.png'">
+                      </a>
+                      </neq>
+                      </td>
+                      
+                      <td width='100'>
+                      <a title="{tp#$v.nickname}" href="{tp#:U('edit',array('id'=>$v['id']))}" target="_blank">{tp#$v.nickname|default='暂无'}
+                      </a>
+                      </td>
+					  <td>
+                      <switch name="v.role_id">
+                      	<case value="1">普通会员</case>
+                        <case value="2"><font color='green'>心理专家</font></case>
+                      </switch>
+                      </td>
+                      <td style="color:red">{tp#$v['money']+$v['money_dongjie']} 元</td>
+                      <td>{tp#$v['jifen']+$v['jifen_dongjie']} 积分</td>
+                      <td width="120">
+                      <textarea rows="3" cols="50" style="resize:vertical">{tp#$v.skill|default='暂无'}</textarea>
+                      </td>
+                      <td>
+                      <eq name="v.posttime" value='0'>
+                      暂无
+                      <else/>{tp#$v.posttime|date='Y/m/d H:i:s',###}
+                      </eq>
+                      </td>
+
+                      <!--<td>({tp#$v.son_count}) <a href="{tp#:U('user_relation',array('id'=>$v['id']))}">查看</a></td> 	-->
+                      <td>
+                       <!--  <a rel="modal" title="获取用户最新微信资料" class='btn' href="{tp#:U('get_wxinfo',array('id'=>$v['id'],'p'=>I('get.p',1),'group_id'=>I('get.group_id')))}">更新资料</a>-->
+                       <a title="查看编辑用户信息" class='btn green' href="{tp#:U('edit',array('id'=>$v['id'],'p'=>I('get.p',1)))}">编辑</a>
+                         <neq name="v.username" value="">
+                         <a class='btn blue' href="{tp#:U('pwd',array('id'=>$v['id']))}">修改密码</a>
+                         </neq>
+                         <a title="删除"  class='btn red confirm' href="{tp#:U('del',array('id'=>$v['id']))}">删除</a>
+                      </td>
+                    </tr>
+                </volist>
+                
+            </tbody>
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+<style>
+select{width:auto}
+.small-input{width:120px !important;}
+</style>
+<script>
+$(function(){
+	$(document).keyup(function(event){
+		if(event.keyCode==13){
+			$("#btn-so").click();
+		}
+	});
+	$("#btn-so").click(function(){
+		  var key=$("select[name='key'] option:selected").val();
+		  var val=$("input[name='val']").val();
+		  var begin_time=$("input[name='begin_time']").val();
+		  var end_time=$("input[name='end_time']").val();
+		  
+		  var param='';
+		  
+		  if(key!=''&&val!=''){
+			 param+="&key="+key+'&val='+val;
+		  }
+		  
+		  if(begin_time!=''){
+			   param+='&begin_time='+begin_time;
+		  }
+		  
+		  if(end_time!=''){
+			   param+='&end_time='+end_time;
+		  }
+		  
+		  if(param==''){
+			  //alert('请输入关键字！')
+			  artDialog({content:'请输入搜索条件！', style:'alert', lock:false}, function(){});
+		  }else{
+			  location.href="{tp#:U('index')}"+param;
+		  }
+	});
+});
+</script>          
+    
+</block>		<!--页面主体内容-->
+

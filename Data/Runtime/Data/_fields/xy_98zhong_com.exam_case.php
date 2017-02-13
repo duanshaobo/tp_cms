@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'level', 2 => 'content', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11) unsigned', 'level' => 'tinyint(4)', 'content' => 'text', ), );?>

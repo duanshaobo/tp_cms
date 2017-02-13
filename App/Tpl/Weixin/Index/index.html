@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store"/>
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport"/>
+
+<title>{tp#$webinfo.web_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{tp#$webinfo.web_keywords}"/>
+<meta name="description" content="{tp#$webinfo.web_description}"/>
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/wx_ydl.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_v2.css"/>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/nprogress.css"/>
+<link rel="shortcut icon" href="__PUBLIC__/images/icon.png">
+
+<script src="__PUBLIC__/js/nprogress.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-2.1.0.min.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/app_v2.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/wx_ydl.js"></script>
+<script src="__PUBLIC__/js/wx_checked.js"></script>
+  <style>
+    .redpacket1 {
+      width: 160px;
+      height: 123px;
+      position: fixed;
+      left: 50%;
+      margin-left: -80px;
+      margin-bottom: -61px;
+      z-index: 10;
+    }
+
+    .redpacket1 img {
+      width: 160px;
+    }
+
+    .redpacket1-close {
+      transition: all .5s;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url(images/index_close.png);
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      top: -18px;
+      right: -26px;
+    }
+  </style>
+</head>
+<body>
+
+<!--mNav-->
+<div class="header sNav">
+  
+
+    <!-- <a class="logo" id="back_home" href="/"></a> -->
+  
+  <div class="iconBack-title">
+    <a class="m_logo"><img src="__PUBLIC__/images/logo_beta_mobile.png" style="width:100px"></a>  </div>
+
+  
+
+    <div class="menu2"></div>
+    <div class="userCenter"></div>
+
+</div>
+<!--mMenu-->
+<div class="navbar sNav">
+<include file="Public:navbar"/>
+</div>
+
+
+<!--pMenu-->
+<!-- top-nav | Edit by Xiaofan Zhang -->
+<div class="top wNav">
+  <div class="inner clearfix">
+    <p class="greet cl-220 f-12 pull-left">Hi，欢迎访问新育心理－你身边的心理咨询师</p>
+    <ul class="top-nav pull-right">
+      <li><span class="icon-phone"></span></li>
+      <li><a class="cl-220 f-12 weChat" href="#">手机新育心理</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="about.html">关于我们</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="faq.html">帮助中心</a></li>
+      <li><span class="cl-100">|</span></li>
+      <li><a class="cl-220 f-12" href="#">咨询师入驻</a></li>
+    </ul>
+  </div>
+</div>
+<!-- top-nav end | Edit by Xiaofan Zhang -->
+
+<div class="wNav" style="box-shadow:0 1px 1px rgba(0, 0, 0, 0.1); border-bottom:1px solid #ebebeb">
+  <div style="width:1000px; margin:0 auto; position:relative">
+    <div class="header">
+      <a class="logo" href="index.php"><img src="__PUBLIC__/images/logo_header_v2.png" alt="Logo"/></a><i
+          class="fa fa-bars menu sNav"></i>
+    </div>
+    <div class="navbar login_in wNav">
+      
+
+      
+
+
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="__PUBLIC__/css/swiper.min.css">
+<script src="__PUBLIC__/js/swiper.min.js"></script>
+<style type="text/css">
+body{
+  background:#F5F4F4;
+}
+.main-panel .info_box{
+  margin-top:12px;
+  border-top:none;
+  border-bottom:1px solid #efefef;
+  margin-bottom:0;
+}
+.info_box .info_desc, .info_box .info_answer{
+  margin-right:0;
+}
+.footer{
+  padding-top:2em;
+}
+.header .title {
+    position: absolute;
+    left: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: -1;
+    text-align: center;
+    font-size: 18px;
+    line-height: 45px;
+    width: 230px;
+    margin-left: 0;
+}
+ul,li{margin:0;padding:0}
+#scrollDiv{
+  width:200px;
+  height:25px;
+  line-height:25px;
+  overflow:hidden;
+  text-align: right;
+}
+#scrollDiv li{
+  height:25px;
+  padding-left:10px;
+}
+
+/*eidt by peng*/
+.wgt-image-timer {
+  display: inline-block;
+  height: 18px;
+  overflow: hidden;
+  width: 0;
+  vertical-align: middle;
+}
+
+.banner-mavin-join .wgt-image-timer em {
+  width: 14px;
+  height: 16px;
+  line-height: 20px;
+  color: #fff;
+  font-size: 17px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  text-indent: -2px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *display: inline;
+  text-align: center;
+  float: left;
+  background-repeat: no-repeat;
+}
+
+.banner-mavin-join .wgt-image-timer span {
+  display: inline-block;
+  width: 8px;
+  height: 640px;
+  position: relative;
+  margin: 0;
+  padding: 0 2px;
+  border: none;
+  font-weight: normal;
+}
+
+.banner-mavin-join i {
+  color: #fff;
+  font-style: normal;
+  font-size: 15px;
+}
+/*end number by peng*/
+
+</style>
+</head>
+<body>
+<!--mNav-->
+<!-- <div class="header sNav" style="border-bottom:none">
+  <div class="title">
+    <a class="m_logo"><img src="__PUBLIC__/images/logo_beta_mobile.png" style="width:100px"></a>
+    <img src="http://static.yidianling.com/mobile/images/m_top_slogan.png" class="home_slogan">
+  </div>
+ <i class="fa fa-bars menu "></i>
+</div> -->
+  <!-- <footer id="mfooter" class="g-grid-c sNav">
+    <a class="g-block on" href="/">
+      <i class="g-icon ydl"></i>
+      新育心理
+    </a>
+    <a class="g-block "
+       href="/listen/callIndex" data-no-turbolink>
+      <i class="g-icon wd"></i>
+      电话倾诉
+    </a>
+    <a class="g-block " href="/experts">
+      <i class="g-icon zj"></i>
+      找专家
+    </a>
+    <a class="g-block " href="/uc"
+       data-no-turbolink>
+      <i class="g-icon my"></i>
+      会员中心
+    </a>
+  </footer> -->
+<div class="pages home activities_index pages_home chrome modern mac webkit desktop">
+<!--content-->
+<div class="banner">
+  <div class="top_banner">
+    <div class="content">
+      <div class="title"><img src="__PUBLIC__/images/home_banner_title.png"></div>
+      <div class="banner-mavin-join" style="display:none">
+          <i>百位权威专家已解决了</i>
+          <div class="wgt-image-timer">
+                <!--number-->
+          </div>
+          <i>个烦恼</i>
+      </div>
+      <!--<a href="javascript:;" class="lookMore">查看用户好评</a>-->
+    </div>
+    <a href="#" class="link-cover"></a>
+  </div>
+</div>
+<div id="menu_mask">
+</div>
+<div id="content_wrapper">
+  <div class="list">
+    <div class="container">
+            <a class="item" data-no-turbolink="" href="{tp#:U('Exam/index')}"><img src="__PUBLIC__/images/home_feature1.png">
+            <h3>心理专家顾问</h3>
+            </p>
+            </a>
+
+            <a class="item" href="{tp#:U('Exam/index')}"><img src="__PUBLIC__/images/home_feature2.png">
+            <h3>国家认证咨询师</h3>
+            </a>
+          	
+            <a class="item" href="{tp#:U('Exam/index')}"><img src="__PUBLIC__/images/home_feature3.png">
+            <h3>长期服务公益</h3>
+            </p>
+            </a>
+    </div>
+  </div>
+  <div class="panel-container">
+   <div class="main-panel">
+   <div class="info_box">
+   <div class="home_scroll_news f-12 fc-gray">
+    <div _id="scrollDiv">
+       <ul>
+        <li>
+       <!-- <span class="time">39分钟前</span> <span class="name">共****</span><font class="fc-darkgreen">预约了专家咨询</font>-->
+       点击下面图标选择服务
+        </li>
+       
+       </ul>
+     </div>
+
+   </div>
+   <h3><strong class="f-15">我们的服务</strong></h3>
+   <div class="info_desc f-16 bt_line_fix"></div>
+   
+   <a href="{tp#:U('expert_list')}">
+   <div class="serve_phone f-12 fc-gray fl" style="width:32%">
+   <!--<div class="redpacket">新人送红包</div>-->
+   <img src="__PUBLIC__/images/home_serve01.png" width="60">
+   <h3>电话倾诉</h3>一对一私密对话
+   </div>
+   </a>
+   
+   <a href="{tp#:U('expert_list')}">
+   <div class="serve_phone f-12 fc-gray fl" style="width:32%">
+   	   <img src="__PUBLIC__/images/home_serve02.png" width="60">	 
+   	   <h3>找专家</h3>一对一预约咨询
+   </div>
+   </a>
+   
+   <a href="{tp#:U('expert_list')}">
+   <div class="serve_phone f-12 fc-gray fl" style="width:32%">
+   	   <img src="__PUBLIC__/images/home_serve03.png" width="60">
+       <h3>说说心事</h3>免费提问 专业解答  
+   </div>
+   </a>
+  
+   </div>
+   <!--服务标签-->
+      <div class="info_box" style="padding-bottom:12px;">
+          <h3><strong class="f-15">快速分类选择</strong></h3>
+          <div class="items">
+              <div class="item_area box1">恋爱情感<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+              <div class="item_area box2">家庭婚姻<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+              <div class="item_area box3">情绪压力<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+              <div class="item_area box4">孩子教育<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+              <div class="item_area box5">职场发展<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+              <div class="item_area box6">性心理<a class="link-cover" href="{tp#:U('expert_list')}"></a></div>
+          </div>
+      </div>
+
+              
+        
+   <!--推荐专家-->
+      <div class="info_box">
+        <h3><strong class="f-15">推荐专家</strong></h3>
+        <div class="info_desc f-16 bt_line_fix"></div>
+        <div class="experts index experts_index">
+            <div class="experts_list">
+				<volist name="experts" id="item">	
+                 <a class="expert" href="{tp#:U('expert_detail',array('id'=>$item['id']))}">
+                 <img src="{tp#$item['headimgurl']}" alt="心理咨询师{tp#$item['name']}">
+                  <div class="summary">
+                    <strong>{tp#$item['nickname']}</strong>
+                    <div class="content">
+                    <font class="fc-green">2</font>人已咨询过 &nbsp;&nbsp;
+                    <p>擅长领域：{tp#$item['skill']|skill_id2name}</p>
+                    </div>
+                  </div>
+                  </a>
+				</volist>
+                                      
+                   <!--<a class="expert" href="#">
+                      <div class="summary txt-c">
+                      查看全部咨询师
+                      </div>
+                   </a> -->
+
+                  <a class="listFooter_more" href="{tp#:U('expert_list')}">
+                  <div class="txt-c">
+                  更多专家 <i class="fa fa-angle-right"></i>
+                  </div>
+                  </a>
+            </div>
+        </div>
+        <div class="listConer_more f-12">
+        <a href="{tp#:U('expert_list')}">更多&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+        </a>
+        </div>
+        
+      </div>
+   <!--心理测试-->
+   <div class="info_box">
+      <h3><strong class="f-15">心理测试</strong></h3>
+         <div class="info_desc f-16 bt_line_fix"></div>
+            <div class="home_testList clear">
+            <ul>
+            <li><a href="{tp#:U('Exam/index')}"><img src="http://static.yidianling.com/mobile/images/home_test01.jpg">抑郁测试</a></li>
+            <li><a href="{tp#:U('Exam/index')}"><img src="http://static.yidianling.com/mobile/images/home_test02.jpg">焦虑测试</a></li>
+            <li><a href="{tp#:U('Exam/index')}"><img src="http://static.yidianling.com/mobile/images/home_test03.jpg">亲子测试</a></li>
+            <li><a href="{tp#:U('Exam/index')}"><img src="http://static.yidianling.com/mobile/images/home_test04.jpg">人格测试</a></li>
+            </ul>
+            </div>
+            <div class="info_desc f-16 bt_line_fix clear"></div>
+                     <div class="listConer_more f-12"><a href="{tp#:U('Exam/index')}">更多&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a></div>
+   </div>
+
+   </div>
+</div>
+
+    <!--footer-->
+    <include file="Public:footer"/>
+    <include file="Public:footbar"/>
+    <!--footer-->
+
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container1', {
+        slidesPerView: 'auto',
+        spaceBetween: '2%',
+        freeMode: true,
+        slidesOffsetAfter: 14,
+        slidesOffsetBefore: 14
+    });
+</script>
+
+<script type="text/javascript">
+var num=98604;//number类型
+  var strNum=String(num);
+  var lenNum=strNum.length;
+  $('.wgt-image-timer').width(lenNum*12+'px');
+  $(function(){
+    var str='';
+    for(var i=0;i<lenNum;i++){
+      str+="<span><em>0</em><em>1</em><em>2</em><em>3</em><em>4</em><em>5</em><em>6</em><em>7</em><em>8</em><em>9</em><em>0</em><em>1</em><em>2</em><em>3</em><em>4</em><em>5</em><em>6</em><em>7</em><em>8</em><em>9</em></span>";
+    }
+    $('.wgt-image-timer').html('').append(str);
+//      adjust the number box width
+    var arrNum=strNum.split('');
+    for(var i=0;i<lenNum;i++){
+      $('.wgt-image-timer').find('span').eq(i).animate({top: arrNum[i]*(-16)+'px'},1000)
+    }
+
+  });
+
+function AutoScroll(obj){
+    $(obj).find("ul:first").animate({
+      marginTop:"-25px"
+    },500,function(){
+      $(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+    });
+}
+setInterval('AutoScroll("#scrollDiv")',2000);
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"> </script>
+<script>
+  wx.config({
+      debug: false,
+      appId: 'wx2bc3e1648beb8caa', // 必填，公众号的唯一标识
+      timestamp: 1445405452, // 必填，生成签名的时间戳，切记时间戳是整数型，别加引号
+      nonceStr: 'SzlrgiRHej8dKCN2', // 必填，生成签名的随机串
+      signature: 'b2051ca373cb835063e423a4d1455764c9cd4312', // 必填，签名，见附录1
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+      ]
+  });
+
+wx.ready(function(){
+  var shareconfig = { //分享到朋友圈
+    title: '新育心理－您身边的心理咨询专家', // 分享标题
+    desc: '新育心理有温度的心理健康咨询平台，帮您解决亲子教育、婚姻恋爱、抑郁焦虑等问题。',
+      link: 'http://m.yidianling.com/', // 分享链接
+      imgUrl: 'http://static.yidianling.com/v2/images/share_logo.png', // 分享图标
+      success: function (res) {
+      },
+
+      cancel: function () {
+      }
+  }
+
+  wx.onMenuShareTimeline(shareconfig);  //朋友圈
+
+  wx.onMenuShareAppMessage(shareconfig); //分享给朋友
+
+});
+
+</script>
+</div>
+<script>
+  NProgress.start();
+  $(function(){
+    NProgress.done();
+  });
+</script>
+
+<!--side-->
+
+<div class="dropdown-modal"></div>
+<div id="modal"></div>
+<script src='js/juicer-min.js'></script>
+<script src="__PUBLIC__/js/web_new.js"></script>
+<!--side-->
+<script>
+
+function BindPhone(){
+  this.index=0;
+  this.err=false;
+  this.phone='';
+  this.isListen=1;
+  this.trigger='#bind-phone';
+  this.box='#bind_phone_box';
+  this.next_btn='#bpnext';
+  this.send_btn='#bpsend';
+  this.succ_btn='#bpsucc';
+  this.chphone_btn='#bpchphone';
+  this.cc_sign='38f2e199f892143d5bfda6f09de2dbfe';
+  this.link_btn='#bplink';
+  this.tm=false;
+  this.close_btn="#bpclose";
+  this.succ_cb=null;
+  this.heights={
+    'phone':250,
+    'checkandpass':350,
+    'check':270,
+    'bindsucc':280
+  };
+  this.types=['phone','checkandpass','check','bindsucc'];
+  var that=this;
+  $(this.trigger).click(function(){
+    
+    that.sb();
+
+  });
+  $(document).off('click',this.next_btn).on('click',this.next_btn,function(){
+    var items=$(that.box).find('.input_item');
+    for(i=0;i<items.length;i++){
+
+      var type=$(items[i]).attr("data-propertyname");
+      if(type=='phone'){
+        var rs=that.checkPhone($(items[i]));
+      }
+
+      if(type=='verifyCode'){
+
+        var rs=that.checkCode($(items[i]));
+      }
+
+    }
+  });
+
+  $(document).off('click',this.chphone_btn).on('click',this.chphone_btn,function(){
+
+    that.index=0;
+
+    that.sb(false);
+  });
+
+
+  $(document).off('click',this.send_btn).on('click',this.send_btn,function(){
+    var sended=$(that.send_btn).attr("data-sended");
+    if(sended==1)
+      return false;
+    $(that.send_btn).addClass('btn_disabled').removeClass('.btn_active');
+    that.sendCode(function(){
+
+      that.leftTime(60);
+    });
+  });
+
+  $(document).off('click',this.close_btn).on('click',this.close_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    if(that.index==3)
+      window.location.reload();
+  });
+
+  $(document).off('click',this.link_btn).on("click",this.link_btn,function(){
+    var type=$(this).attr('data-type');
+    if(type=='use'){
+      window.location.href='/app';
+      
+    }
+    else{
+      window.location.href='/uc/rechargeP';
+    }
+
+  });
+  $(document).off('click',this.succ_btn).on('click',this.succ_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    (that.succ_cb)();
+
+  });
+
+}
+
+
+
+BindPhone.prototype={
+  cls:function(){
+    clearTimeout(this.tm);
+    $(this.box).remove();
+  },
+
+  sb:function(cb){
+
+    this.cls();
+    var argNum=arguments.length;
+    if(argNum==4){
+      this.phone=arguments[1];
+      this.isListen=parseInt(arguments[2]);
+      this.succ_cb=arguments[3];
+    }
+    var $modal = $.modalInit('#modal');
+    $modal.show();
+    var curtype=this.types[this.index];
+    var height=parseInt(this.heights[curtype]);
+    var tpl=$('#bind_phone_tpl').html();
+    var html=juicer(tpl,{type:curtype,height:height,phone:this.phone,isListen:this.isListen});
+    $('body').append(html);
+    if(this.index==1 || this.index==2){
+      $(this.send_btn).attr('data-sended','1');
+    }
+    
+    if(argNum>0 && arguments[0]){
+      arguments[0]();
+    }
+    
+  },
+
+  checkPhone:function(obj){
+    var phone=obj.find('input[type=text]').val();
+    if(!/^\d{11}$/.test(phone)){
+      this.showMsg(obj,'请输入正确的手机号码');
+      return false;
+    }
+    var that=this;
+    $.post('/accountset/hasBindPhoneCs',{phone:phone},function(rs){
+      
+      rs=eval("("+rs+")");
+      if(rs.code==-1){
+        that.showMsg(obj,'请输入正确的手机号码');
+        return false;
+      }
+
+      if(rs.code==-2){
+        that.showMsg(obj,rs.msg);
+        return false;
+      }
+      var skip=2;
+      if(rs.code=='-3'){
+        skip=1;
+        
+      }
+      that.phone=phone;
+      that.index+=skip;
+      that.sendCode();
+      that.sb(function(){
+
+        that.leftTime(60);
+
+      });
+
+      
+    });
+
+  },
+
+  checkCode:function(obj){
+    var code=obj.find('input[type=text]').val();
+    if(code.length!=4){
+
+      this.showMsg(obj,'验证码有误，请重新输入');
+      return false;
+    }
+    var passwd='';
+    if(this.index==1){
+
+      var passwdObj=$(this.box).find(".input_item[data-propertyname=passwd]");
+      passwd=passwdObj.find('input[type=password]').val();
+      if(!passwd || passwd.length<6 ||passwd.length>16){
+        this.showMsg(passwdObj,'密码长度6-16位 英文或数字组合');
+        return false;
+      }
+
+    }
+    var that=this;
+    $.post("/accountset/bindNextEnsure",{username:this.phone,passwd:passwd,vcode:code},function(rs){
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        that.index=3;
+        that.sb();
+      }
+      else{
+        that.showMsg(obj,rs.msg);
+      }
+
+    });
+
+  },
+  showMsg:function(obj,msg){
+    $(obj).find('.input_tips').remove();
+    $(obj).append('<span data-valid-message="" class="input_tips">'+msg+'</span>');
+    $(obj).find('input[type=text],input[type=password]').addClass('input_warning');
+
+  },
+  sendCode:function(cb){
+    $.post('/user/SendChkCode',{username: this.phone, sms_action: 'bind_phone',funk_you:this.cc_sign},function(rs){
+
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        X.dialog.tips('短信已发送至您的手机');
+      }
+      if(cb){
+        cb();
+      }
+    });
+  },
+  leftTime:function(count){
+    var that =this;
+    count--;
+    leftTim=count;
+    var v = "重发("+leftTim+")";
+    $(this.send_btn).val(v);
+    if(leftTim < 0){
+      $(that.send_btn).val("重新发送").removeClass('btn_disabled').addClass('btn_active').attr('data-sended','0');
+      clearTimeout(that.timeout);
+    }
+    else{
+      that.tm=setTimeout(function(){
+        that.leftTime(count);
+      },1000);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+</script>
+<script>
+var bindPhone=new BindPhone();
+$(function(){
+  //mobile menu
+  var flag=false;
+  $('.menu2').on('click', function(){
+    if(flag){
+      $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+      $('#menu_mask').removeClass('active');
+      flag=false;
+    }else{
+      $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+      $('#menu_mask').addClass('active');
+      flag=true;
+    }
+  });
+
+  $('#menu_mask').on('touchend', function(){
+    $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+    $('#menu_mask').removeClass('active');
+    flag=false;
+  });
+
+  $.tap(".weChat", function () {
+    var t;
+    return t = $("#follow_us"), t.modal(), t.trigger("modal.toggle");
+  });
+
+  $('.iconBack').on('touchend', function () {
+    window.location.href="/";
+  });
+  $('.userCenter').on('touchend', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+  
+   $('.userCenter').on('click', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+  
+});
+</script>
+
+<div id="follow_us" data-loaded="1" class="modal hidden inline">
+  <div class="modal-dialog" style='width:400px;'>
+    <div class="title">
+      微信扫一扫，随时随地访问。
+      <i class="fa fa-close"></i>
+    </div>
+    <div class="content">
+      <p class='txt-c'><img src='__PUBLIC__/images/qrcode_news.png' width="250px"></p>
+    </div>
+  </div>
+</div>
+<!-- Edit by Xiaofan Zhang -->
+
+<!-- Edit by Xiaofan Zhang | end -->
+
+<a href="javascript:;">
+  <i class="fa fa-wechat weChat" id="weChat"><span>微信关注</span></i>
+</a>
+<a href="tencent://message/?uin={tp#$webinfo.qq}&Menu=yes" target="_blank">
+  <i class="fa fa-qq" id="online_chat"><span>在线客服</span></i>
+</a>
+
+<!-- Edit by Xiaofan Zhang -->
+<!-- fixed-bar -->
+<include file="Public:fixedbar"/>
+<!-- fixed-bar end -->
+
+</div>
+</body>
+</html>

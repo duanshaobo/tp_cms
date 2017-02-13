@@ -1,0 +1,85 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">数据库备份</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>数据库备份</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+        	<a class="btn green" href="{tp#:U('recover')}"><i class="icon-download-alt"></i>  数据下载</a>
+        </div>
+
+    </div>
+
+    <div class="portlet-body">
+    	<form method="post" action="{tp#:U('Database/back')}" class="form-inline">
+            <p>
+               备份类型：<select name="back_type">
+                        <option value="1">完全备份</option>
+                        </select>
+                        <input type="submit" value="备份" class="btn blue">
+           </p>  			
+          <div class="clear"></div>
+        </form>
+        <table class="table table-striped table-bordered table-hover">
+
+<thead>
+        <tr>
+           <th>表名</th>
+           <th>表类型</th>
+           <th>记录数</th>
+           <th>注释</th>
+           <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <volist name="list" id="item">
+            <tr>
+              <td>{tp#$item.Name}</td>
+              <td>{tp#$item.Engine}</td>
+              <td>{tp#$item.Rows}</td>
+              <td>{tp#$item.Comment}</td>
+              
+              <td>
+              <a href="{tp#:U('click',array('table'=>$item['Name'],'do'=>'optimize'))}" title="优化表" class="btn green">优化表</a>
+              <a href="{tp#:U('click',array('table'=>$item['Name'],'do'=>'repair'))}" title="优化表" class="btn green">修复表</a>  
+              </td>
+            </tr>
+        </volist>
+      </tbody>
+
+
+        </table>
+
+	<div class="pagination">{tp#$show}</div>	
+    
+	</div>
+	
+    					
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

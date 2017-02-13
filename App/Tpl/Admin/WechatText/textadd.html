@@ -1,0 +1,118 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title"><if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>回复配置</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>
+        <if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>回复配置
+        </div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+    
+		<form action="{tp#:U('textaddhandle',array('id'=>I('get.id')))}" method="post" class="form-horizontal form-bordered">
+        <fieldset>
+            <p>
+                关键字&nbsp;&nbsp;&nbsp;：&nbsp;&nbsp;<input type="text" name="textkey" class="m-wrap span6" value="{tp#$nrs.textkey}"> 
+            </p>
+            <p>
+                触发菜单：
+                <select name='menukey'>
+                    <option value=''>—选择触发该消息的click菜单—</option>
+                    <option value='subscribe' <eq name='nrs.menukey' value='subscribe'>selected</eq>>关注</option>
+                    <volist name='menulist' id='val'>
+                        <option value='{tp#$val.key}' <eq name='nrs.menukey' value='$val.key'>selected</eq>>{tp#$val.name}</option>
+                    </volist>
+                </select>
+                <span class="input-notification success png_bg">&nbsp;希望某个事件或click类型菜单触发该关键字时选择，不需要时留空即可！</span>
+            </p>
+        
+            <p>
+                回复类型：
+        
+                <input type="radio" class="text-radio" name="type" value="0" <if condition="$nrs['type'] eq 0">checked="checked"</if>/>&nbsp;图文消息(news)&nbsp;
+                <input type="radio" name="type" class="text-radio" value="1" <if condition="$nrs['type'] eq 1">checked="checked"</if> />&nbsp;文字消息(text)&nbsp;
+            </p>
+            <eq name="nrs.type" value="1">
+            <p>
+              回复内容：
+                <!--<input type="text" name="conf" class="m-wrap span6" value="{tp#$nrs.conf}" style="width:90% !important"> -->
+                <textarea name="conf" required style="height:auto" rows="5" class="m-wrap span6">{tp#$nrs.conf}</textarea>
+                <!--<span class="input-notification success png_bg">{nickname}会被替换为用户微信昵称，{id}会被替换为用户id</span>-->
+            </p>                
+            </eq>
+            
+            <div class="form-actions">
+        
+                <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+        
+                <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+        
+            </div>
+        </form>	
+    
+	</div>
+
+    </div>
+    
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->     
+      
+<script>
+$(function(){
+  $('.selfurl').change(function(){
+	  $("input[name='url']").val($(this).val());
+  });
+});
+//单图上传
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		allowFileManager : true
+	});
+	K('#image1').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				imageUrl : K('#url1').val(),
+				clickFn : function(url, title, width, height, border, align) {
+					K('#url1').val(url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+</script>
+
+    
+</block>		<!--页面主体内容-->

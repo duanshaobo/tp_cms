@@ -1,0 +1,186 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">公众号设置</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+ 
+<style>
+.bg-gray{background:#333 !important}
+</style>  
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>公众号设置</div>
+        
+        
+        <div class="actions">
+
+            <a href="javascript:;" class="btn green btn-edit"><i class="icon-edit"></i> 编辑</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    <div class="alert alert-success">重要信息请认真填写</div>
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('confHandle')}" method="post" class="form-horizontal form-bordered">          
+
+    <div class="control-group">
+
+        <label class="control-label">公众号名称</label>
+
+        <div class="controls">
+
+ 			<input required="" type="text" name="pubchatname"  class="m-wrap span6" value="{tp#$conf.pubchatname}"> 
+
+        </div>
+
+    </div>
+    
+    
+    <div class="control-group">
+
+        <label class="control-label">公众号ID</label>
+
+        <div class="controls">
+
+ 			<input required="" type="text" name="pubchatid"  class="m-wrap span6" value="{tp#$conf.pubchatid}"> 
+
+        </div>
+
+    </div>
+    
+    
+    <div class="control-group">
+
+        <label class="control-label">TOKEN</label>
+
+        <div class="controls">
+
+ 			<input required="" type="text" name="token"  class="m-wrap span6" value="{tp#$conf.token}"> 
+
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">APPID</label>
+
+        <div class="controls">
+
+ 			<input readonly type="text" name="appid"  class="m-wrap span6 bg-gray" value="{tp#$conf.appid}"> 
+
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">APPSECRET</label>
+
+        <div class="controls">
+
+ 			 <input readonly type="text" name="appsecret"  class="m-wrap span6 bg-gray" value="{tp#$conf.appsecret}"> 
+
+        </div>
+
+    </div>
+    
+    
+    <div class="control-group">
+
+        <label class="control-label">商户号</label>
+
+        <div class="controls">
+
+ 			<input readonly type="text" name="mchid"  class="m-wrap span6 bg-gray" value="{tp#$conf.mchid}">  
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="control-group">
+
+        <label class="control-label">支付秘钥</label>
+
+        <div class="controls">
+
+             <input readonly type="text" name="partnerkey"  class="m-wrap span6 bg-gray" value="{tp#$conf.partnerkey}"> 
+
+        </div>
+
+    </div>
+
+
+	<div class="control-group">
+
+        <label class="control-label">关注外链</label>
+
+        <div class="controls">
+
+             <input type="text" name="sub_url"  class="m-wrap span10" value="{tp#$conf.sub_url}"> 	
+           <if condition="!empty($conf['sub_url'])">
+           <a href="{tp#$conf.sub_url}" target="_blank">查看</a>
+           </if>
+
+        </div>
+
+    </div>
+
+	<div class="control-group">
+    	<label class="control-label">接口地址</label>
+        <div class="controls">
+            <a target='_blank' href="/?g=Wx&token={tp#$conf.token}">http://{tp#:I('server.HTTP_HOST')}/?g=Wx&token={tp#$conf.token}</a>
+          <font style="color:">&nbsp;微信公众平台【服务器地址URL】</font>
+        
+        </div>
+    </div>
+    
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+    </div>
+    
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+<style>
+.bg-gray{background:#CCC !important;border:1px solid red !important;}
+</style>
+<script>
+$(".btn-edit").click(function(){
+	$("input[type='text']").removeAttr("readonly").removeClass('bg-gray');
+});
+</script>
+</block>		<!--页面主体内容-->

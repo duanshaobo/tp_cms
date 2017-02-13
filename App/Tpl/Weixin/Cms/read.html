@@ -1,0 +1,230 @@
+<html class=" ">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport">
+
+<title>{tp#$data.title}—{tp#$webinfo.web_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{tp#$webinfo.web_keywords}">
+<meta name="description" content="{tp#$webinfo.web_description}">
+
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/wx_ydl.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_v2.css">
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/nprogress.css">
+
+<script src="__PUBLIC__/js/nprogress.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-2.1.0.min.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/app_v2.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/wx_ydl.js"></script>
+<script src="__PUBLIC__/js/wx_checked.js"></script>
+
+  
+  <style>
+    .redpacket1 {
+      width: 160px;
+      height: 123px;
+      position: fixed;
+      left: 50%;
+      margin-left: -80px;
+      margin-bottom: -61px;
+      z-index: 10;
+    }
+
+    .redpacket1 img {
+      width: 160px;
+    }
+
+    .redpacket1-close {
+      transition: all .5s;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url(images/index_close.png);
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      top: -18px;
+      right: -26px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<!--mNav-->
+
+<!--弹出导航-->
+<div class="navbar sNav">
+ <include file="Public:navbar"/>
+</div>
+<!--弹出导航-->
+
+<div class="header sNav">
+  
+
+    <!-- <a class="logo" id="back_home" href="index.html"></a> -->
+   <div class="iconBack"></div>
+   <div class="iconBack-title">新育心理</div>
+  
+   <div class="menu2"></div>
+   <div class="userCenter"></div>
+
+</div>
+<!--mMenu-->
+
+
+
+<!--pMenu-->
+
+<div class="wNav" style="box-shadow:0 1px 1px rgba(0, 0, 0, 0.1); border-bottom:1px solid #ebebeb">
+  <div style="width:1000px; margin:0 auto; position:relative">
+    <div class="header">
+      <a class="logo" href="index.php"><img src="__PUBLIC__/images/logo_header_v2.png" alt="Logo"></a><i class="fa fa-bars menu sNav"></i>
+    </div>
+    <div class="navbar login_in wNav">
+      <!--pMenu default-->
+	
+    </div>
+  </div>
+</div>
+
+
+<div class="activities index activities_index chrome modern mac webkit desktop">
+<!--pMenu over-->
+<!--breadcrumb-->
+<div class="breadcrumb wNav">
+  <div class="container">
+    <a class="title" href="#">最新动态</a><span>详情</span>
+  </div>
+</div>
+<div id="menu_mask"></div>
+<!--content-->
+<div id="content_wrapper">
+  <div class="container">
+    <div class="col_main">
+    <div class="box article event">
+        <div class="title"><strong>{tp#$data.title}</strong></div><div class="content"><div class="post_desc">发表于：{tp#$data.posttime|date='Y/m/d',###}&nbsp;&nbsp;浏览:{tp#$data.hits}次</div>
+    <div class="event_content">{tp#$data.content|htmlspecialchars_decode|stripslashes}</div>
+    
+    </div>    
+    </div>
+        <div class="share wNav"></div>
+        </div>
+        <div class="col_sub">
+    <!--ad-->
+    <aside>
+    <a href="#" class="help wNav">
+    <img src="__PUBLIC__/images/web_subBanner_listen.jpg" width="260"></a>
+    </aside>
+         <!-- hot questions-->
+        <aside>
+        <h4>最新动态</h4>
+      	  <ul class="bar">
+      
+      	  <volist name="list" id="item">
+      	  <li class="hot_question">
+          <div class="item clearfix">
+          <div class="info"> <a class="link" href="{tp#:U('read',array('id'=>$item['id']))}">{tp#$item['title']}</a><span class="author">{tp#$item['posttime']|date='Y-m-d',###}</span>
+          </div>
+          </div>
+          </li>
+          </volist>
+         
+          </ul>
+          
+          <if condition="empty($list)"> 
+          	<p><small><center>暂无内容</center></small></p>
+          </if>
+          
+      </aside>
+   </div>
+  </div>
+</div>
+
+<!--footer-->
+<div class="footer">
+  <include file="Public:footer"/>
+</div>
+<!--side-->
+
+<div class="dropdown-modal"></div>
+<div id="modal"></div>
+<script src="__PUBLIC__/js/juicer-min.js"></script>
+<script src="__PUBLIC__/js/web_new.js"></script>
+
+<script>
+$(function(){
+  var flag=false;
+  $('.menu2').on('click', function(){
+    if(flag){
+      $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+      $('#menu_mask').removeClass('active');
+      flag=false;
+    }else{
+      $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+      $('#menu_mask').addClass('active');
+      flag=true;
+    }
+  });
+
+  $('#menu_mask').on('touchend', function(){
+    $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+    $('#menu_mask').removeClass('active');
+    flag=false;
+  });
+
+  $.tap(".weChat", function () {
+    var t;
+    return t = $("#follow_us"), t.modal(), t.trigger("modal.toggle");
+  });
+
+  $('.iconBack').on('touchend', function () {
+    window.location.href="/";
+  });
+  $('.userCenter').on('touchend', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+  $('.userCenter').on('click', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+});
+</script>
+
+
+<script>
+  //coupon
+  jQuery.extend( jQuery.easing,
+      {
+        easeOutBounce: function (x, t, b, c, d) {
+          if ((t/=d) < (1/2.75)) {
+            return c*(7.5625*t*t) + b;
+          } else if (t < (2/2.75)) {
+            return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+          } else if (t < (2.5/2.75)) {
+            return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+          } else {
+            return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+          }
+        },
+      });
+  $(function(){
+    $('#redpackage_mask').css('display','block');
+    $('.redpacket1').css('bottom','1000px').animate({
+      bottom: '50%'
+    }, 1600,'easeOutBounce');
+    $('.redpacket1-close').click(function(){
+      $(this).parent().css('display','none');
+      $('#redpackage_mask').css('display','none');
+    })
+  })
+
+</script><!-- fixed-bar end -->
+
+
+</div>
+
+</body>
+
+</html>

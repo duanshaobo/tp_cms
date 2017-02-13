@@ -1,0 +1,139 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">
+
+        <if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>栏目
+
+    </h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>
+        <if condition="I('get.id') gt 0">[修改]<else/>[新增]</if>栏目
+        </div>
+        
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+            
+        </div>
+        
+        <div class="tools" style="margin:0 10px">
+
+            <a href="javascript:;" class="collapse"></a>
+
+        </div>
+        
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('sortaddhandle',array('id'=>I('get.id')))}" method="post" class="form-horizontal form-bordered">
+
+<p>
+                    栏目名称：<input required="required" type="text" name="name" class="m-wrap span6" value="{tp#$nrs.name}"> 
+                </p>
+                <p>
+                    所属上级：<select name="fup">
+                    		<option value="0">不选择默认顶级</option>
+                    		<volist name="sortd" id="v">
+                    			<option value="{tp#$v.id}" <if condition="$nrs['fup'] eq $v['id']">selected</if>>{tp#$v.name}</option>
+                    		</volist>
+                			</select>	
+                </p>
+                <p>
+                	栏目类型：
+
+                    <input type="radio" name="type" value="0" <if condition="$nrs['type'] eq 0">checked="checked"</if>/>&nbsp;分类&nbsp;
+                    <input type="radio" name="type" value="1" <if condition="$nrs['type'] eq 1">checked="checked"</if> />&nbsp;栏目&nbsp;
+                    <input type="radio" name="type" value="2" <if condition="$nrs['type'] eq 2">checked="checked"</if>/>&nbsp;单篇&nbsp;
+                </p>
+                <p>
+                	数据模型：
+
+                    <input type="radio" name="class" value="0" <if condition="$_GET['id'] gt 0">disabled="disabled"</if> <if condition="$nrs['class'] eq 0">checked="checked"</if>/>&nbsp;文章&nbsp;
+                    <volist name="formd" id="v">
+
+                    	<input type="radio" name="class" value="{tp#$v.id}" <if condition="$_GET['id'] gt 0">disabled="disabled"</if>  <if condition="$nrs['class'] eq $v['id']">checked="checked"</if>/>&nbsp;{tp#$v.title}&nbsp;
+                    </volist> (添加后不能修改)
+
+                </p>
+               <p>缩略图：
+                <input name="spic" type="text" id="url1" value="{tp#$nrs.spic}" class="m-wrap span6"/> 
+                <input type="button" id="image1" value="选择图片" class="btn"/>
+               </p>
+                <!--<p>
+                	首页显示：
+
+                    <input type="radio" name="isform" value="0" <if condition="$nrs['isform'] eq 0">checked="checked"</if>/>&nbsp;不显示&nbsp;
+                    <input type="radio" name="isform" value="1" <if condition="$nrs['isform'] eq 1">checked="checked"</if>/>&nbsp;显示&nbsp;
+                    显示条数：<input type="text" name="form" class="m-wrap span62" value="{tp#$nrs.form}">
+                </p>                  
+                <p>
+                    列表模板：<input type="text" name="list_html" class="m-wrap span6" value="{tp#$nrs.list_html}"> 
+                </p>
+                <p>
+                    内容模板：<input type="text" name="bencandy_html" class="m-wrap span6" value="{tp#$nrs.bencandy_html}"> 
+                </p>                
+-->  
+
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+   
+            
+	</div>
+							
+                          
+</div>
+<!--kindeditor-->
+<link rel="stylesheet" href="/plugins/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/plugins/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/plugins/kindeditor/lang/zh_CN.js"></script>
+<!--kindeditor-->
+<script>
+//单图上传
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		allowFileManager : true
+	});
+	K('#image1').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				imageUrl : K('#url1').val(),
+				clickFn : function(url, title, width, height, border, align) {
+					K('#url1').val(url);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+</script>  
+</block>		<!--页面主体内容-->

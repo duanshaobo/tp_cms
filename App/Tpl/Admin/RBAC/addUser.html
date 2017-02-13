@@ -1,0 +1,125 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">
+		新增账号
+    </h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>新增账号</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('Admin/RBAC/addUserHandle')}" method='post' class="form-horizontal form-bordered">
+
+    <div class="control-group">
+
+        <label class="control-label">用户账号</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="username"  class="m-wrap span6" placeholder="登录账号" /> 
+                    
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">密码</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="password"  class="m-wrap span6" placeholder="登录密码" /> 
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="control-group">
+
+        <label class="control-label">所属角色</label>
+
+        <div class="controls">
+            
+            <select required class="m-wrap span6" name="role_id[]">
+                    <option value="">请选择</option>
+                      <volist name="role" id="v">
+                        <option value="{tp#$v['id']}">{tp#$v['name']}({tp#$v['remark']})</option>
+                      </volist>
+             </select> 
+
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">是否开启</label>
+
+        <div class="controls">
+            
+            <input type="radio" name="lock" value="0" checked="checked"/>&nbsp;开启&nbsp;
+            <input type="radio" name="lock" value="1"/>&nbsp;关闭&nbsp;
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="form-actions">
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+            
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

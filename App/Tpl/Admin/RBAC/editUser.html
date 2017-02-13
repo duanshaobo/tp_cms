@@ -1,0 +1,132 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">
+		编辑账号
+    </h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>编辑账号</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+        
+        <div class="actions">
+
+            <a href="{tp#:U('index')}" class="btn green"><i class="icon-list"></i> 返回</a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('Admin/RBAC/editUserHandle')}" method='post' class="form-horizontal form-bordered">
+
+    <div class="control-group">
+
+        <label class="control-label">用户账号</label>
+
+        <div class="controls">
+
+ 			【 <b>{tp#$urs.username}</b> 】
+                    
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">密码</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="password"  class="m-wrap span6" /> 
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="control-group">
+
+        <label class="control-label">所属角色</label>
+
+        <div class="controls">
+            
+            <select class="m-wrap span6" name="role_id[]">
+                    <option value="">请选择</option>
+                      <volist name="role" id="v">
+                        <option value="{tp#$v['id']}" <if condition="$v['id'] eq $urs['urid']">selected</if> >{tp#$v['name']}({tp#$v['remark']})</option>
+                      </volist>
+             </select> 
+
+        </div>
+
+    </div>
+    
+    
+     <div class="control-group">
+
+        <label class="control-label">账号状态</label>
+
+        <div class="controls">
+            
+            <select class="m-wrap span6" name="lock">
+                    <option value="0" <if condition="$urs['lock'] eq 0">selected</if>>开启</option>
+                    <option value="0" <if condition="$urs['lock'] eq 1">selected</if>>冻结</option>
+             </select> 
+
+        </div>
+
+    </div>
+	
+    
+
+    <div class="form-actions">
+		
+        <input type="hidden" name="id" value="{tp#$urs.id}"> 
+        
+        <input type="hidden" name="username" value="{tp#$urs.username}"> 
+        
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('index')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+            
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

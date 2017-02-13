@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<title>我的收获资料-{tp#$webinfo.web_title}</title>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/comman.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/jquery_dialog.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/style.css" media="all">
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/user2015.css" media="all">	
+<script> var SITE_URL="http://www.wdkl168.com/m/";</script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery_dialog.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json-1.3.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/user.js"></script> 	
+<script type="text/javascript" src="__PUBLIC__/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/js/script.js"></script> 
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/css.css" media="all">
+<div id="home">
+	<div id="header">
+		<div class="logo" style="height:28px; padding-top:10px; background:url(http://www.wdkl168.com/m/images/xy.png) 10px 8px no-repeat"><span onclick=" history.go(-1);">&nbsp;</span></div>
+		<div class="shoptitle"><span>我的收货资料</span></div>
+		<!--right-->
+        <include file="Public:logoright"/>
+        <!--right-->
+	</div>
+</div>	
+<script type="text/javascript">
+function ajax_show_menu(){
+	$(".showmenu").toggle();
+}
+</script>
+
+<style type="text/css">
+.pw,.pwt{
+height:26px; line-height:26px;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #fff; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+.pw{ width:95%;}
+.usertitle{
+height:22px; line-height:22px;color:#666; font-weight:bold; font-size:14px; padding:5px;
+border-radius: 5px;
+background-color: #ededed; padding-left:5px; padding-right:5px;
+-moz-border-radius:5px;/*仅Firefox支持，实现圆角效果*/
+-webkit-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+-khtml-border-radius:5px;/*仅Safari,Chrome支持，实现圆角效果*/
+border-radius:5px;/*仅Opera，Safari,Chrome支持，实现圆角效果*/
+}
+.addr-table{border-radius:5px;border:1px solid #e5e5e5;padding:10px; margin:0px; line-height:24px; background-color:#fafafa; margin-bottom:7px; margin-top:10px;}
+.form-table{line-height:24px;padding:10px;background:#f5f5f5; border:1px solid #d1d1d1;border-radius:5px;}
+.btn-red{display:block;background:#e13935;cursor:pointer;width:110px; height:24px; line-height:24px; font-size:14px; color:#FFF !important; font-weight:bold; text-align:center;border-radius: 5px;overflow:hidden;}
+.btn-red:hover{color:#FFF}
+</style>
+<div id="main" style="padding:5px; min-height:300px">
+	 	
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="addr-table">
+      <tbody>
+      <volist name="list" id="item">
+         <span>
+          
+          <tr>
+            <td>收货人：{tp#$item.consignee}</td>
+          </tr>
+          
+          <tr>
+            
+            <td>收货地址：{tp#$item.province}-{tp#$item.city}-{tp#$item.district}-{tp#$item.address}</td>
+          </tr>
+          
+          <tr>
+            <td>电话：{tp#$item.mobile}</td>
+          </tr>
+          
+          <tr>
+          <td>
+           <a href="{tp#:U('Ucenter/address_list',array('id'=>$item['id']))}">
+           <img src="__PUBLIC__/images/btu_up.gif" height="26" width="66" border="0" style="cursor:pointer">
+           </a>&nbsp;
+           <img class="btn-del" addr_id="{tp#$item.id}" src="__PUBLIC__/images/btu_dell.gif" height="26" width="66" border="0" style="cursor:pointer">&nbsp;
+          </td>
+          </tr>
+          
+         </span>
+     </volist>
+	</tbody>
+</table>
+<if condition="strlen($page) gt 1"><p id="page">{tp#$page}</p></if>
+<p style="background:#FFF;margin:10px auto;padding:10px;border-radius:5px;text-align:center;box-shadow:0 -3px 0  #999 inset;color:#CB0048" onclick='location.href="{tp#:U('Ucenter/address_list')}"'>
+新增
+</p>
+    
+  <div class="add">
+    <form action="" method="">
+	<table width="100%" border="0" class="form-table" cellpadding="0" cellspacing="0">
+	  <tbody>
+      <tr>
+		<td align="left"><b class="cr2">*</b> 姓名：</td>
+		</tr>
+		<tr>
+		<td align="left">
+        <input name="consignee" class="pw" value="{tp#$info.consignee}" type="text" placeholder="收货人">
+        </td>
+	  </tr>
+	  <tr>
+		<td align="left"><b class="cr2">*</b> 地区：</td>
+	  </tr>
+	  <tr>
+		<td align="left">  
+        <select name="province" id="province" class="pwt" _onchange="ger_ress_copy(2,this,select_city)">                                             
+        </select>
+	
+        <select name="city" id="city" class="pwt" _onchange="ger_ress_copy(3,this,select_district)">
+        <option value="">选择城市</option>
+        </select>
+	
+        <select name="district" class="pwt" id="district">
+        <option value="">选择区</option>	                                        
+        </select>
+	</td>
+	  </tr>
+	  <tr>
+		<td align="left"><b class="cr2">*</b> 地址：</td>
+	  </tr>
+	  <tr>
+		<td align="left">
+        <input name="address" class="pw" value="{tp#$info.address}" type="text" placeholder="详细地址">
+        </td>
+	  </tr>
+	 <!-- <tr>
+		<td align="left"><b class="cr2">*</b> 邮箱：</td>
+	  </tr>
+	  <tr>
+		<td align="left">
+        <input type="text" class="pw" name="email" value="{tp#$info.email}" placeholder="邮箱">
+        </td>
+	  </tr>-->
+	  <tr>
+		<td align="left"><b class="cr2">*</b> 电话：</td>
+		</tr>
+		<tr>
+		<td align="left">
+        <input type="text" class="pw number" name="mobile" value="{tp#$info.mobile}" placeholder="联系电话">
+        </td>
+	  </tr>
+	  <tr>
+		<td align="center" style="padding-top:10px;">
+		<a href="javascript:;" class="btn-red" id="btn-sub">确定提交</a>
+        <p style="color:red" id="error-tip"></p>
+		</td>
+	  </tr>
+	</tbody>
+    </table>
+</form>
+ </div>
+<script type="text/javascript">
+function ger_ress_copy(type,obj,seobj){
+	parent_id = $(obj).val();
+	if(parent_id=="" || typeof(parent_id)=='undefined'){ return false; }
+	$.post(SITE_URL+'user.php',{action:'get_ress',type:type,parent_id:parent_id},function(data){
+		if(data!=""){
+			$(obj).parent().find('#'+seobj).html(data);
+			if(type==3){
+				$(obj).parent().find('#'+seobj).show();
+			}
+			if(type==2){
+				$(obj).parent().find('#select_district').hide();
+				$(obj).parent().find('#select_district').html("");
+			}
+		}else{
+			alert(data);
+		}
+	});
+}
+
+$(function(){
+	$("#btn-sub").click(function(){
+		
+		var post_data={};
+		post_data.consignee=$("input[name='consignee']").val();
+		post_data.mobile=$("input[name='mobile']").val();
+		post_data.address=$("input[name='address']").val();
+		post_data.province_id=$("#province").val();
+		post_data.city_id=$("#city").val();
+		post_data.district_id=$("#district").val();
+		if("{tp#$info['id']}"){					//编辑
+			post_data.id="{tp#$info['id']}";
+		}
+		if(post_data.consignee==''||post_data.mobile==''||post_data.address==''){
+			//$("#error-tip").text('请输入完整信息');
+			$(".tip_box").text("请输入完整信息").show();
+			setTimeout("close_tip();",1000);
+			return false;
+		}
+		$.post("{tp#:U('Ajax/address_edit')}",post_data,function(data){
+			location.reload();
+			//alert(data);
+		});
+	});
+	
+	//删除地址
+	$(".btn-del").click(function(){
+		var obj=$(this);
+		//obj.parent().parent().parent().remove();
+		//return ;
+		$.post("{tp#:U('Ajax/address_del')}",{id:$(this).attr('addr_id')},function(data){
+			location.reload();
+		});
+	});
+});
+</script>
+
+</div>
+<!--QUYU-->
+<div id="opquyu">
+	
+</div>
+<div id="opquyubox">
+	<!--商品分类导航-->
+    <include file="Public:category"/>
+   	<!--商品分类导航-->
+</div>
+
+<!--FOOTER-->
+<!--底部-->
+<include file="Public:footbar"/>
+<!--底部-->
+
+</body>
+</html>

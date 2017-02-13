@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store"/>
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, minimal-ui" name="viewport"/>
+<title>会员中心-{tp#$webinfo.web_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="{tp#$webinfo.web_keywords}"/>
+<meta name="description" content="{tp#$webinfo.web_description}"/>
+
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/ydl_v2.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/weui.min.css"/>
+<link rel="stylesheet" media="screen" href="__PUBLIC__/css/nprogress.css"/>
+<script src="__PUBLIC__/js/nprogress.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-2.1.0.min.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/jquery-extend.js"></script>
+<script src="__PUBLIC__/js/weui.js"></script>
+</head>
+<body ontouchstart>
+<!--mNav-->
+<div class="header sNav">
+
+    <!-- <a class="logo" id="back_home" href="/"></a> -->
+   <div class="iconBack"></div>
+   <div class="iconBack-title">
+    会员中心  </div>
+
+  
+
+    <div class="menu2"></div>
+    <div class="userCenter"></div>
+
+</div>
+
+<!--弹出导航-->
+<div class="navbar sNav">
+  <include file="Public:navbar"/>
+</div>
+<!--弹出导航-->
+
+
+<script src="__PUBLIC__/js/zepto.min.js"></script>
+
+<style type="text/css">
+    .weui_grid_icon {
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+    }
+    .weui_grid_label{
+        font-size:13px;
+    }
+</style>
+<div class="header">
+    <div class="iconBack"></div>
+    <div class="iconBack-title">会员中心</div>
+    <div class="menu2"></div>
+    <div class="userCenter"></div>
+</div>
+<div class="page">
+    <div class="container js_container">
+        <div class="page slideIn cell">
+            <div class="bd">
+                <div class="clear"></div>
+                
+                <div class="weui_cells weui_cells_access memberCenter_greenMenu">
+
+                        <a class="weui_cell" href="{tp#:U('info')}">
+
+                            <div class="weui_cell_hd"><img src="{tp#$user_info.headimgurl|default='__PUBLIC__/images/headimg.png'}" style="width:60px;margin-right:5px;display:block;border-radius:50%"></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p><small>[
+                                <if condition="$user_info['role_id'] eq 2"><font color="red">专家</font><else/>会员</if>
+                                ID{tp#$user_id}]</small>
+                                <br/>{tp#$user_info.nickname|default='---'}</p>
+                            </div>
+                             <div class="weui_cell_ft">资料修改
+                            </div>
+                        </a>
+                    </div>
+                <div class="weui_grids">
+                        <a href="{tp#:U('Index/expert_list')}" class="weui_grid js_grid" data-id="button">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconDate.png">
+                            </div>
+                            <p class="weui_grid_label">
+                                在线预约
+                            </p>
+                        </a>
+                        <a href="{tp#:U('Ucenter/order_list')}" class="weui_grid js_grid" data-id="cell">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconChat.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                在线咨询订单
+                            </p>
+                        </a>
+                        <!--<a href="{tp#:U('Index/listen')}" class="weui_grid js_grid" data-id="toast">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconCall.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                倾诉订单
+                            </p>
+                        </a>-->
+                         <a href="{tp#:U('Exam/exam_list')}" class="weui_grid js_grid" data-id="msg">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconMystory.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                我的考试记录
+                            </p>
+                        </a>
+                       <!-- <a href="{tp#:U('Index/expert_list')}" class="weui_grid js_grid" data-id="dialog">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconCourse.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                我的心事
+                            </p>
+                        </a>-->
+                        <a href="{tp#:U('Exam/index')}" class="weui_grid js_grid" data-id="msg">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconTest.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                在线题库
+                            </p>
+                        </a>
+                        <a href="{tp#:U('balance')}" class="weui_grid js_grid" data-id="dialog">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconCall.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                账户余额
+                            </p>
+                        </a>
+                        <a href="{tp#:U('recharge')}" class="weui_grid js_grid" data-id="dialog">
+                            <div class="weui_grid_icon">
+                                <img src="__PUBLIC__/images/uc_iconCourse.png" alt="">
+                            </div>
+                            <p class="weui_grid_label">
+                                在线充值
+                            </p>
+                        </a>
+                        
+                        
+                    </div>
+                
+                 <div class="weui_cells weui_cells_access memberCenter_greenMenu">
+                 	<!--<a class="weui_cell" href="{tp#:U('coupon')}">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-money"></i>红包</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>-->
+                    <if condition="$user_info['role_id'] eq 1">
+                    <a class="weui_cell" href="{tp#:U('Member/reg')}">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-money"></i>注册专家</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    </if>
+                    
+                    <if condition="$user_info['role_id'] eq 2">
+                    	<a class="weui_cell" href="{tp#:U('expert_info')}">
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p><i class="fa fa-credit-card"></i>专业及培训经历</p>
+                            </div>
+                            <div class="weui_cell_ft">
+                            </div>
+                        </a>
+                    	<a class="weui_cell" href="{tp#:U('Ucenter/skill')}">
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <p><i class="fa fa-money"></i>擅长领域</p>
+                            </div>
+                            <div class="weui_cell_ft">
+                            </div>
+                        </a>
+                       
+                    </if>
+                    
+                   <!-- <a class="weui_cell" href="{tp#:U('balance')}">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-money"></i>余额</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell" href="{tp#:U('recharge')}">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-credit-card"></i>充值</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>-->
+                    <a class="weui_cell" href="{tp#:U('account_bind')}">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-link"></i>账号绑定</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+                <!--<div class="weui_cells weui_cells_access memberCenter_grayMenu">
+                    <a class="weui_cell" href="#">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-star"></i>我关注的</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>-->
+                
+                <!--微信内不展示退出按钮-->
+                 <div class="weui_cells weui_cells_access memberCenter_grayMenu">
+                    <a class="weui_cell" href="javascript:;" id="logout">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p><i class="fa fa-sign-out"></i>退出</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="__PUBLIC__/js/app_v2.js" data-turbolinks-eval="false"></script>
+<script src="__PUBLIC__/js/wx_ydl.js"></script>
+<script src="__PUBLIC__/js/wx_checked.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#logout').on('click', function () {
+            $.confirm({ title:'', content:'确定要退出么？', confirm:function(){
+				window.location.href="index.php";
+                /*$.ajax({ 'type': 'post', 'url': '/logout',
+                    success: function (data) {
+                        window.location.href="/";
+                    }
+                });*/
+            },
+                cancel:function(){}
+            });
+        });
+    });
+
+    var flag=false;
+    $('.menu').on('touchend', function(){
+        if(flag){
+            $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+            $('#menu_mask').removeClass('active');
+            flag=false;
+        }else{
+            $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+            $('#menu_mask').addClass('active');
+            flag=true;
+        }
+    });
+</script>
+
+<script>
+    NProgress.start();
+    $(function(){
+        $(document).ready(function(){
+            NProgress.done();
+        });
+    });
+</script>
+
+<!-- <div class="sNav" style="margin-bottom:60px"></div> -->
+<!--side-->
+
+<div id="menu_mask">
+</div>
+
+<div class="dropdown-modal"></div>
+<div id="modal"></div>
+<script src='__PUBLIC__/js/juicer-min.js'></script>
+<script src="__PUBLIC__/js/web_new.js"></script>
+<script>
+
+function BindPhone(){
+  this.index=0;
+  this.err=false;
+  this.phone='';
+  this.isListen=1;
+  this.trigger='#bind-phone';
+  this.box='#bind_phone_box';
+  this.next_btn='#bpnext';
+  this.send_btn='#bpsend';
+  this.succ_btn='#bpsucc';
+  this.chphone_btn='#bpchphone';
+  this.cc_sign='38f2e199f892143d5bfda6f09de2dbfe';
+  this.link_btn='#bplink';
+  this.tm=false;
+  this.close_btn="#bpclose";
+  this.succ_cb=null;
+  this.heights={
+    'phone':250,
+    'checkandpass':350,
+    'check':270,
+    'bindsucc':280
+  };
+  this.types=['phone','checkandpass','check','bindsucc'];
+  var that=this;
+  $(this.trigger).click(function(){
+    
+    that.sb();
+
+  });
+  $(document).off('click',this.next_btn).on('click',this.next_btn,function(){
+    var items=$(that.box).find('.input_item');
+    for(i=0;i<items.length;i++){
+
+      var type=$(items[i]).attr("data-propertyname");
+      if(type=='phone'){
+        var rs=that.checkPhone($(items[i]));
+      }
+
+      if(type=='verifyCode'){
+
+        var rs=that.checkCode($(items[i]));
+      }
+
+    }
+  });
+
+  $(document).off('click',this.chphone_btn).on('click',this.chphone_btn,function(){
+
+    that.index=0;
+
+    that.sb(false);
+  });
+
+
+  $(document).off('click',this.send_btn).on('click',this.send_btn,function(){
+    var sended=$(that.send_btn).attr("data-sended");
+    if(sended==1)
+      return false;
+    $(that.send_btn).addClass('btn_disabled').removeClass('.btn_active');
+    that.sendCode(function(){
+
+      that.leftTime(60);
+    });
+  });
+
+  $(document).off('click',this.close_btn).on('click',this.close_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    if(that.index==3)
+      window.location.reload();
+  });
+
+  $(document).off('click',this.link_btn).on("click",this.link_btn,function(){
+    var type=$(this).attr('data-type');
+    if(type=='use'){
+      window.location.href='/app';
+      
+    }
+    else{
+      window.location.href='/uc/rechargeP';
+    }
+
+  });
+  $(document).off('click',this.succ_btn).on('click',this.succ_btn,function(){
+
+    var $modal = $.modalInit('#modal');
+    $modal.hide();
+    $(that.box).remove();
+    (that.succ_cb)();
+
+  });
+
+}
+
+
+
+BindPhone.prototype={
+  cls:function(){
+    clearTimeout(this.tm);
+    $(this.box).remove();
+  },
+
+  sb:function(cb){
+
+    this.cls();
+    var argNum=arguments.length;
+    if(argNum==4){
+      this.phone=arguments[1];
+      this.isListen=parseInt(arguments[2]);
+      this.succ_cb=arguments[3];
+    }
+    var $modal = $.modalInit('#modal');
+    $modal.show();
+    var curtype=this.types[this.index];
+    var height=parseInt(this.heights[curtype]);
+    var tpl=$('#bind_phone_tpl').html();
+    var html=juicer(tpl,{type:curtype,height:height,phone:this.phone,isListen:this.isListen});
+    $('body').append(html);
+    if(this.index==1 || this.index==2){
+      $(this.send_btn).attr('data-sended','1');
+    }
+    
+    if(argNum>0 && arguments[0]){
+      arguments[0]();
+    }
+    
+  },
+
+  checkPhone:function(obj){
+    var phone=obj.find('input[type=text]').val();
+    if(!/^\d{11}$/.test(phone)){
+      this.showMsg(obj,'请输入正确的手机号码');
+      return false;
+    }
+    var that=this;
+    $.post('/accountset/hasBindPhoneCs',{phone:phone},function(rs){
+      
+      rs=eval("("+rs+")");
+      if(rs.code==-1){
+        that.showMsg(obj,'请输入正确的手机号码');
+        return false;
+      }
+
+      if(rs.code==-2){
+        that.showMsg(obj,rs.msg);
+        return false;
+      }
+      var skip=2;
+      if(rs.code=='-3'){
+        skip=1;
+        
+      }
+      that.phone=phone;
+      that.index+=skip;
+      that.sendCode();
+      that.sb(function(){
+
+        that.leftTime(60);
+
+      });
+
+      
+    });
+
+  },
+
+  checkCode:function(obj){
+    var code=obj.find('input[type=text]').val();
+    if(code.length!=4){
+
+      this.showMsg(obj,'验证码有误，请重新输入');
+      return false;
+    }
+    var passwd='';
+    if(this.index==1){
+
+      var passwdObj=$(this.box).find(".input_item[data-propertyname=passwd]");
+      passwd=passwdObj.find('input[type=password]').val();
+      if(!passwd || passwd.length<6 ||passwd.length>16){
+        this.showMsg(passwdObj,'密码长度6-16位 英文或数字组合');
+        return false;
+      }
+
+    }
+    var that=this;
+    $.post("/accountset/bindNextEnsure",{username:this.phone,passwd:passwd,vcode:code},function(rs){
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        that.index=3;
+        that.sb();
+      }
+      else{
+        that.showMsg(obj,rs.msg);
+      }
+
+    });
+
+  },
+  showMsg:function(obj,msg){
+    $(obj).find('.input_tips').remove();
+    $(obj).append('<span data-valid-message="" class="input_tips">'+msg+'</span>');
+    $(obj).find('input[type=text],input[type=password]').addClass('input_warning');
+
+  },
+  sendCode:function(cb){
+    $.post('/user/SendChkCode',{username: this.phone, sms_action: 'bind_phone',funk_you:this.cc_sign},function(rs){
+
+      rs=eval("("+rs+")");
+      if(rs.errNo==0){
+        X.dialog.tips('短信已发送至您的手机');
+      }
+      if(cb){
+        cb();
+      }
+    });
+  },
+  leftTime:function(count){
+    var that =this;
+    count--;
+    leftTim=count;
+    var v = "重发("+leftTim+")";
+    $(this.send_btn).val(v);
+    if(leftTim < 0){
+      $(that.send_btn).val("重新发送").removeClass('btn_disabled').addClass('btn_active').attr('data-sended','0');
+      clearTimeout(that.timeout);
+    }
+    else{
+      that.tm=setTimeout(function(){
+        that.leftTime(count);
+      },1000);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+</script>
+<script>
+var bindPhone=new BindPhone();
+$(document).ready(function(){
+  //mobile menu
+  var flag=false;
+  $('.menu2').on('click', function(){
+    if(flag){
+      $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+      $('#menu_mask').removeClass('active');
+      flag=false;
+    }else{
+      $('.navbar.sNav').stop(true,true).animate({top: '30px'}, 100);
+      $('#menu_mask').addClass('active');
+      flag=true;
+    }
+  });
+
+  $('#menu_mask').on('touchend', function(){
+    $('.navbar.sNav').stop(true,true).animate({top: '-440px'}, 100);
+    $('#menu_mask').removeClass('active');
+    flag=false;
+  });
+
+  
+  $('.iconBack').on('touchend', function () {
+    window.location.href="/";
+  });
+  $('.userCenter').on('touchend', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+   $('.userCenter').on('click', function () {
+    window.location.href="{tp#:U('Ucenter/index')}";
+  });
+});
+</script>
+
+
+<div style="display:none;">
+
+</div>
+
+<div class="footer ">
+ <include file="Public:footer"/>
+ <br/><br/>
+ <include file="Public:footbar"/>
+</div>
+
+</body>
+</html>

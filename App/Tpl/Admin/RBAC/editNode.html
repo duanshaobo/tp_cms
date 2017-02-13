@@ -1,0 +1,122 @@
+<extend name="RBAC:base" />
+
+<block name="page-title">
+
+	<h3 class="page-title">编辑操作节点</h3>
+
+</block>
+
+<block name="breadcrumb"></block>		<!--面包屑导航-->
+
+<block name="page-content">		<!--页面主体内容-->
+                            
+    <div class="portlet box light-grey">
+							
+    <div class="portlet-title">
+        
+        
+        <div class="caption"><i class="icon-globe"></i>编辑操作节点</div>
+        
+        
+        <div class="tools">
+
+            <a href="javascript:;" class="collapse"></a>
+
+            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+            <a href="javascript:;" class="reload"></a>
+
+            <a href="javascript:;" class="remove"></a>
+
+        </div>
+
+    </div>
+
+    <div class="portlet-body form">
+    
+    
+    
+    
+    
+<!-- BEGIN FORM-->
+
+<form action="{tp#:U('Admin/RBAC/editNodeHandle')}" class="form-horizontal form-bordered">
+
+    <div class="control-group">
+
+        <label class="control-label">{tp#$type}名称</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="name"  class="m-wrap span6" value="{tp#$nrs.name}"/> 
+
+        </div>
+
+    </div>
+    
+    <div class="control-group">
+
+        <label class="control-label">{tp#$type}描述</label>
+
+        <div class="controls">
+
+ 			<input required type="text" name="title"  class="m-wrap span6" value="{tp#$nrs.title}"/> 
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="control-group">
+
+        <label class="control-label">开启状态</label>
+
+        <div class="controls">
+
+            <select name="status" class="m-wrap span6">
+
+                <option value="1" <eq name="nrs.status" value="1">selected</eq>>开启</option>
+
+                <option value="0" <eq name="nrs.status" value="0">selected</eq>>关闭</option>
+
+            </select>
+
+        </div>
+
+    </div>
+    
+    
+     <div class="control-group">
+
+        <label class="control-label">{tp#$type}排序</label>
+
+        <div class="controls">
+
+            <input type="text" name="sort"  class="text-input small-input" value="{tp#$nrs.sort}" placeholder="节点排序"> 
+
+        </div>
+
+    </div>
+
+    
+    <div class="form-actions">
+    	<input type="hidden" name="id" value="{tp#$nrs.id}"/>
+
+        <button type="submit" class="btn blue"><i class="icon-ok"></i> 提交</button>
+
+        <button type="button" class="btn" onclick='location.href="{tp#:U('node')}"'>取消</button>
+
+    </div>
+
+</form>
+
+<!-- END FORM-->  
+       
+	</div>
+							
+                          
+</div>
+
+    
+</block>		<!--页面主体内容-->

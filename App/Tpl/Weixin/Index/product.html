@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+
+<meta charset="utf-8">
+
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+
+<meta name="format-detection" content="telephone=no">
+
+<title>{tp#$info.name} - {tp#$webinfo.web_title}</title>
+
+<meta name="title" content="{tp#$info.name} - {tp#$webinfo.web_title}">
+
+<meta name="keywords" content="{tp#$info.name} - {tp#$webinfo.web_keyword}">
+
+<meta name="description" content="{tp#$info.name} - {tp#$webinfo.web_description}">
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/comman.css" media="all">
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/jquery_dialog.css" media="all">
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/style.css?v=1.1" media="all">
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/flexslider.css" media="all">	
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/css.css" media="all">
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/product.css?v=1.4">	
+
+
+
+<script> var SITE_URL="http://www.wdkl168.com/";</script>
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery_dialog.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.json-1.3.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/goods.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/time.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery.flexslider-min.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__/js/main.js"></script> 	
+
+<script type="text/javascript" src="__PUBLIC__/js/jweixin-1.0.0.js"></script> 
+
+
+
+</head>
+
+<body>
+
+
+
+<div id="home">
+
+	<div id="header">
+
+		<div class="logo" style="height:28px; padding-top:10px; background:url(__PUBLIC__/images/xy.png) 10px 8px no-repeat"><span onclick=" history.go(-1);">&nbsp;</span></div>
+
+		<div class="shoptitle"><span>{tp#$info.name}</span></div>
+
+		<div class="logoright">
+
+			<p style="height:46px; line-height:46px;">
+
+			<a href="javascript:void(0)" onclick="$('.show_zhuan').show();"><span style="background:#C90A0D">我要分享</span></a>
+
+			</p>
+
+		</div>
+
+	</div>
+
+</div>	
+
+<!--顶栏焦点图--> 
+
+<div class="flexslider" style="margin-bottom: 0px; overflow: hidden;">
+
+      <ul class="slides">
+
+	 		 
+
+		<li style="display: list-item;"><img class="ggimg" onerror="this.src='__PUBLIC__/images/no-img.png'" src="{tp#$info.spic}" width="100%" alt="{tp#$info.name}"></li>
+
+	  					
+
+	  </ul>
+
+</div>
+
+
+
+<!--商品规格-->
+
+
+
+<div class="panel">
+
+    <ul>
+
+    <volist name="norm_list" id="item">
+
+    <li class="norm" norm_id="{tp#$item.id}" price="{tp#$item.price}" title="{tp#$item.title}">{tp#$item.title}</li>
+
+    </volist>
+
+    <div style="clear:both"></div>
+
+    </ul>
+
+</div>
+
+		
+
+<div id="main">
+
+	<div class="mainhead" style="margin:5px; border:1px solid #ededed;border-radius:5px; background:#FFF">
+
+        <form>
+
+		<div class="shopinfol" style="font-size:14px">
+
+		<h1 style="font-size:16px">{tp#$info.name}<span style="color:#DB383E" id="check-norm"></span></h1>
+
+		<p style="font-size:16px;">
+
+        <span class="vippfont" style="color:#DB383E">会员价： ￥</span><span class="price">{tp#$info.price}</span>
+
+        &nbsp;&nbsp;
+		<if condition="$info['id'] eq 119">
+        <span style="color:#333">销量：<font _class="spirce">{tp#$info.sale_num}</font></span>
+        <!--&nbsp;&nbsp;
+        <span style="color:#333">库存：<font _class="spirce">{tp#$info.store_num}</font></span>-->
+		</if>
+        </p>
+
+        <if condition="$info['id'] eq 119">
+
+		<p style="color:#666">
+
+        <font>零售价&nbsp;&nbsp;￥{tp#$info.market_price}</font>
+
+        </p>
+
+        </if>	 
+
+		<p style="height:24px; line-height:24px; padding-top:8px;">
+
+        <a class="gjian jian">-</a>
+
+        <input readonly name="number" value="1" class="inputBg number" style="float:left;text-align: center; width:40px; height:30px; line-height:30px;border-bottom:1px solid #e8e8e8; border-top:1px solid #e8e8e8" type="text"> 
+
+        <a class="gjia jia">+</a><b style="margin-left:3px;"></b>
+
+        
+
+        <span><input type="button" class="pushf btn-col" value="加入收藏" style="cursor:pointer;"></span>
+
+        </p>
+
+		<div style="padding:10px;"></div>
+
+        <!--<div class="buyclass">
+
+        <input type="button" id="cart" class="addcar" value="会员价购买" style="cursor:pointer;" _onclick="return addToCart(323,'jumpshopping')">
+
+        </div>-->
+
+		<!--<p style="height:32px; line-height:32px; padding-top:15px;">
+
+        <span style="color:#DB383E">总佣金：<font _class="spirce">￥ {tp#$info.yongjin}</font></span>
+
+		<input type="button" class="pushf btn-col" value="加入收藏" style="cursor:pointer;">
+
+		</p>
+
+		</div>-->
+
+       </form>
+
+	</div>
+
+	<div class="mainbottombg">
+
+	<span class="ac" id="tab1">产品详情</span><span style="left:97px" id="tab2">用户评论</span>
+
+	</div>
+
+	<div style="padding:10px;" class="goods_desc">
+
+	<div class="tabs tab1">
+
+	<!--<div style="text-align:center;">
+
+    <img src="__PUBLIC__/images/e9392a8f5d88fe7c61a5c9b6fbd514d9.png" alt="" border="0" style="line-height:1.5;">
+
+    </div>-->
+
+    	<if condition="!empty($info['video'])">
+        <p style="z-index:999999999 !important">
+        
+		<!--<video width="100%" height="240" controls poster="{tp#$info.spic|get_thumb}">
+          <source src="{tp#$info.video}" type="video/mp4">
+        	Your browser does not support the video tag.
+        </video>-->
+        <!--<embed src="{tp#$info.video}" style="height:200px;width:100%"></embed>-->
+        {tp#$info.video|htmlspecialchars_decode|stripslashes}
+        <style>
+        iframe{width:100% !important;height:200px;}
+        </style>
+        </p>
+        </if>
+
+    	<p>
+
+        {tp#$info.content|htmlspecialchars_decode|stripcslashes}
+
+        </p>
+
+        
+
+      <!--  <div style="text-align:center;">
+
+            <span style="color:#006600;font-size:16px;">
+
+                <b><span style="font-size:18px;">总佣金：{tp#$info.yongjin}RMB</span></b>
+
+            </span>
+
+        </div>-->
+
+	</div>
+
+
+
+
+
+	<div class="tabs tab2" style="display:none; text-align:center; min-height:200px;">
+
+	<div style="min-height:50px; border-bottom:1px solid #ededed; padding-bottom:5px;" class="GOODSCOMMENT">
+
+    <table width="100%" cellpadding="3" cellspacing="5" border="0">
+
+	<tbody id="reply-list">
+
+    <volist name="reply_list" id="item">
+
+    <tr>
+
+		<td align="left">
+
+		<div style="border-bottom:1px solid #ededed; padding-bottom:3px; line-height:22px; margin-bottom:5px;">
+
+			<div style="width:70%; float:left; color:#999999">
+
+			{tp#$item.content}			<br>
+
+			{tp#$item.posttime|date='Y-m-d',###}			</div>
+
+			<div style="width:28%; float:right">
+
+			{tp#$item.uname}<br>
+
+			<img src="{tp#$item.headimg}" onerror="this.src='__PUBLIC__/images/no-img.png'" height="40">
+
+			</div>
+
+			<div class="clear"></div>
+
+            <switch name="item.star">
+
+            <case value="3">
+
+            <img src="__PUBLIC__/images/xing3.png"  style="padding:1px; border:1px solid #ededed; float:left">
+
+            </case>
+
+            <case value="2">
+
+            <img src="__PUBLIC__/images/xing2.png"  style="padding:1px; border:1px solid #ededed; float:left">
+
+            </case>
+
+            <case value="1">
+
+            <img src="__PUBLIC__/images/xing1.png"  style="padding:1px; border:1px solid #ededed; float:left">
+
+            </case>
+
+            </switch>
+
+            <div class="clear"></div>
+
+		</div>
+
+		</td>
+
+	</tr>
+
+    </volist>
+
+    <tbody>
+
+    </table>
+
+    
+
+	</div>
+
+
+
+	<div class="rate-control">
+
+            <ul>
+
+                <li class="good rate-checked">
+
+                    <label for="rate-good-841112656649579">
+
+                        <input checked="checked" name="ranks" type="radio" value="3" class="good-rate">
+
+                        <i class="icon icon-rank icon-good"></i>
+
+                        <span class="label-hidden">好评</span>
+
+                    </label>
+
+                    <span class="rate-score rate-score-good"></span>
+
+                </li>
+
+                <li class="normal">
+
+                    <label for="rate-normal-841112656649579">
+
+                        <input name="ranks" type="radio" value="2" class="noraml-rate">
+
+                        <i class="icon icon-rank icon-normal"></i>
+
+                        <span class="label-hidden">中评</span>
+
+                    </label>
+
+                    <span class="rate-score rate-score-normal"></span>
+
+                </li>
+
+                <li class="bad">
+
+                    <label for="rate-bad-841112656649579">
+
+                        <input name="ranks" type="radio" value="1" class="bad-rate">
+
+                        <i class="icon icon-rank icon-bad"></i>
+
+                        <span class="label-hidden">差评</span>
+
+                    </label>
+
+                    <span class="rate-score rate-score-bad"></span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div style="text-align:left">
+
+            <textarea id="content" name="content" style="border-radius:5px; border:1px solid #e8e8e8; height:80px; width:92%; margin-top:10px; margin-left:5px;" placeholder="请输入评论内容"></textarea>
+
+        </div>
+
+        <input type="button" class="guest_submit btn-reply" value="我要评论">
+
+		<div style="height:24px; line-height:24px; clear:both; text-align:center; color:#FF0000" class="returnmes">
+
+        </div>
+
+	</div>
+
+    
+
+    
+
+	</div>
+
+</div>
+
+<div class="show_zhuan" style=" display:none;width:100%; height:100%; position:fixed; top:0px; right:0px; z-index:9999999;filter:alpha(opacity=90);-moz-opacity:0.9;opacity:0.9; background:url(__PUBLIC__/images/121.png) right top no-repeat #000;background-size:100% auto;" onclick="$(this).hide();"></div>
+
+<div class="show_gz" style=" display:none;width:100%; height:100%; position:fixed; top:44px; right:0px; z-index:9999999;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; background:url(__PUBLIC__/images/gz/gz.png) right top no-repeat #000;" onclick="$(this).hide();">
+
+</div>
+
+
+
+<script type="text/javascript">
+
+var uid="{tp#$user_id}";
+
+var nickname="{tp#$user_info.nickname}";
+
+var headimg="{tp#$user_info.headimgurl}";
+
+var date="{tp#:date('Y-m-d',time())}";
+
+var star_img;
+
+$(function(){
+
+	//商品评价
+
+	$(".btn-reply").click(function(){
+
+		if(uid==''||typeof(uid)==undefined){
+
+			$('.returnmes').html('您还没有登录！');
+
+			return false;
+
+		}
+
+		var post_data={};
+
+		post_data.gid="{tp#$info.id}";				
+
+		post_data.content=$("#content").val();
+
+		post_data.star=$("input[name='ranks']:checked").val();
+
+		if(post_data.star==3){
+
+			star_img="./Public/Weixin/images/xing3.png";
+
+		}
+
+		if(post_data.star==2){
+
+			star_img="./Public/Weixin/images/xing2.png";
+
+		}
+
+		if(post_data.star==1){
+
+			star_img="./Public/Weixin/images/xing1.png";
+
+		}
+
+		if(post_data.content==''){
+
+			//$('.returnmes').html('内容不能为空！');
+
+			$(".tip_box").text('内容不能为空').show();	
+
+			setTimeout("close_tip()",1000);
+
+			return false;
+
+		}	
+
+		//console.log(post_data);return;
+
+		$.post("{tp#:U('Ajax/goods_reply')}",post_data,function(data){
+
+
+
+			var html='<tr><td align="left">';
+
+			html+='<div class="rely-item">';
+
+			html+='<div style="width:70%; float:left; color:#999999">'+post_data.content+'<br/>';
+
+			html+=date+'</div>';
+
+			html+='<div style="width:28%; float:right">'+nickname+'<br>';
+
+			html+='<img src="'+headimg+'" height="40"></div>';
+
+			html+='<div class="clear"></div>';
+
+			html+='<img src="'+star_img+'"  style="padding:1px; border:1px solid #ededed; float:left">';
+
+			html+='<div class="clear"></div>';
+
+			html+='</div></td></tr>';
+
+			if(data==1){
+
+				$("#reply-list").append(html);
+
+				$("#content").val('');
+
+			}else{
+
+				$(".tip_box").text('您已经评论过了').show();	
+
+				setTimeout("close_tip()",1000);
+
+				//$('.returnmes').html('您已经评论过了！');
+
+			}
+
+			
+
+			
+
+		});
+
+	});
+
+});
+
+
+
+   
+
+</script>
+
+    
+
+<script type="text/javascript">
+
+$('.mainbottombg span').click(function(){
+
+	$(this).parent().find('span').removeClass('ac');
+
+	$(this).addClass('ac');
+
+	$('.tabs').hide();
+
+	art = $(this).attr('id');
+
+	$('.'+art).show();
+
+	
+
+});
+
+$('input[name="number"]').change(function(){
+
+	vall = $(this).val();
+
+	if(!(vall>0)){
+
+		$(this).val('1');
+
+	}
+
+});
+
+
+
+$('.spec_p a').click(function(){
+
+	na = $(this).attr('name');
+
+	vl = $(this).attr('id');
+
+	$('input[name="'+na+'"]').val(vl);
+
+	
+
+	$(this).parent().find('a').each(function(i){
+
+	   this.style.border='1px solid #cbcbcb';
+
+	});
+
+	
+
+	$(this).css('border','1px solid #FF0000');
+
+	
+
+	return false;
+
+});
+
+
+
+$('#main .gjia').click(function(){
+
+	var tnum = $(this).parent().find('input').val();
+
+	$(this).parent().find('input.number').val(parseInt(tnum)+1);
+
+});
+
+$('#main .gjian').click(function(){
+
+	var tnum = $(this).parent().find('input.number').val();
+
+	tnum = parseInt(tnum);
+
+	if(tnum>1){
+
+		$(this).parent().find('input.number').val(tnum-1);
+
+	}
+
+});	
+
+			
+
+
+
+</script>
+
+
+
+<div class="top_bar" style="-webkit-transform:translate3d(0,0,0);background:rgba(230,230,230,0.9);">
+
+   <nav>
+
+    <ul id="top_menu" class="top_menu">
+
+    <li class="li1" style="width:20%"><a href="index.php" style="border:none"><label>首页</label></a></li>
+
+	<li class="li2" style="width:30%">
+
+	<a id="btnCart" class="butt-cart btn-cart" style="border:none">加入购物车</a>
+
+	</li>
+
+	<li class="li4" style="width:30%">
+
+	<a id="btnBuy" class="butt-buy btn-buy" style="border:none">立即购买</a>
+
+	</li>
+
+	<li class="li11" style="width:20%"><a href="javascript:;" style="border:none" onclick="$('body,html').animate({scrollTop:0},500);">
+
+	<label>返回顶部</label>
+
+	</a></li>    
+
+	</ul>
+
+  </nav>
+
+</div>
+
+<style type="text/css">
+
+#collectBox{width:100px;height:40px;z-index:-2;position:fixed;bottom:0px;right:0px;background:none;}
+
+</style>
+
+<div id="collectBox"></div>
+
+
+
+<script>
+
+$(function(){
+
+	var curr_price="{tp#$info.price}";
+
+	var curr_norm=0;			//默认商品规格id
+
+	//选择商品规格
+
+	$(".norm").click(function(){
+
+		$(".norm").removeClass('active');
+
+		$(this).addClass('active');
+
+		$("#check-norm").text("【已选："+$(this).attr('title')+"】");
+
+		$(".price").text($(this).attr('price'));
+
+		curr_price=$(this).attr('price');			//价格
+
+		curr_norm=$(this).attr('norm_id');			//规格id
+
+	});
+
+	
+
+	//加入购物车
+
+	$(".btn-cart").click(function(){
+
+
+
+		if(parseInt($(".norm").length)>0&&parseInt($(".active").length)==0){
+
+			//alert('请选择商品规格');
+
+			$(".tip_box").text('请选择商品规格').show();	
+
+			setTimeout("close_tip()",1000);
+
+			return false;	
+
+		}
+
+		fly_to_cart(".btn-cart");		//商品飞入
+
+		var post_data={};
+
+		post_data.goods_id="{tp#$info['id']}";
+
+		post_data.goods_price=curr_price;
+
+		
+
+		if(curr_norm!==''){
+
+			post_data.goods_norm=curr_norm;
+
+		}
+
+		
+
+		post_data.goods_nums=$("input[name='number']").val();
+
+		//console.log(post_data);return ;
+
+		$.post("{tp#:U('Ajax/addcart')}",post_data,function(data){
+
+			//alert('添加购物车成功!');	
+
+			$(".tip_box").text('添加购物车成功').show();	
+
+			setTimeout("close_tip()",1000);
+
+		});
+
+	});
+
+	
+
+	//立即购买
+
+	$(".btn-buy").click(function(){
+
+		if(parseInt($(".norm").length)>0&&parseInt($(".active").length)==0){
+
+			$(".tip_box").text('请选择商品规格').show();	
+
+			setTimeout("close_tip()",1000);
+
+			return false;	
+
+		}
+
+
+		fly_to_cart(".btn-buy");		//商品飞入
+		
+		var post_data={};
+
+		post_data.goods_id="{tp#$info['id']}";
+
+		post_data.goods_price="{tp#$info['price']}";
+
+		post_data.goods_nums=$("input[name='number']").val();
+
+		if(curr_norm!==''){
+
+			post_data.goods_norm=curr_norm;
+
+		}
+
+		$.post("{tp#:U('Ajax/addcart')}",post_data,function(data){;		
+
+			location.href="{tp#:U('Index/cart')}";
+
+		});
+
+	});
+
+	
+
+	//收藏
+
+	$(".btn-col").click(function(){
+
+		var post_data={};
+
+		post_data.gid="{tp#:I('get.id')}";			//商品id
+
+		$.post("{tp#:U('Ajax/goods_collect')}",post_data,function(errcode){
+
+			if(errcode==1){
+
+				//alert('您已经收藏过了');	
+
+				$(".tip_box").text('您已经收藏过了').show();	
+
+			}else{
+
+				//alert('收藏成功');
+
+				$(".tip_box").text('收藏成功').show();	
+
+			}
+
+			setTimeout("close_tip()",1000);
+
+			
+
+		});
+
+	});
+
+	$(".tip_box").click(function(){
+
+		$(this).hide();
+
+	});
+
+});
+
+
+
+var close_tip=function(){
+
+	$('.tip_box').hide();
+
+}
+
+</script>
+
+<style>
+
+.kefu{
+
+	width: 20px; height: auto; position: fixed; top: 30%; right: 0px; z-index: 9999999999;background: rgb(219,56,62);margin:auto;color:#FFF;text-align:center;padding:10px 3px;border-radius:8px 0 0 8px;
+
+}
+
+.cart{
+
+	width: 30px; height: 18px; position: fixed; top: 60%; right: 0px; z-index: 9999999999;margin:auto;color:#FFF;text-align:center;padding:10px 3px;border-radius:30px;background:url(__PUBLIC__/images/li4_h.png) no-repeat center  #FFF;border:0px solid #DB383E;
+
+}
+
+.tip_box{position:fixed;padding:10px;width:100px;background:#000;opacity:0.8;top:40%;left:0px;right:0px;margin:0 auto;color:#FFF;text-align:center;border-radius:5px;display:none}
+
+</style>
+
+<!--联系客服-->
+
+<div class="kefu" onclick='location.href="{tp#:U('Plugin/chat_room',array('id'=>698))}"'>
+
+	联系客服
+
+</div>
+
+<!--联系客服-->
+
+<!--购物车-->
+
+<div id="end" class="cart" onclick='location.href="{tp#:U('Index/cart')}"'>
+
+	
+
+</div>
+
+<!--购物车-->
+
+
+
+<div class="tip_box">加入购物车成功</div>
+
+</body>
+<style>
+/*商品飞入特效*/
+.u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+#msg{position:fixed;margin:auto;left:0; right:0; top:0; bottom:0;z-index:10000; width:1px; height:52px; line-height:52px; font-size:20px; text-align:center; color:#fff; background:#008BCE; display:none;border-radius:3px;}
+/*商品飞入特效*/
+</style>
+<script src="__PUBLIC__/js/jquery.fly.min.js"></script>
+<!--[if lte IE 9]>
+<script src="__PUBLIC__/js/requestAnimationFrame.js"></script>
+<![endif]-->
+<script>
+var offset = $("#end").offset();
+
+function fly_to_cart(obj){
+	var addcar = $(obj);
+	var img = "{tp#$info.spic}";
+	var flyer = $('<img class="u-flyer" src="'+img+'">');
+	flyer.fly({
+		start: {
+			left: event.pageX,
+			top: event.pageY
+		},
+		end: {
+			left: offset.left+10,
+			top: offset.top+10,
+			width: 0,
+			height: 0
+		},
+		onEnd: function(){
+			//$("#msg").show().animate({width: '250px'}, 200).fadeOut(1000);
+			//addcar.css("cursor","default").removeClass('orange').unbind('click');
+			//this.destory();
+		}
+	});
+}
+</script>
+
+
+</html>
